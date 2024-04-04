@@ -49,6 +49,11 @@ Icon
 /site/cache/*
 !/site/cache/index.html
 
+# Environment
+# ---------------
+
+.env
+
 # Accounts
 # ---------------
 

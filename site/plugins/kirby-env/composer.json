@@ -1,0 +1,51 @@
+{
+    "name": "beebmx/kirby-env",
+    "description": "Enable env variables to Kirby 3 & 4",
+    "keywords": [
+        "kirby", "kirby-3", "kirby-4", "env", "dotenv", "phpdotenv"
+    ],
+    "version": "4.2.0",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fernando Gutierrez",
+            "homepage": "https://beeb.mx"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "getkirby/composer-installer": "^1.2",
+        "vlucas/phpdotenv": "^5.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "phpunit/phpunit": "^10.1"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "getkirby/composer-installer": true
+        }
+    },
+    "autoload": {
+        "files": [
+            "helpers.php"
+        ],
+        "psr-4": {
+            "Beebmx\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Beebmx\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

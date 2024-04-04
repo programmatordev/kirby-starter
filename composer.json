@@ -13,7 +13,8 @@
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "getkirby/cms": "^4.0",
-    "arnoson/kirby-vite": "^5.3"
+    "arnoson/kirby-vite": "^5.3",
+    "beebmx/kirby-env": "^4.2"
   },
   "require-dev": {
     "symfony/var-dumper": "^6.4"

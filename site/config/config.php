@@ -1,7 +1,11 @@
 <?php
 
+use Beebmx\KirbyEnv;
+
+KirbyEnv::load('.');
+
 return [
-    'debug' => true,
+    'debug' => env('KIRBY_DEBUG', true),
     'languages' => true,
     'panel' => [
         'language' => 'en'
