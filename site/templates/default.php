@@ -1,8 +1,12 @@
 <?php
+/** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 ?>
 
-<?= vite()->css('assets/css/app.css') ?>
-<?= vite()->js('assets/js/app.js', ['defer' => true]) ?>
+<?php snippet('layout', slots: true) ?>
 
-<h1 class="bg-emerald-500"><?= $page->title() ?></h1>
+<?php slot('content') ?>
+
+  <h1><?= $page->title() ?></h1>
+
+<?php endslot() ?>

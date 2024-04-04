@@ -1,5 +1,12 @@
 <?php
 
 return [
-    'debug' => true
+    'debug' => true,
+    'languages' => true,
+    'panel' => [
+        'language' => 'en'
+    ],
+    'auth' => [
+        'methods' => ['password', 'password-reset']
+    ]
 ];

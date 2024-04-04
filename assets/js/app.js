@@ -3,4 +3,4 @@
 import.meta.glob(['../images/**', '../fonts/**',]);
 
 // run the show...
-console.log('vite is 🔥');
+console.log('🔥');
