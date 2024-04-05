@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $site->title() ?></title>
+    <?php snippet('seo/head'); ?>
 
     <?= vite()->css('assets/css/app.css') ?>
     <?= $slots->styles() ?>
@@ -23,5 +23,7 @@
     <main>
       <?= $slots->content() ?>
     </main>
+
+    <?php snippet('seo/schemas'); ?>
   </body>
 </html>

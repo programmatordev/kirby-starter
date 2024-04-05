@@ -14,7 +14,8 @@
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "getkirby/cms": "^4.0",
     "arnoson/kirby-vite": "^5.3",
-    "beebmx/kirby-env": "^4.2"
+    "beebmx/kirby-env": "^4.2",
+    "tobimori/kirby-seo": "^1.1"
   },
   "require-dev": {
     "symfony/var-dumper": "^6.4"
