@@ -2,6 +2,7 @@
 
 use Beebmx\KirbyEnv;
 use Kirby\Cms\App as Kirby;
+use Kirby\Cms\Page;
 
 KirbyEnv::load('.');
 
@@ -13,6 +14,19 @@ return [
     ],
     'auth' => [
         'methods' => ['password', 'password-reset']
+    ],
+    'hooks' => [
+        'page.update:after' => function (Page $newPage, Page $oldPage) {
+            /** @var Kirby $kirby */
+            $kirby = $this;
+            $debug = $kirby->option('debug');
+
+            if ($debug === true) {
+                // improve when command is executed
+                // ideally, it should execute only when a blueprint has been changed
+                \shell_exec('~/.composer/vendor/bin/kirby types:create --force');
+            }
+        }
     ],
     'ready' => function(Kirby $kirby) {
         $user = $kirby->user();

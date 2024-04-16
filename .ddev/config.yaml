@@ -20,6 +20,11 @@ web_extra_exposed_ports:
       http_port: 5172
       https_port: 5173
 disable_upload_dirs_warning: true
+hooks:
+  post-start:
+    # install kirby cli directly in the container
+    # ddev exec kirby <command>
+    - composer: "global require getkirby/cli"
 
 # Key features of DDEV's config.yaml:
 

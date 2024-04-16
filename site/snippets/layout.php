@@ -24,6 +24,7 @@
       <?= $slots->content() ?>
     </main>
 
-    <?php snippet('seo/schemas'); ?>
+    <?= snippet('seo/schemas') ?>
+    <?= snippet('debugbar') ?>
   </body>
 </html>
