@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Run kirby inside the web container
+## Usage: kirby [flags] [args]
+## Example: ddev kirby version
+## ExecRaw: true
+
+kirby "$@"
