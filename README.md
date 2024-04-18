@@ -70,7 +70,7 @@ ddev npm run dev
 
 ### Kirby CLI
 
-The Kirby CLI is available to help with development. Make sure to run the following command for all available options:
+The [Kirby CLI](https://github.com/getkirby/cli) is available to help with development. Make sure to run the following command for all available options:
 
 ```bash
 ddev kirby
