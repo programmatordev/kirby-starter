@@ -5,7 +5,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 > [!IMPORTANT]
 > This project is intended for internal use.
 > This means that the development approach will always be in virtue of how we work with our clients or our own projects, and you may disagree with them.
-> Still, we are open for discussion, and feel free to ask for any feature or change.
+> Still, we are open for discussion, so feel free to ask for any features or changes.
 > We just want to be transparent in advance.
 
 ## Features
@@ -23,9 +23,11 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 
 ## Get Started
 
+Before starting, make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, follow their instructions [here](https://ddev.com/get-started/).
+
 `STEP 1`
 
-Make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, follow their instructions [here](https://ddev.com/get-started/).
+Download this project to a directory of your choosing.
 
 `STEP 2` 
 
@@ -73,8 +75,6 @@ The Kirby CLI is available to help with development. Make sure to run the follow
 ```bash
 ddev kirby
 ```
-
-All available options
 
 ### Template System
 
@@ -167,7 +167,7 @@ Before deploying the site to production, or to check the production version loca
 ddev npm run build
 ```
 
-Also, set the `KIRBY_DEBUG` environment variable to `false` when deploying:
+When deploying, set the `KIRBY_DEBUG` environment variable to `false`:
 
 ```dotenv
 # .env
@@ -179,7 +179,7 @@ KIRBY_DEBUG=false
 
 ### User Roles
 
-By default, these 3 user roles are available:
+By default, these three user roles are available:
 
 - `admin` exclusive for developers;
 - `owner` for the client, with all permissions;
@@ -206,9 +206,9 @@ If you want to change these permissions, edit the files at `site/blueprints/user
 ### SEO Robots
 
 All SEO robots information is hidden by default and only visible to `admin` users.
-This is due to leading to confusion to clients that do not understand what it does.
+This is due to the leading to confusion to clients that do not understand what it does.
 
-If you want to change this behavior, just change the following code to your needs in the `config`:
+If you want to change this behavior, just change the following code to your needs:
 
 ```php
 // config.php
@@ -231,8 +231,9 @@ More information at the [official documentation](https://plugins.andkindness.com
 ### Languages
 
 The `languages` panel is active by default.
-Make sure to always have at least one language created.
-This is to help populate the HTML with language data like:
+Make sure to always have at least one language created, otherwise it will throw an error.
+
+This is to help populate the HTML with language data, like:
 
 ```html
 <!DOCTYPE html>

@@ -10,13 +10,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php snippet('seo/head'); ?>
+    <?= snippet('seo/head'); ?>
 
     <?= vite()->css('assets/css/app.css') ?>
     <?= $slots->styles() ?>
 
-    <?= $slots->scripts() ?>
     <?= vite()->js('assets/js/app.js', ['defer' => true]) ?>
+    <?= $slots->scripts() ?>
   </head>
 
   <body>
