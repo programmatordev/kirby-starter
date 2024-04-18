@@ -7,7 +7,7 @@ use Kirby\Toolkit\Escape;
 
 Kirby::plugin('programmatordev/users-extended', [
     'options' => [
-        'hideAdmin' => true,
+        'hideAdminUsers' => true,
     ],
     'fields' => [
         // custom "accounts" field that always filters admin users
@@ -35,7 +35,7 @@ Kirby::plugin('programmatordev/users-extended', [
                             $users = $kirby->users()->search($query);
 
                             // if logged-in user is not admin, do not show admin users
-                            if ($options['hideAdmin'] && !$kirby->user()->isAdmin()) {
+                            if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin()) {
                                 $users = $users->filter(fn($user) => !$user->isAdmin());
                             }
 
@@ -62,7 +62,7 @@ Kirby::plugin('programmatordev/users-extended', [
                             $roles = $kirby->roles();
 
                             // if logged-in user is not admin, do not show admin role
-                            if ($options['hideAdmin'] && !$kirby->user()->isAdmin()) {
+                            if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin()) {
                                 $roles = $roles->filter(fn($role) => $role->id() !== 'admin');
                             }
 
@@ -83,7 +83,7 @@ Kirby::plugin('programmatordev/users-extended', [
                                         $users = $kirby->users();
 
                                         // if logged-in user is not admin, do not show admin users
-                                        if ($options['hideAdmin'] && !$kirby->user()->isAdmin()) {
+                                        if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin()) {
                                             $users = $users->filter(fn($user) => !$user->isAdmin());
                                         }
 
@@ -122,7 +122,7 @@ Kirby::plugin('programmatordev/users-extended', [
 
                             // if logged-in user is not admin and is trying to access an admin user
                             // redirect to users panel
-                            if ($options['hideAdmin'] && !$kirby->user()->isAdmin() && $user->isAdmin()) {
+                            if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin() && $user->isAdmin()) {
                                 Panel::go('/users');
                             }
 
@@ -135,7 +135,7 @@ Kirby::plugin('programmatordev/users-extended', [
 
                             // if logged-in user is not admin and is trying to access a file from an admin user
                             // redirect to users panel
-                            if ($options['hideAdmin'] && !$kirby->user()->isAdmin() && $file->parent()?->isAdmin()) {
+                            if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin() && $file->parent()?->isAdmin()) {
                                 Panel::go('/users');
                             }
 
