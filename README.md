@@ -21,16 +21,11 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
 - and more...
 
-[//]: # (## TODO)
-[//]: # (- at least a single language is required)
-[//]: # (- list plugins)
-[//]: # (- plugin users extended and roles)
-
 ## Get Started
 
 `STEP 1`
 
-Make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, make sure to follow their instructions [here](https://ddev.com/get-started/).
+Make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, follow their instructions [here](https://ddev.com/get-started/).
 
 `STEP 2` 
 
@@ -50,7 +45,7 @@ ddev npm install # install Node.js dependencies
 
 `STEP 3` 
 
-Make sure to include a `.env` file in your project root.
+Include a `.env` file in your project root.
 A `.env.example` file already exists, so you can either rename it or create a new one.
 
 `STEP 4` 
@@ -71,9 +66,19 @@ Make sure to run the following command when in development mode:
 ddev npm run dev
 ```
 
+### Kirby CLI
+
+The Kirby CLI is available to help with development. Make sure to run the following command for all available options:
+
+```bash
+ddev kirby
+```
+
+All available options
+
 ### Template System
 
-Kirby is used as the template engine. Make sure to check the [documentation](https://getkirby.com/docs/guide).
+Kirby is used as the template engine. Check the [documentation](https://getkirby.com/docs/guide).
 
 Some recommended pages:
 
@@ -104,7 +109,7 @@ To include other global CSS and JS files, use the following code in the `<head>`
 <?= vite().css('path/to/file.css') ?>
 ```
 
-For JS files, make sure to always include `defer` for optimal performance:
+For JS files, always include `defer` for optimal performance:
 
 ```php
 <?= vite().js('path/to/file.js', ['defer' => true]) ?>
@@ -146,7 +151,7 @@ Examples:
 <link rel="preload" href="<?= vite()->file('path/to/font.woff2') ?>" as="font" type="font/woff2" crossorigin>
 ```
 
-For images in CSS, make sure to always enter the path of the image relative to the CSS file.
+For images in CSS, always enter the path of the image relative to the CSS file.
 
 Using Tailwind, considering that CSS files are in `assets/css` and images are in `assets/images`, an example would be:
 
@@ -162,9 +167,81 @@ Before deploying the site to production, or to check the production version loca
 ddev npm run build
 ```
 
+Also, set the `KIRBY_DEBUG` environment variable to `false` when deploying:
+
+```dotenv
+# .env
+
+KIRBY_DEBUG=false
+```
+
 ## Opinionated
 
-TODO
+### User Roles
+
+By default, these 3 user roles are available:
+
+- `admin` exclusive for developers;
+- `owner` for the client, with all permissions;
+- `editor` same as the `owner`, but with **no access** to the users panel.
+
+Since the `admin` role is intended for the developers only, it will be invisible to users with the `owner` and `editor` roles.
+This is, the users with this role will not appear in the `users` panel and searches, or be accessible.
+
+To disable this behavior, set the `hideAdminUsers` to `false`:
+
+```php
+// config.php
+
+return [
+    'programmatordev.users-extended' => [
+        'hideAdminUsers' => false
+    ]
+];
+```
+
+Also, both the `owner` and `editor` roles have no access to the `system` and `languages` panels.
+If you want to change these permissions, edit the files at `site/blueprints/users` to your needs.
+
+### SEO Robots
+
+All SEO robots information is hidden by default and only visible to `admin` users.
+This is due to leading to confusion to clients that do not understand what it does.
+
+If you want to change this behavior, just change the following code to your needs in the `config`:
+
+```php
+// config.php
+
+return [
+    'ready' => function(Kirby $kirby) {
+        $user = $kirby->user();
+    
+        return [
+            // show robots settings to admins only
+            'tobimori.seo.robots.pageSettings' => $user?->isAdmin() ?? false,
+            'tobimori.seo.robots.indicator' => $user?->isAdmin() ?? false
+        ];
+    }
+];
+```
+
+More information at the [official documentation](https://plugins.andkindness.com/seo/docs/usage/robots) page.
+
+### Languages
+
+The `languages` panel is active by default.
+Make sure to always have at least one language created.
+This is to help populate the HTML with language data like:
+
+```html
+<!DOCTYPE html>
+<html lang="<?= $kirby->language()->code() ?>">
+  <!-- ... -->
+</html>
+```
+
+The English language is created by default.
 
 ## Acknowledgments
 
