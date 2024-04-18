@@ -21,10 +21,6 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
 - and more...
 
-## Requirements
-
-- PHP 8.1 or higher.
-
 [//]: # (## TODO)
 [//]: # (- at least a single language is required)
 [//]: # (- list plugins)
@@ -32,9 +28,13 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 
 ## Get Started
 
-`STEP 1`: Make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, make sure to follow their instructions [here](https://ddev.com/get-started/).
+`STEP 1`
 
-`STEP 2`: On your terminal, go to your project directory and run the following commands:
+Make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, make sure to follow their instructions [here](https://ddev.com/get-started/).
+
+`STEP 2` 
+
+On your terminal, go to your project directory and run the following commands:
 
 ```bash
 ddev start # initialize Docker and all required containers
@@ -48,10 +48,14 @@ ddev composer install # install PHP dependencies
 ddev npm install # install Node.js dependencies
 ```
 
-`STEP 3`: Make sure to include a `.env` file in your project root.
+`STEP 3` 
+
+Make sure to include a `.env` file in your project root.
 A `.env.example` file already exists, so you can either rename it or create a new one.
 
-`STEP 4`: To launch the project in the browser, run the following command:
+`STEP 4` 
+
+To launch the project in the browser, run the following command:
 
 ```bash
 ddev launch
@@ -158,6 +162,17 @@ Before deploying the site to production, or to check the production version loca
 ddev npm run build
 ```
 
-## Best Practices
+## Opinionated
 
 TODO
+
+## Acknowledgments
+
+Thank you to all plugin's authors and contributors. Make sure to check and support them if you can:
+
+- [kirby-debugbar](https://github.com/Treast/kirby-debugbar)
+- [kirby-env](https://github.com/beebmx/kirby-env)
+- [kirby-language-selector](https://github.com/junohamburg/kirby-language-selector)
+- [kirby-seo](https://github.com/tobimori/kirby-seo)
+- [kirby-types](https://github.com/lukaskleinschmidt/kirby-types)
+- [kirby-vite](https://github.com/arnoson/kirby-vite)
