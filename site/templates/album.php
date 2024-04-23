@@ -1,6 +1,7 @@
 <?php
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
+/** @var \Kirby\Cms\Collection $gallery */
 ?>
 
 <?php snippet('layout', slots: true) ?>
@@ -18,7 +19,7 @@
 
       <div class="mb-12 md:col-span-8">
         <ul class="leading-0 columns-1 gap-6 md:columns-2">
-          <?php foreach ($page->images()->sortBy('sort', 'filename') as $image): ?>
+          <?php foreach ($gallery as $image): ?>
             <li class="block mb-6 break-inside-avoid">
               <a href="<?= $image->url() ?>">
                 <figure
