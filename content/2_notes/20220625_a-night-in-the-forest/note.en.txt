@@ -6,7 +6,7 @@ Text: [{"content":{"text":"<p>Far far away, behind the word mountains, far from 
 
 ----
 
-Cover: 
+Cover: - file://W0sVe0jrG3gYr0t6
 
 ----
 
