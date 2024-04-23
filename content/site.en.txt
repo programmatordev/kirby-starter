@@ -1,1 +1,53 @@
 Title: Kirby Starter
+
+----
+
+Metatemplate: {{ title }} - {{ site.title }}
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: {{ title }} - {{ site.title }}
+
+----
+
+Ogdescription: 
+
+----
+
+Ogsitename: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: summary
+
+----
+
+Robotsindex: 
+
+----
+
+Robotsfollow: 
+
+----
+
+Robotsarchive: 
+
+----
+
+Robotsimageindex: 
+
+----
+
+Robotssnippet: 
+
+----
+
+Socialmediaaccounts: 
