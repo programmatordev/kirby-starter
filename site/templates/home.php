@@ -6,7 +6,6 @@
 <?php snippet('layout', slots: true) ?>
 
 <?php slot('content') ?>
-
   <?= snippet('intro') ?>
 
   <ul class="grid grid-cols-1 grid-flow-dense gap-6 leading-none md:grid-cols-3">
@@ -33,14 +32,11 @@
             <?php endif ?>
 
             <figcaption class="flex items-center justify-center absolute text-white inset-0 bg-black/50">
-              <span>
-                <span><?= $album->title()->esc() ?></span>
-              </span>
+                <?= $album->title()->esc() ?>
             </figcaption>
           </figure>
         </a>
       </li>
     <?php endforeach ?>
   </ul>
-
 <?php endslot() ?>

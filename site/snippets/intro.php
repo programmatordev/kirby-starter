@@ -4,7 +4,7 @@
 ?>
 
 <header class="text-4xl mb-12">
-  <h1><?= $page->headline()->esc() ?></h1>
+  <h1><?= $page->headline()->or($page->title())->esc() ?></h1>
   <?php if ($page->subheadline()->isNotEmpty()): ?>
     <p class="text-gray-500"><?= $page->subheadline()->esc() ?></p>
   <?php endif ?>
