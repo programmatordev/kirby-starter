@@ -12,7 +12,7 @@
         href="<?= $pagination->prevPageUrl() ?>"
       >&larr;</a>
     <?php else: ?>
-      <span class="p-2 mr-6 w-12 text-center border-2 border-current text-gray-500">&larr;</span>
+      <span class="p-2 mr-6 w-12 text-center border-2 border-current text-neutral-500">&larr;</span>
     <?php endif ?>
 
     <?php if ($pagination->hasNextPage()): ?>
@@ -21,7 +21,7 @@
         href="<?= $pagination->nextPageUrl() ?>"
       >&rarr;</a>
     <?php else: ?>
-      <span class="p-2 mr-6 w-12 text-center border-2 border-current text-gray-500">&rarr;</span>
+      <span class="p-2 mr-6 w-12 text-center border-2 border-current text-neutral-500">&rarr;</span>
     <?php endif ?>
   </nav>
 <?php endif ?>

@@ -21,7 +21,7 @@
     <header class="pt-12 mb-12 text-4xl">
       <h1><?= $page->title()->esc() ?></h1>
       <?php if ($page->subheading()->isNotEmpty()): ?>
-        <p class="text-gray-500">
+        <p class="text-neutral-500">
           <small class="text-4xl"><?= $page->subheading()->esc() ?></small>
         </p>
       <?php endif ?>
@@ -37,7 +37,7 @@
           <?php foreach ($tags as $tag): ?>
             <li class="mr-2">
               <a
-                class="block py-2 px-4 bg-gray-100 hover:bg-black hover:text-white"
+                class="block py-2 px-4 bg-neutral-100 hover:bg-black hover:text-white"
                 href="<?= $page->parent()->url(['params' => ['tag' => $tag]]) ?>"
               ><?= esc($tag) ?></a>
             </li>
@@ -45,7 +45,7 @@
         </ul>
       <?php endif ?>
 
-      <time class="text-gray-500" datetime="<?= $page->date()->toDate('c') ?>">
+      <time class="text-neutral-500" datetime="<?= $page->date()->toDate('c') ?>">
         Published on <?= $page->date()->toDate('d M, Y') ?>
       </time>
     </footer>

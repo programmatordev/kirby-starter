@@ -57,12 +57,12 @@
       <div class="grid gap-12 grid-cols-1 lg:grid-cols-12">
         <div class="mb-12 lg:col-span-8">
           <h2 class="font-semibold mb-3"><a href="https://getkirby.com">Made with Kirby</a></h2>
-          <p class="text-gray-500 max-w-60">Kirby: the file-based CMS that adapts to any project, loved by developers and editors alike</p>
+          <p class="text-neutral-500 max-w-60">Kirby: the file-based CMS that adapts to any project, loved by developers and editors alike</p>
         </div>
 
         <div class="mb-12 lg:col-span-2">
           <h2 class="font-semibold mb-3">Pages</h2>
-          <ul class="text-gray-500">
+          <ul class="text-neutral-500">
             <?php foreach ($site->children()->listed() as $item): ?>
               <li><a href="<?= $item->url() ?>" class="hover:text-black"><?= $item->title()->esc() ?></a></li>
             <?php endforeach ?>
@@ -71,7 +71,7 @@
 
         <div class="mb-12 lg:col-span-2">
           <h2 class="font-semibold mb-3">Kirby</h2>
-          <ul class="text-gray-500">
+          <ul class="text-neutral-500">
             <li><a href="https://getkirby.com" class="hover:text-black">Website</a></li>
             <li><a href="https://getkirby.com/docs" class="hover:text-black">Docs</a></li>
             <li><a href="https://forum.getkirby.com" class="hover:text-black">Forum</a></li>

@@ -18,7 +18,7 @@
       </figure>
 
       <h2 class="font-semibold"><?= $note->title()->esc() ?></h2>
-      <time class="text-gray-500" datetime="<?= $note->date()->toDate('c') ?>">
+      <time class="text-neutral-500" datetime="<?= $note->date()->toDate('c') ?>">
         <?= $note->date()->toDate('d M, Y') ?>
       </time>
     </header>

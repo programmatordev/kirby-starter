@@ -50,7 +50,7 @@
 }
 
 .wysiwyg code {
-  @apply font-mono bg-gray-100 text-black px-2 inline-block;
+  @apply font-mono bg-neutral-100 text-black px-2 inline-block;
 }
 
 .wysiwyg pre {
@@ -58,7 +58,7 @@
 }
 
 .wysiwyg pre code {
-  @apply p-0 bg-none;
+  @apply p-0 bg-inherit text-inherit;
 }
 
 .wysiwyg hr {
@@ -82,7 +82,7 @@
 }
 
 .wysiwyg figcaption {
-  @apply pt-3 text-gray-500;
+  @apply pt-3 text-neutral-500;
 }
 
 .wysiwyg figure ul {
@@ -94,5 +94,5 @@
 }
 
 .wysiwyg figure iframe {
-  @apply aspect-video w-full outline-none
+  @apply aspect-video w-full outline-none;
 }

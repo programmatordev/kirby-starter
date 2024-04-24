@@ -11,7 +11,7 @@
   <?php if (empty($tag) === false): ?>
     <header class="text-4xl mb-12">
       <h1>
-        <small class="text-4xl text-gray-500">Tag:</small> <?= esc($tag) ?>
+        <small class="text-4xl text-neutral-500">Tag:</small> <?= esc($tag) ?>
         <a href="<?= $page->url() ?>" aria-label="All Notes">&times;</a>
       </h1>
     </header>
