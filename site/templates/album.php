@@ -12,7 +12,7 @@
 
     <div class="grid grid-cols-1 gap-12 md:grid-cols-12">
       <div class="mb-12 md:col-span-4">
-        <div class="prose text-black leading-6">
+        <div class="wysiwyg">
           <?= $page->text() ?>
         </div>
       </div>

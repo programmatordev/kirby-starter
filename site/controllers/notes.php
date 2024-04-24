@@ -1,6 +1,6 @@
 <?php
 
-return function ($page) {
+return function(\Kirby\Cms\Page $page) {
     $notes = collection('notes');
     $tag = param('tag');
 

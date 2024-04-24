@@ -10,7 +10,7 @@
       <figure class="aspect-video mb-2">
         <?php if ($cover = $note->cover()->toFile()): ?>
           <img
-            src="<?= $cover->crop(320, 180)->url() ?>"
+            src="<?= $cover->crop(640, 360)->url() ?>"
             alt="<?= $cover->alt()->esc() ?>"
             class="w-full"
           >
