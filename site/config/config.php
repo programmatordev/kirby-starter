@@ -28,6 +28,12 @@ return [
             }
         }
     ],
+    'treast.debugbar' => [
+        'tabs' => [
+            // temporarily disabled because of incompatibility with kirby-seo plugin sitemap
+            'files' => false
+        ]
+    ],
     'ready' => function(Kirby $kirby) {
         $user = $kirby->user();
 
