@@ -6,6 +6,7 @@ icon: 📖
 
 tabs:
   content:
+    icon: text
     # Define the form layout with two columns
     # More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns
     columns:
@@ -35,5 +36,4 @@ tabs:
             layout: cards
 
   seo:
-    icon: false
     extends: seo/page

@@ -33,6 +33,7 @@ tabs:
           - "1/1"
           - "1/2, 1/2"
           - "1/3, 1/3, 1/3"
+
   # The contact tab pre-defines a set of address
   # fields for the contact box at the bottom of the about
   # page. Combining modular content from layouts with
@@ -77,3 +78,6 @@ tabs:
                 label: URL
                 type: url
                 width: 1/2
+
+  seo:
+    extends: seo/page

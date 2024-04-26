@@ -12,6 +12,7 @@ options:
 
 tabs:
   content:
+    icon: text
     # Here we define an info section and a pages section (`photography`)
     sections:
       content:
@@ -36,5 +37,4 @@ tabs:
         help: All projects for the homepage are being pulled from the photography page.
 
   seo:
-    icon: false
     extends: seo/page

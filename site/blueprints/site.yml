@@ -6,6 +6,7 @@
 
 tabs:
   content:
+    icon: text
     # The layout of this form has two columns:
     columns:
       # The first column has one section for the subpages of the `photography` page in card layout
@@ -34,5 +35,4 @@ tabs:
               - default
 
   seo:
-    icon: false
     extends: seo/site

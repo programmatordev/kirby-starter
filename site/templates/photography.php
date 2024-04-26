@@ -17,9 +17,9 @@
               <?php /** @var \Kirby\Cms\File $cover */ ?>
               <?php if ($cover = $album->cover()->toFile()): ?>
                 <img
+                  class="absolute inset-0 w-full h-full border-0 object-cover"
                   src="<?= $cover->crop(400, 500)->url() ?>"
                   alt="<?= $cover->alt()->esc() ?>"
-                  class="absolute inset-0 w-full h-full border-0 object-cover"
                 >
               <?php endif ?>
             </span>

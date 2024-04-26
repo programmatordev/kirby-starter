@@ -1,6 +1,7 @@
 <?php
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
+/** @var \Kirby\Cms\File $cover */
 ?>
 
 <?php snippet('layout', slots: true) ?>
@@ -20,14 +21,13 @@
           md:[&:nth-child(7)]:col-span-2
         "
       >
-        <a href="<?= $album->url() ?>" class="block h-40 md:pb-[56.25%]">
+        <a class="block h-40 md:pb-[56.25%]" href="<?= $album->url() ?>">
           <figure>
-            <?php /** @var \Kirby\Cms\File $cover */ ?>
             <?php if ($cover = $album->cover()->toFile()): ?>
               <img
+                class="absolute inset-0 w-full h-full object-cover transition-all duration-300"
                 src="<?= $cover->resize(1024, 1024)->url() ?>"
                 alt="<?= $cover->alt()->esc() ?>"
-                class="absolute inset-0 w-full h-full object-cover transition-all duration-300"
               >
             <?php endif ?>
 
