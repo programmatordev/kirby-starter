@@ -21,11 +21,11 @@
 
   <body class="p-6 max-w-6xl m-auto lg:p-12">
     <header class="relative flex flex-wrap justify-between -mx-4 mb-24">
-      <a class="p-4 flex items-center font-semibold" href="<?= $site->url() ?>">
+      <a class="p-4 font-semibold" href="<?= $site->url() ?>">
         <?= $site->title()->esc() ?>
       </a>
 
-      <nav class="flex">
+      <nav class="flex flex-wrap">
         <?php foreach ($site->children()->listed() as $item): ?>
           <a class="block p-4 aria-[current]:underline" <?php e($item->isOpen(), 'aria-current="page"') ?> href="<?= $item->url() ?>">
             <?= $item->title()->esc() ?>
