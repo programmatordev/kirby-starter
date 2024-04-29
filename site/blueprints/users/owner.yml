@@ -1,9 +1,0 @@
-title: Owner
-description: Has all permissions
-
-permissions:
-  access:
-    languages: false
-    system: false
-  user:
-    delete: false
