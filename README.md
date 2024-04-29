@@ -100,7 +100,7 @@ All assets files should be included in the `assets` folder in the root directory
 
 By default, a global `app.css` and `app.js` are included across the site.
 
-- The `app.css` file should be used for Tailwind;
+- The `app.css` file should be used for TailwindCSS;
 - The `app.js` file should be used for JavaScript code across all pages of the site.
 
 To include other global CSS and JS files, use the following code in the `<head>` of your layout:
