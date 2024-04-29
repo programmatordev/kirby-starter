@@ -1,0 +1,16 @@
+{
+  "name": "junohamburg/kirby-language-selector",
+  "description": "Kirby Language Selector",
+  "license": "MIT",
+  "type": "kirby-plugin",
+  "version": "1.1.9",
+  "authors": [
+    {
+      "name": "JUNO",
+      "email": "github@juno-hamburg.com"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.1"
+  }
+}

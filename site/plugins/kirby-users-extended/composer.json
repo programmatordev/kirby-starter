@@ -1,0 +1,13 @@
+{
+  "name": "programmatordev/kirby-users-extended",
+  "description": "Extends users panel area with more options",
+  "version": "0.1.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "André Pimpão",
+      "email": "a.pimpao@programmator.dev",
+      "homepage": "https://programmator.dev"
+    }
+  ]
+}

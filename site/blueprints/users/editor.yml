@@ -1,0 +1,10 @@
+title: Editor
+description: Can edit all content, except users
+
+permissions:
+  access:
+    languages: false
+    system: false
+    users: false
+  user:
+    delete: false

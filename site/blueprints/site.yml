@@ -1,0 +1,10 @@
+title: Site
+
+tabs:
+  content:
+    icon: text
+    sections:
+      pages:
+        type: pages
+
+  seo: seo/site
