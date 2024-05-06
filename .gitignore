@@ -26,6 +26,7 @@ Icon
 
 /media/*
 !/media/index.html
+/build/*
 
 # Lock files
 # ---------------
