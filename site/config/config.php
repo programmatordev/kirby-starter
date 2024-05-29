@@ -8,7 +8,6 @@ KirbyEnv::load('.');
 
 return [
     'debug' => env('KIRBY_DEBUG', true),
-    'languages' => true,
     'auth' => [
         'methods' => ['password', 'password-reset']
     ],
@@ -25,6 +24,11 @@ return [
             }
         }
     ],
+    'tobimori.seo' => [
+        // is applied to the lang attribute of the <html> tag in a single-language setup
+        // in case the setup has multiple languages, the locale string configured in them will be used instead
+        'lang' => 'en'
+    ],
     'treast.debugbar' => [
         'tabs' => [
             // temporarily disabled because of incompatibility with kirby-seo plugin sitemap
@@ -35,9 +39,13 @@ return [
         $user = $kirby->user();
 
         return [
-            // show robots settings to admins only
-            'tobimori.seo.robots.pageSettings' => $user?->isAdmin() ?? false,
-            'tobimori.seo.robots.indicator' => $user?->isAdmin() ?? false
+            'tobimori.seo' => [
+                'robots' => [
+                    // show robots settings to admins only
+                    'pageSettings' => $user?->isAdmin() ?? false,
+                    'indicator' => $user?->isAdmin() ?? false
+                ]
+            ]
         ];
     }
 ];

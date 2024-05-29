@@ -218,31 +218,19 @@ return [
         $user = $kirby->user();
     
         return [
-            // show robots settings to admins only
-            'tobimori.seo.robots.pageSettings' => $user?->isAdmin() ?? false,
-            'tobimori.seo.robots.indicator' => $user?->isAdmin() ?? false
+            'tobimori.seo' => [
+                'robots' => [
+                    // show robots settings to admins only
+                    'pageSettings' => $user?->isAdmin() ?? false,
+                    'indicator' => $user?->isAdmin() ?? false
+                ]
+            ]
         ];
     }
 ];
 ```
 
 More information at the [official documentation](https://plugins.andkindness.com/seo/docs/usage/robots) page.
-
-### Languages
-
-The `languages` panel is active by default.
-Make sure to always have at least one language created, otherwise it will throw an error.
-
-This is to help populate the HTML with language data, like:
-
-```html
-<!DOCTYPE html>
-<html lang="<?= $kirby->language()->code() ?>">
-  <!-- ... -->
-</html>
-```
-
-The English language is created by default.
 
 ## Acknowledgments
 
