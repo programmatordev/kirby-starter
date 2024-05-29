@@ -6,7 +6,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $kirby->language()->code() ?>">
+<html lang="<?= $site->lang() ?>">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
     <?= $slots->scripts() ?>
   </head>
 
-  <body class="p-8 bg-teal-500 md:p-24">
+  <body class="p-8 <?= e($page->id() === 'error', 'bg-red-500', 'bg-teal-500') ?> md:p-24">
     <h1 class="text-5xl mb-6 font-mono md:text-7xl"><?= $site->title() ?></h1>
 
     <main>
