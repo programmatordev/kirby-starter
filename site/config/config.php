@@ -19,6 +19,12 @@ return [
         // in case the setup has multiple languages, the locale string configured in them will be used instead
         'lang' => env('DEFAULT_LANGUAGE', 'en')
     ],
+    'zephir.cookieconsent' => [
+        'language' => [
+            // in case the setup has multiple languages, the locale string configured in them will be used instead
+            'locale' => env('DEFAULT_LANGUAGE', 'en')
+        ]
+    ],
     'treast.debugbar' => [
         'tabs' => [
             // temporarily disabled because of incompatibility with kirby-seo plugin sitemap
