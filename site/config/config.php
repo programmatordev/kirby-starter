@@ -2,7 +2,6 @@
 
 use Beebmx\KirbyEnv;
 use Kirby\Cms\App as Kirby;
-use Kirby\Cms\Page;
 
 KirbyEnv::load('.');
 
