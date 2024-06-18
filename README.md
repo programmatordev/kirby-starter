@@ -6,7 +6,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 > This project is intended for internal use.
 > This means that the development approach will always be in virtue of how we work with our clients or our own projects, and you may disagree with them.
 > Still, we are open for discussion, so feel free to ask for any features or changes.
-> We just want to be transparent in advance.
+> We just want to be clear in advance.
 
 ## Features
 
