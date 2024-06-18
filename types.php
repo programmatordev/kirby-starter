@@ -9,6 +9,195 @@
 
 namespace Kirby\Cms
 {
+    class Site
+    {
+        /**
+         * Returns the metaHeadline field.
+         *
+         * Uses a `headline` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/headline
+         */
+        public function metaHeadline(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->metaHeadline();
+        }
+        /**
+         * Returns the metaTemplate field.
+         *
+         * Uses a `text` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/text
+         */
+        public function metaTemplate(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->metaTemplate();
+        }
+        /**
+         * Returns the metaDescription field.
+         *
+         * Uses a `textarea` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/textarea
+         */
+        public function metaDescription(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->metaDescription();
+        }
+        /**
+         * Returns the seoLine1 field.
+         *
+         * Uses a `line` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/line
+         */
+        public function seoLine1(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->seoLine1();
+        }
+        /**
+         * Returns the ogHeadline field.
+         *
+         * Uses a `headline` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/headline
+         */
+        public function ogHeadline(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->ogHeadline();
+        }
+        /**
+         * Returns the ogTemplate field.
+         *
+         * Uses a `text` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/text
+         */
+        public function ogTemplate(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->ogTemplate();
+        }
+        /**
+         * Returns the ogDescription field.
+         *
+         * Uses a `textarea` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/textarea
+         */
+        public function ogDescription(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->ogDescription();
+        }
+        /**
+         * Returns the ogSiteName field.
+         *
+         * Uses a `text` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/text
+         */
+        public function ogSiteName(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->ogSiteName();
+        }
+        /**
+         * Returns the ogImage field.
+         *
+         * Uses a `files` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/files
+         */
+        public function ogImage(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->ogImage();
+        }
+        /**
+         * Returns the twitterCardType field.
+         *
+         * Uses a `select` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/select
+         */
+        public function twitterCardType(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->twitterCardType();
+        }
+        /**
+         * Returns the seoLine2 field.
+         *
+         * Uses a `line` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/line
+         */
+        public function seoLine2(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->seoLine2();
+        }
+        /**
+         * Returns the robots field.
+         *
+         * Uses a `hidden` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/hidden
+         */
+        public function robots(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->robots();
+        }
+        /**
+         * Returns the socialMediaAccounts field.
+         *
+         * Uses a `object` field in the `site` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/object
+         */
+        public function socialMediaAccounts(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->socialMediaAccounts();
+        }
+        public function logger()
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->logger();
+        }
+        public function log()
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->log();
+        }
+        public function schema($type)
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->schema($type);
+        }
+        public function schemas()
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->schemas();
+        }
+        public function lang()
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->lang();
+        }
+        public function canonicalFor(string $url)
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->canonicalFor($url);
+        }
+    }
     class Page
     {
         /**
@@ -86,39 +275,6 @@ namespace Kirby\Cms
             return $instance->log();
         }
     }
-    class Site
-    {
-        public function logger()
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->logger();
-        }
-        public function log()
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->log();
-        }
-        public function schema($type)
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->schema($type);
-        }
-        public function schemas()
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->schemas();
-        }
-        public function lang()
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->lang();
-        }
-        public function canonicalFor(string $url)
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->canonicalFor($url);
-        }
-    }
     class User
     {
         public function log()
@@ -166,6 +322,79 @@ namespace Kirby\Cms
 
 namespace Kirby\Content
 {
+    class Content
+    {
+        /**
+         * Returns the twitter field.
+         *
+         * Uses a `url` field in the `site.socialMediaAccounts` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/url
+         */
+        public function twitter(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Content\Content $instance */
+            return $instance->twitter();
+        }
+        /**
+         * Returns the facebook field.
+         *
+         * Uses a `url` field in the `site.socialMediaAccounts` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/url
+         */
+        public function facebook(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Content\Content $instance */
+            return $instance->facebook();
+        }
+        /**
+         * Returns the instagram field.
+         *
+         * Uses a `url` field in the `site.socialMediaAccounts` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/url
+         */
+        public function instagram(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Content\Content $instance */
+            return $instance->instagram();
+        }
+        /**
+         * Returns the youtube field.
+         *
+         * Uses a `url` field in the `site.socialMediaAccounts` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/url
+         */
+        public function youtube(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Content\Content $instance */
+            return $instance->youtube();
+        }
+        /**
+         * Returns the linkedin field.
+         *
+         * Uses a `url` field in the `site.socialMediaAccounts` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/url
+         */
+        public function linkedin(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Content\Content $instance */
+            return $instance->linkedin();
+        }
+        /**
+         * Returns all registered field objects
+         *
+         * @return \Kirby\Content\Field[]
+         */
+        public function fields(): array
+        {
+            /** @var \Kirby\Content\Content $instance */
+            return $instance->fields();
+        }
+    }
     class Field
     {
         /**
@@ -712,19 +941,6 @@ namespace Kirby\Content
         {
             /** @var \Kirby\Content\Field $instance */
             return $instance->log();
-        }
-    }
-    class Content
-    {
-        /**
-         * Returns all registered field objects
-         *
-         * @return \Kirby\Content\Field[]
-         */
-        public function fields(): array
-        {
-            /** @var \Kirby\Content\Content $instance */
-            return $instance->fields();
         }
     }
 }
