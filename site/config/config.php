@@ -20,6 +20,11 @@ return [
         'lang' => env('DEFAULT_LANGUAGE', 'en')
     ],
     'zephir.cookieconsent' => [
+        'guiOptions' => [
+            'consentModal' => [
+                'layout' => 'box inline'
+            ]
+        ],
         'language' => [
             // in case the setup has multiple languages, the locale string configured in them will be used instead
             'locale' => env('DEFAULT_LANGUAGE', 'en')
