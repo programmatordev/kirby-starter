@@ -21,6 +21,22 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
 - and more...
 
+## Documentation
+
+- [Get Started](#get-started)
+- [Development](#development)
+  - [Kirby CLI](#kirby-cli)
+  - [Template System](#template-system)
+  - [Assets](#assets)
+  - [CSS and JS Assets Handling](#css-and-js-assets-handling)
+  - [Static Assets Handling](#static-assets-handling)
+- [Production](#production)
+- [Opinionated](#opinionated)
+  - [User Roles](#user-roles)
+  - [Cookie Consent Notification (GDPR & CCPA compliance)](#cookie-consent-notification)
+  - [SEO Robots](#seo-robots)
+- [Acknowledgments](#acknowledgments)
+
 ## Get Started
 
 Before starting, make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, follow their instructions [here](https://ddev.com/get-started/).
@@ -203,6 +219,34 @@ return [
 Also, both the `owner` and `editor` roles have no access to the `system` and `languages` panels.
 If you want to change these permissions, edit the files at `site/blueprints/users` to your needs.
 
+### Cookie Consent Notification
+
+By default, and for GDPR and CCPA compliance, a cookie consent notification is enabled and will show when you visit a page.
+To check the full list of integrations available check the [Integrations](#integrations) section below.
+
+If you do not need a cookie consent notification, just remove the following snippet from the master layout:
+
+```php
+    // snippets/layout.php
+    
+    // remove this line from the <head> block
+    <?= snippet('consent/notification') ?>
+```
+
+For the full cookie consent options, visit the [plugin](https://github.com/zephir/kirby-cookieconsent?tab=readme-ov-file#3-options) page.
+
+#### Integrations
+
+- Google Consent Mode v2
+
+If you want to add **Google Analytics** to your site and be compliant with GDPR and CCPA regulations,
+set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file:
+
+```yml
+    # set google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
+    CONSENT_GOOGLE_TRACKING_ID=null
+```
+
 ### SEO Robots
 
 All SEO robots information is hidden by default and only visible to `admin` users.
@@ -236,6 +280,7 @@ More information at the [official documentation](https://plugins.andkindness.com
 
 Thank you to all plugin's authors and contributors. Make sure to check and support them if you can:
 
+- [kirby-cookieconsent](https://github.com/zephir/kirby-cookieconsent)
 - [kirby-debugbar](https://github.com/Treast/kirby-debugbar)
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-language-selector](https://github.com/junohamburg/kirby-language-selector)
