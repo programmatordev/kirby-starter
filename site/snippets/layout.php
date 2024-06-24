@@ -13,14 +13,12 @@
     <?= snippet('seo/head') ?>
 
     <?= $slots->styles() ?>
-    <?= snippet('consent/cookieConsentCss') ?>
     <?= vite()->css('assets/css/app.css') ?>
 
     <?= $slots->scripts() ?>
-    <?= snippet('consent/cookieConsentJs') ?>
     <?= vite()->js('assets/js/app.js', ['defer' => true]) ?>
 
-    <?= snippet('consent/google') ?>
+    <?= snippet('consent/notification') ?>
   </head>
 
   <body class="p-8 <?= e($page->id() === 'error', 'bg-red-500', 'bg-teal-500') ?> md:p-24">

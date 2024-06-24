@@ -17,7 +17,7 @@ return [
     'tobimori.seo' => [
         // is applied to the lang attribute of the <html> tag in a single-language setup
         // in case the setup has multiple languages, the locale string configured in them will be used instead
-        'lang' => env('DEFAULT_LANGUAGE', 'en')
+        'lang' => env('APP_LANGUAGE', 'en')
     ],
     'zephir.cookieconsent' => [
         'guiOptions' => [
@@ -27,7 +27,7 @@ return [
         ],
         'language' => [
             // in case the setup has multiple languages, the locale string configured in them will be used instead
-            'locale' => env('DEFAULT_LANGUAGE', 'en')
+            'locale' => env('APP_LANGUAGE', 'en')
         ]
     ],
     'treast.debugbar' => [

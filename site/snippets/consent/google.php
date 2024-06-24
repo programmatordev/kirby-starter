@@ -1,9 +1,9 @@
 <?php
-  $tagId = $tagId ?? env('CONSENT_GOOGLE_TAG_ID');
+  $trackingId = $trackingId ?? env('CONSENT_GOOGLE_TRACKING_ID');
 ?>
 
-<?php if ($tagId !== null): ?>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?= $tagId ?>"></script>
+<?php if ($trackingId !== null): ?>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?= $trackingId ?>"></script>
 
   <script type="text/plain" data-category="necessary">
     window.dataLayer = window.dataLayer || [];
@@ -20,7 +20,7 @@
     gtag('set', 'ads_data_redaction', true);
 
     gtag('js', new Date());
-    gtag('config', '<?= $tagId ?>');
+    gtag('config', '<?= $trackingId ?>');
   </script>
 
   <script type="text/plain" data-category="measurement">
