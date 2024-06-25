@@ -183,12 +183,12 @@ Before deploying the site to production, or to check the production version loca
 ddev npm run build
 ```
 
-When deploying, set the `KIRBY_DEBUG` environment variable to `false`:
+When deploying, set the `APP_DEBUG` environment variable to `false`:
 
 ```dotenv
 # .env
 
-KIRBY_DEBUG=false
+APP_DEBUG=false
 ```
 
 ## Opinionated
@@ -227,10 +227,10 @@ To check the full list of integrations available check the [Integrations](#integ
 If you do not need a cookie consent notification, just remove the following snippet from the master layout:
 
 ```php
-    // snippets/layout.php
-    
-    // remove this line from the <head> block
-    <?= snippet('consent/notification') ?>
+// snippets/layout.php
+
+// remove this line from the <head> block
+<?= snippet('consent/notification') ?>
 ```
 
 For the full cookie consent options, visit the [plugin](https://github.com/zephir/kirby-cookieconsent?tab=readme-ov-file#3-options) page.
@@ -242,9 +242,9 @@ For the full cookie consent options, visit the [plugin](https://github.com/zephi
 If you want to add **Google Analytics** to your site and be compliant with GDPR and CCPA regulations,
 set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file:
 
-```yml
-    # set google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
-    CONSENT_GOOGLE_TRACKING_ID=null
+```dotenv
+# set google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
+CONSENT_GOOGLE_TRACKING_ID=null
 ```
 
 ### SEO Robots
