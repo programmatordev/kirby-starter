@@ -5,29 +5,33 @@ use Kirby\Cms\App as Kirby;
 
 KirbyEnv::load('.');
 
+$debug = env('APP_DEBUG', true);
+$language = env('APP_LANGUAGE', 'en');
+$panelLanguage = env('APP_PANEL_LANGUAGE', 'en');
+
 return [
-    'debug' => env('KIRBY_DEBUG', true),
+    'debug' => $debug,
     'auth' => [
         'methods' => ['password', 'password-reset']
     ],
     'panel' => [
         // it is used before a user logs in or when it does not have a valid language configured
-        'language' => env('KIRBY_PANEL_LANGUAGE', 'en')
+        'language' => $panelLanguage
     ],
     'tobimori.seo' => [
         // is applied to the lang attribute of the <html> tag in a single-language setup
         // in case the setup has multiple languages, the locale string configured in them will be used instead
-        'lang' => env('APP_LANGUAGE', 'en')
+        'lang' => $language
     ],
     'zephir.cookieconsent' => [
         'guiOptions' => [
             'consentModal' => [
-                'layout' => 'box inline'
+                'layout' => 'box wide'
             ]
         ],
         'language' => [
             // in case the setup has multiple languages, the locale string configured in them will be used instead
-            'locale' => env('APP_LANGUAGE', 'en')
+            'locale' => $language
         ]
     ],
     'treast.debugbar' => [
