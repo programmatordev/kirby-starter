@@ -3,7 +3,7 @@
 ?>
 
 <?php if ($trackingId !== null): ?>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?= $trackingId ?>"></script>
+  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id=<?= $trackingId ?>"></script>
 
   <script type="text/plain" data-category="necessary">
     window.dataLayer = window.dataLayer || [];
