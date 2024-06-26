@@ -10,13 +10,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= snippet('seo/head'); ?>
+    <?= snippet('seo/head') ?>
 
     <?= $slots->styles() ?>
     <?= vite()->css('assets/css/app.css') ?>
 
     <?= $slots->scripts() ?>
     <?= vite()->js('assets/js/app.js', ['defer' => true]) ?>
+
+    <?= snippet('consent/notification') ?>
   </head>
 
   <body class="p-8 <?= e($page->id() === 'error', 'bg-red-500', 'bg-teal-500') ?> md:p-24">
