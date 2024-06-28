@@ -11,6 +11,8 @@ database:
     version: "10.4"
 hooks:
     post-start:
+        - exec: sudo apt update
+        - exec: sudo apt install lftp
         - composer: global require getkirby/cli
 omit_containers: [db]
 use_dns_when_possible: true
