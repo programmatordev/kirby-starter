@@ -7,12 +7,12 @@
     {
       "name": "André Pimpão",
       "email": "a.pimpao@programmator.dev",
-      "homepage": "https://programmator.dev"
+      "homepage": "https://programmator.dev/"
     }
   ],
   "devDependencies": {
     "autoprefixer": "^10.4.19",
-    "glob": "^10.3.12",
+    "glob": "^11.0.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "vite": "^5.2.8",
