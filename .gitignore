@@ -13,6 +13,9 @@ package-lock.json
 # Plugin files
 # ------------
 
+/site/plugins/*
+!/site/plugins/kirby-users-extended
+/site/config/vite.config.php
 .dev
 
 # System files
