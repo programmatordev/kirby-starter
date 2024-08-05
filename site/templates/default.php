@@ -1,7 +1,7 @@
 <?php
+/** @var \Kirby\Cms\App $kirby */
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
-/** @var \Kirby\Cms\File $cover */
 ?>
 
 <?php snippet('layout', slots: true) ?>
