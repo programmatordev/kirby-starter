@@ -7,6 +7,7 @@ export default class FadeTransition extends Transition {
   cssEasing = 'cubic-bezier(0.23, 1, 0.32, 1)';
 
   onLeave({ from, trigger, done }) {
+    // scroll to top/left before page transition
     animateScrollTo([0, 0], {
       speed: this.duration,
       minDuration: this.duration,

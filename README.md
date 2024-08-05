@@ -31,10 +31,9 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
   - [Static Assets Handling](#static-assets-handling)
 - [Production](#production)
-- [Opinionated](#opinionated)
-  - [User Roles](#user-roles)
-  - [Cookie Consent Notification (GDPR & CCPA compliance)](#cookie-consent-notification)
-  - [SEO Robots](#seo-robots)
+- [Page Transitions](#page-transitions)
+- [User Roles](#user-roles)
+- [Cookie Consent Notification (GDPR & CCPA compliance)](#cookie-consent-notification)
 - [Acknowledgments](#acknowledgments)
 
 ## Get Started
@@ -191,17 +190,34 @@ When deploying, set the `APP_DEBUG` environment variable to `false`:
 APP_DEBUG=false
 ```
 
-## Opinionated
+## Page Transitions
 
-### User Roles
+A page transition system is implemented by default using [taxi.js](https://taxi.js.org/).
+
+The following code in the `app.js` file handles this for you. 
+If you do not want to use page transitions, just remove it:
+
+```js
+// handle page rendering and transitions
+const taxi = new Core({
+    renderers: { default: DefaultRenderer },
+    // a fadein/out transition is enabled by default
+    // to create your transition go to the assets/js/transitions folder for examples
+    transitions: { default: FadeTransition }
+});
+```
+
+Check the [taxi.js](https://taxi.js.org/) page for all available options and advantages of using it.
+
+## User Roles
 
 By default, these three user roles are available:
 
-- `admin` exclusive for developers;
-- `owner` for the client, with all permissions;
-- `editor` same as the `owner`, but with **no access** to the users panel.
+- `admin` all permissions (exclusive for developers);
+- `owner` same as the `admin` role, but with **no access** to the `system` and `languages` panels;
+- `editor` same as the `owner` role, but with **no access** to the `users` panel.
 
-Since the `admin` role is intended for the developers only, it will be invisible to users with the `owner` and `editor` roles.
+Since the `admin` role is intended for the developers only, it will be invisible to all other roles.
 This is, the users with this role will not appear in the `users` panel and searches, or be accessible.
 
 To disable this behavior, set the `hideAdminUsers` to `false`:
@@ -219,9 +235,9 @@ return [
 Also, both the `owner` and `editor` roles have no access to the `system` and `languages` panels.
 If you want to change these permissions, edit the files at `site/blueprints/users` to your needs.
 
-### Cookie Consent Notification
+## Cookie Consent Notification
 
-By default, and for GDPR and CCPA compliance, a cookie consent notification is enabled and will show when you visit a page.
+By default, and for GDPR and CCPA compliance reasons, a cookie consent notification is enabled.
 To check the full list of integrations available check the [Integrations](#integrations) section below.
 
 If you do not need a cookie consent notification, just remove the following snippet from the master layout:
@@ -235,46 +251,19 @@ If you do not need a cookie consent notification, just remove the following snip
 
 For the full cookie consent options, visit the [plugin](https://github.com/zephir/kirby-cookieconsent?tab=readme-ov-file#3-options) page.
 
-#### Integrations
+### Integrations
 
-- Google Consent Mode v2
+- [Google Analytics](#google-analytics)
 
-If you want to add **Google Analytics** to your site and be compliant with GDPR and CCPA regulations,
-set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file:
+#### Google Analytics
+
+If you want to add Google Analytics to your website and be compliant with GDPR and CCPA regulations,
+just set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file.
 
 ```dotenv
-# set google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
+# set Google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
 CONSENT_GOOGLE_TRACKING_ID=null
 ```
-
-### SEO Robots
-
-All SEO robots information is hidden by default and only visible to `admin` users.
-This is due to the leading to confusion to clients that do not understand what it does.
-
-If you want to change this behavior, just change the following code to your needs:
-
-```php
-// config.php
-
-return [
-    'ready' => function(Kirby $kirby) {
-        $user = $kirby->user();
-    
-        return [
-            'tobimori.seo' => [
-                'robots' => [
-                    // show robots settings to admins only
-                    'pageSettings' => $user?->isAdmin() ?? false,
-                    'indicator' => $user?->isAdmin() ?? false
-                ]
-            ]
-        ];
-    }
-];
-```
-
-More information at the [official documentation](https://plugins.andkindness.com/seo/docs/usage/robots) page.
 
 ## Acknowledgments
 
