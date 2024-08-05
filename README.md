@@ -14,6 +14,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - [Vite](https://vitejs.dev/) with [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
 - [TailwindCSS](https://tailwindcss.com/);
 - Live reloading for `templates`, `snippets`, `content` and `assets` changes;
+- Page transitions;
 - SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
 - Development tools:
@@ -192,12 +193,14 @@ APP_DEBUG=false
 
 ## Page Transitions
 
-A page transition system is implemented by default using [taxi.js](https://taxi.js.org/).
+A page transition manager is implemented by default using [taxi.js](https://taxi.js.org/).
 
 The following code in the `app.js` file handles this for you. 
 If you do not want to use page transitions, just remove it:
 
 ```js
+// assets/js/app.js
+
 // handle page rendering and transitions
 const taxi = new Core({
     renderers: { default: DefaultRenderer },
@@ -217,7 +220,7 @@ By default, these three user roles are available:
 - `owner` same as the `admin` role, but with **no access** to the `system` and `languages` panels;
 - `editor` same as the `owner` role, but with **no access** to the `users` panel.
 
-Since the `admin` role is intended for the developers only, it will be invisible to all other roles.
+Since the `admin` role is intended for developers only, it will be invisible to all other roles.
 This is, the users with this role will not appear in the `users` panel and searches, or be accessible.
 
 To disable this behavior, set the `hideAdminUsers` to `false`:
@@ -232,7 +235,6 @@ return [
 ];
 ```
 
-Also, both the `owner` and `editor` roles have no access to the `system` and `languages` panels.
 If you want to change these permissions, edit the files at `site/blueprints/users` to your needs.
 
 ## Cookie Consent Notification
