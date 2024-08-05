@@ -24,7 +24,32 @@ export default defineConfig(({ mode }) => ({
     outDir: outDir,
     assetsDir: assetsDir,
     rollupOptions: {
-      input: input
+      input: input,
+      output: {
+        manualChunks: (id) => {
+          // split vendor chunk for cacheability
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: ({ name }) => {
+          const fileName = name ?? '';
+
+          if (/\.(gif|jpe?g|png|svg)$/.test(fileName)) {
+            return 'assets/images/[name]-[hash][extname]';
+          }
+
+          if (/\.css$/.test(fileName)) {
+            return 'assets/css/[name]-[hash][extname]';
+          }
+
+          // default value
+          // https://rollupjs.org/guide/en/#outputassetfilenames
+          return 'assets/[name]-[hash][extname]';
+        },
+      }
     }
   },
 

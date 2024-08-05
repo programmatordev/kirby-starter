@@ -24,7 +24,7 @@
   </head>
 
   <body class="p-8 bg-teal-500 md:p-24">
-    <h1 class="text-5xl mb-6 font-mono md:text-7xl"><?= $site->title() ?></h1>
+    <h1 class="text-6xl mb-6 font-mono md:text-7xl"><?= $site->title() ?></h1>
 
     <nav class="mb-6">
       <ul class="flex gap-2">
