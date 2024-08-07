@@ -1,5 +1,5 @@
-title: Owner
-description: Has all permissions
+title: role.owner.title
+description: role.owner.description
 
 permissions:
   access:
@@ -7,3 +7,8 @@ permissions:
     system: false
   user:
     delete: false
+
+# hide default notice
+# change if you want to add more fields related to a role
+fields:
+  hidden: true

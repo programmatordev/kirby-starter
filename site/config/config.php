@@ -55,13 +55,14 @@ return [
     ],
     'ready' => function(Kirby $kirby) {
         $user = $kirby->user();
+        $isAdmin = $user?->isAdmin() ?? false;
 
         return [
             'tobimori.seo' => [
                 'robots' => [
                     // show robots settings to admins only
-                    'pageSettings' => $user?->isAdmin() ?? false,
-                    'indicator' => $user?->isAdmin() ?? false
+                    'pageSettings' => $isAdmin,
+                    'indicator' => $isAdmin
                 ]
             ]
         ];
