@@ -1,0 +1,9 @@
+Title: Transitions
+
+----
+
+Text: With smooth page transitions using (link: https://taxi.js.org/ text: taxi.js).
+
+----
+
+Uuid: 2H8JEAoQdsQCzrgT
