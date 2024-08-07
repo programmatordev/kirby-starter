@@ -15,6 +15,7 @@ package-lock.json
 
 /site/plugins/*
 !/site/plugins/kirby-users-extended
+!/site/plugins/kirby-panel-extended
 /site/config/vite.config.php
 .dev
 

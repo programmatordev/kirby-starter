@@ -1,0 +1,7 @@
+# roles
+role.admin.title: Admin
+role.admin.description: Has access to all content and administrative tools (exclusive for developers)
+role.owner.title: Owner
+role.owner.description: Has access to all content
+role.editor.title: Editor
+role.editor.description: Has access to all content, except users management

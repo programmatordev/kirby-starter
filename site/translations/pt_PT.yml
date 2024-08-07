@@ -1,0 +1,7 @@
+# roles
+role.admin.title: Admin
+role.admin.description: Tem acesso a todo o conteúdo e às ferramentas administrativas (exclusivo para programadores)
+role.owner.title: Owner
+role.owner.description: Tem acesso a todo o conteúdo
+role.editor.title: Editor
+role.editor.description: Tem acesso a todo o conteúdo, excepto à gestão de utilizadores

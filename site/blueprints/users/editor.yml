@@ -1,5 +1,5 @@
-title: Editor
-description: Can edit all content, except users
+title: role.editor.title
+description: role.editor.description
 
 permissions:
   access:
@@ -8,3 +8,8 @@ permissions:
     users: false
   user:
     delete: false
+
+# hide default notice
+# change if you want to add more fields related to a role
+fields:
+  hidden: true
