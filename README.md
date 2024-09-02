@@ -240,7 +240,19 @@ If you want to change these permissions, edit the files at `site/blueprints/user
 ## Cookie Consent Notification
 
 By default, and for GDPR and CCPA compliance reasons, a cookie consent notification is enabled.
-To check the full list of integrations available check the [Integrations](#integrations) section below.
+A list of integrations is available, so check the [Integrations](#integrations) section below.
+
+The consent notification comes with 5 categories: 
+- `necessary`
+- `measurement`
+- `marketing`
+- `functionality`
+- `experience`
+
+All categories are disabled by default, except the `necessary` category which is always enabled.
+
+If an integration is used, the categories related to that integration will be enabled.
+For example, if Google Analytics is integrated, the `measurement` and `marketing` categories will be enabled and synced according to user preferences.
 
 If you do not need a cookie consent notification, just remove the following snippet from the master layout:
 
@@ -255,6 +267,8 @@ For the full cookie consent options, visit the [plugin](https://github.com/zephi
 
 ### Integrations
 
+List of currently available integrations:
+
 - [Google Analytics](#google-analytics)
 
 #### Google Analytics
@@ -264,8 +278,10 @@ just set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file.
 
 ```dotenv
 # set Google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
-CONSENT_GOOGLE_TRACKING_ID=null
+CONSENT_GOOGLE_TRACKING_ID=G-1234567890
 ```
+
+Syncs with the `mesaurement` and `marketing` consent notification categories.
 
 ## Acknowledgments
 
