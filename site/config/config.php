@@ -49,7 +49,7 @@ return [
             if ($debug && $kirby->user()->isAdmin()) {
                 // improve when command is executed
                 // ideally, it should execute only when a blueprint has been changed
-                \shell_exec('~/.composer/vendor/bin/kirby types:create --force');
+                shell_exec('~/.composer/vendor/bin/kirby types:create --force');
             }
         }
     ],
