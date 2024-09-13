@@ -1,6 +1,7 @@
 # Vendor files
 # ------------
 
+/kirby
 /vendor
 /node_modules
 
