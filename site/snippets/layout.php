@@ -13,11 +13,9 @@
     <?= snippet('seo/head') ?>
 
     <?= $slots->styles() ?>
-
-    <?= vite()->css('assets/css/app.css') ?>
+    <?= vite()->css('assets/js/app.js') ?>
 
     <?= $slots->scripts() ?>
-
     <?= vite()->js('assets/js/app.js', ['defer' => true]) ?>
 
     <?= snippet('consent/notification') ?>

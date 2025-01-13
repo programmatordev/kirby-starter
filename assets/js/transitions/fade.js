@@ -2,7 +2,7 @@ import { Transition } from "@unseenco/taxi";
 import animateScrollTo from "animated-scroll-to";
 
 export default class FadeTransition extends Transition {
-  duration = 800;
+  duration = 700;
   // easeOutQuint in bezier format
   cssEasing = 'cubic-bezier(0.23, 1, 0.32, 1)';
 
