@@ -2,6 +2,7 @@
     # enable awesome urls. i.e.:
     # http://yourdomain.com/about-us/team
     RewriteEngine on
+    Options -Indexes
 
     # make sure to set the RewriteBase correctly
     # if you are running the site in a subfolder;
@@ -30,12 +31,12 @@
     # remove trailing slash from non-filepath urls
     RewriteCond %{REQUEST_URI} /(.+)/$
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ https://%{HTTP_HOST}/%1 [R=301,L]
+    RewriteRule ^ https://%{HTTP_HOST}/%1 [L,R=301]
 
     # include trailing slash on directory
     RewriteCond %{REQUEST_URI} !(.+)/$
     RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^(.+)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+    RewriteRule ^(.+)$ https://%{HTTP_HOST}/$1/ [L,R=301]
 
     # block files and folders beginning with a dot, such as .git
     # except for the .well-known folder, which is used for Let's Encrypt and security.txt
