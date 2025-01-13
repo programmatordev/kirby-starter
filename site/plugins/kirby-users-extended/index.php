@@ -1,29 +1,16 @@
 <?php
 
-use Kirby\Cms\App as Kirby;
+use Kirby\Cms\App;
 use Kirby\Cms\Find;
 use Kirby\Panel\Panel;
 use Kirby\Toolkit\Escape;
 
-Kirby::plugin('programmatordev/users-extended', [
+App::plugin('programmatordev/users-extended', [
     'options' => [
         'hideAdminUsers' => true,
     ],
-    'fields' => [
-        // custom "accounts" field that always filters admin users
-        'accounts' => [
-            'extends' => 'users',
-            'props' => [
-                'query' => function(string $query = null) {
-                    return $query
-                        ? \sprintf('%s.filterBy("role", "!=", "admin")', $query)
-                        : 'kirby.users.filterBy("role", "!=", "admin")';
-                }
-            ]
-        ]
-    ],
     'areas' => [
-        'users' => function(Kirby $kirby) {
+        'users' => function(App $kirby) {
             // get all plugin options
             $options = $kirby->option('programmatordev.users-extended');
 
@@ -71,6 +58,7 @@ Kirby::plugin('programmatordev/users-extended', [
                             return [
                                 'component' => 'k-users-view',
                                 'props' => [
+                                    'canCreate' => $kirby->roles()->canBeCreated()->count() > 0,
                                     'role' => function() use ($roles, $role) {
                                         if ($role) {
                                             return $roles[$role] ?? null;
@@ -103,11 +91,11 @@ Kirby::plugin('programmatordev/users-extended', [
 
                                         return [
                                             'data' => $users->values(fn ($user) => [
-                                                'id' => $user->id(),
+                                                'id'    => $user->id(),
                                                 'image' => $user->panel()->image(),
-                                                'info' => Escape::html($user->role()->title()),
-                                                'link' => $user->panel()->url(true),
-                                                'text' => Escape::html($user->username())
+                                                'info'  => Escape::html($user->role()->title()),
+                                                'link'  => $user->panel()->url(true),
+                                                'text'  => Escape::html($user->username())
                                             ]),
                                             'pagination' => $users->pagination()->toArray()
                                         ];
