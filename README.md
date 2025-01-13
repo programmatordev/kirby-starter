@@ -13,7 +13,6 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - Uses [DDEV](https://ddev.com/), a Docker-based development environment;
 - [Vite](https://vitejs.dev/) with [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
 - [TailwindCSS](https://tailwindcss.com/);
-- Live reloading for `templates`, `snippets`, `content` and `assets` changes;
 - Page transitions;
 - SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
