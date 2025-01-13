@@ -7,13 +7,13 @@
     {
       "name": "André Pimpão",
       "email": "a.pimpao@programmator.dev",
-      "homepage": "https://programmator.dev/"
+      "homepage": "https://programmator.dev"
     }
   ],
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
-    "getkirby/cms": "^4.4.0",
-    "arnoson/kirby-vite": "^5.3",
+    "getkirby/cms": "^4.5.0",
+    "arnoson/kirby-vite": "^5.5",
     "beebmx/kirby-env": "^4.2",
     "tobimori/kirby-seo": "^1.1",
     "junohamburg/kirby-language-selector": "^1.1",
