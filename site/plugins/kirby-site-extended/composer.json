@@ -1,0 +1,13 @@
+{
+  "name": "programmatordev/kirby-site-extended",
+  "description": "Extends site with more options",
+  "version": "1.0.0-dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "André Pimpão",
+      "email": "a.pimpao@programmator.dev",
+      "homepage": "https://programmator.dev"
+    }
+  ]
+}
