@@ -39,6 +39,5 @@
     </main>
 
     <?= snippet('seo/schemas') ?>
-    <?= snippet('debugbar') ?>
   </body>
 </html>
