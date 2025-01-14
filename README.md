@@ -189,7 +189,8 @@ APP_DEBUG=false
 
 ## Libraries
 
-- Page transitions and preloading with [taxi.js](https://taxi.js.org/);
+- Page transitions and preloading with [Taxi.js](https://taxi.js.org/);
+- Reactivity with [Alpine.js](https://alpinejs.dev/);
 - Helper to write better responsive design with less code using [Fluid](https://fluid.tw/).
 
 ## User Roles
