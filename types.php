@@ -167,16 +167,6 @@ namespace Kirby\Cms
             /** @var \Kirby\Cms\Site $instance */
             return $instance->socialMediaAccounts();
         }
-        public function logger()
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->logger();
-        }
-        public function log()
-        {
-            /** @var \Kirby\Cms\Site $instance */
-            return $instance->log();
-        }
         public function schema($type)
         {
             /** @var \Kirby\Cms\Site $instance */
@@ -212,11 +202,6 @@ namespace Kirby\Cms
             /** @var \Kirby\Cms\Page $instance */
             return $instance->text();
         }
-        public function log()
-        {
-            /** @var \Kirby\Cms\Page $instance */
-            return $instance->log();
-        }
         public function env($value, $default = '')
         {
             /** @var \Kirby\Cms\Page $instance */
@@ -241,54 +226,6 @@ namespace Kirby\Cms
         {
             /** @var \Kirby\Cms\Page $instance */
             return $instance->robots($lang);
-        }
-    }
-    class Collection
-    {
-        public function log()
-        {
-            /** @var \Kirby\Cms\Collection $instance */
-            return $instance->log();
-        }
-    }
-    class File
-    {
-        public function log()
-        {
-            /** @var \Kirby\Cms\File $instance */
-            return $instance->log();
-        }
-    }
-    class Files
-    {
-        public function log()
-        {
-            /** @var \Kirby\Cms\Files $instance */
-            return $instance->log();
-        }
-    }
-    class Pages
-    {
-        public function log()
-        {
-            /** @var \Kirby\Cms\Pages $instance */
-            return $instance->log();
-        }
-    }
-    class User
-    {
-        public function log()
-        {
-            /** @var \Kirby\Cms\User $instance */
-            return $instance->log();
-        }
-    }
-    class Users
-    {
-        public function log()
-        {
-            /** @var \Kirby\Cms\Users $instance */
-            return $instance->log();
         }
     }
     class Layout
@@ -936,11 +873,6 @@ namespace Kirby\Content
         {
             /** @var \Kirby\Content\Field $instance */
             return $instance->xml();
-        }
-        public function log()
-        {
-            /** @var \Kirby\Content\Field $instance */
-            return $instance->log();
         }
     }
 }

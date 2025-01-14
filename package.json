@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "@unseenco/taxi": "^1.8.0",
+    "alpinejs": "^3.14.8",
     "animated-scroll-to": "^2.3.0"
   },
   "devDependencies": {
