@@ -2,7 +2,7 @@ Title: Transitions
 
 ----
 
-Text: With smooth page transitions using (link: https://taxi.js.org/ text: Taxi.js).
+Text: With smooth page transitions using (link: https://taxi.js.org/ target: _blank text: Taxi.js).
 
 ----
 
