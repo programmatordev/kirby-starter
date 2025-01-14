@@ -21,18 +21,18 @@
     <?= snippet('consent/notification') ?>
   </head>
 
-  <body class="p-8 bg-teal-500 md:p-24">
-    <h1 class="text-6xl mb-6 font-mono md:text-7xl"><?= $site->title() ?></h1>
+  <body class="~p-8/24 bg-teal-500">
+    <h1 class="font-mono ~text-6xl/7xl"><?= $site->title() ?></h1>
 
-    <nav class="mb-6">
+    <nav class="mt-6">
       <ul class="flex gap-2">
         <?php foreach ($site->pages()->listed() as $item): ?>
-          <li><a class="underline" href="<?= $item->url() ?>"><?= $item->title() ?></a></li>
+          <li><a class="underline ~text-base/xl" href="<?= $item->url() ?>"><?= $item->title() ?></a></li>
         <?php endforeach; ?>
       </ul>
     </nav>
 
-    <main data-taxi>
+    <main class="mt-6" data-taxi>
       <div data-taxi-view>
         <?= $slots->content() ?>
       </div>
