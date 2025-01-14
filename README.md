@@ -13,7 +13,6 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - Uses [DDEV](https://ddev.com/), a Docker-based development environment;
 - [Vite](https://vitejs.dev/) with [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
 - [TailwindCSS](https://tailwindcss.com/);
-- Page transitions;
 - SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
 - Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
@@ -29,7 +28,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
   - [Static Assets Handling](#static-assets-handling)
 - [Production](#production)
-- [Page Transitions](#page-transitions)
+- [Libraries](#libraries)
 - [User Roles](#user-roles)
 - [Cookie Consent Notification (GDPR & CCPA compliance)](#cookie-consent-notification)
 - [Acknowledgments](#acknowledgments)
@@ -188,26 +187,10 @@ When deploying, set the `APP_DEBUG` environment variable to `false`:
 APP_DEBUG=false
 ```
 
-## Page Transitions
+## Libraries
 
-A page transition manager is implemented by default using [taxi.js](https://taxi.js.org/).
-
-The following code in the `app.js` file handles this for you. 
-If you do not want to use page transitions, just remove it:
-
-```js
-// assets/js/app.js
-
-// handle page rendering and transitions
-const taxi = new Core({
-    renderers: { default: DefaultRenderer },
-    // a fadein/out transition is enabled by default
-    // to create your transition go to the assets/js/transitions folder for examples
-    transitions: { default: FadeTransition }
-});
-```
-
-Check the [taxi.js](https://taxi.js.org/) page for all available options and advantages of using it.
+- Page transitions and preloading with [taxi.js](https://taxi.js.org/);
+- Helper to write better responsive design with less code using [Fluid](https://fluid.tw/).
 
 ## User Roles
 
