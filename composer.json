@@ -17,7 +17,8 @@
     "beebmx/kirby-env": "^4.2",
     "tobimori/kirby-seo": "^1.1",
     "junohamburg/kirby-language-selector": "^1.1",
-    "zephir/kirby-cookieconsent": "^3.2"
+    "zephir/kirby-cookieconsent": "^3.2",
+    "moritzebeling/kirby-favicon": "^1.0"
   },
   "require-dev": {
     "symfony/var-dumper": "^6.4",

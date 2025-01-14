@@ -15,7 +15,7 @@ export default {
     extend: {},
   },
   plugins: [
-      fluid()
+    fluid()
   ],
   future: {
     hoverOnlyWhenSupported: true
