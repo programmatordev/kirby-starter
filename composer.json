@@ -13,7 +13,7 @@
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "getkirby/cms": "^4.5.0",
-    "arnoson/kirby-vite": "^5.5",
+    "arnoson/kirby-vite": "^5.4",
     "beebmx/kirby-env": "^4.2",
     "tobimori/kirby-seo": "^1.1",
     "junohamburg/kirby-language-selector": "^1.1",
@@ -21,8 +21,7 @@
   },
   "require-dev": {
     "symfony/var-dumper": "^6.4",
-    "lukaskleinschmidt/kirby-types": "^2.0",
-    "treast/kirby-debugbar": "^1.3"
+    "lukaskleinschmidt/kirby-types": "^2.0"
   },
   "config": {
     "allow-plugins": {

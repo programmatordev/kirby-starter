@@ -16,9 +16,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - Page transitions;
 - SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
-- Development tools:
-  - Debug bar with [kirby-debugbar](https://github.com/Treast/kirby-debugbar) plugin;
-  - Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
+- Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
 - and more...
 
 ## Documentation
@@ -277,7 +275,7 @@ just set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file.
 
 ```dotenv
 # set Google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
-CONSENT_GOOGLE_TRACKING_ID=G-1234567890
+CONSENT_GOOGLE_TRACKING_ID=G-XXXXXXXXXX
 ```
 
 Syncs with the `mesaurement` and `marketing` consent notification categories.
@@ -287,7 +285,6 @@ Syncs with the `mesaurement` and `marketing` consent notification categories.
 Thank you to all plugin's authors and contributors. Make sure to check and support them if you can:
 
 - [kirby-cookieconsent](https://github.com/zephir/kirby-cookieconsent)
-- [kirby-debugbar](https://github.com/Treast/kirby-debugbar)
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-language-selector](https://github.com/junohamburg/kirby-language-selector)
 - [kirby-seo](https://github.com/tobimori/kirby-seo)
