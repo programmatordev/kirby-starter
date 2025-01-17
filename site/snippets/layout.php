@@ -19,7 +19,7 @@
     <?= $slots->scripts() ?>
     <?= vite()->js('assets/js/app.js', ['defer' => true]) ?>
 
-    <?= snippet('consent/notification') ?>
+    <?= snippet('consent/consent') ?>
   </head>
 
   <body class="~p-8/24 ~text-base/xl bg-teal-500">
