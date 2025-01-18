@@ -1,6 +1,6 @@
 import * as Category from "../utils/categories.js";
 
-export const translations = {
+export const TRANSLATIONS = {
   consentModal: {
     title: 'Utilizamos cookies',
     description: 'Este website utiliza cookies essenciais para funcionar corretamente e cookies de rastreamento para analisar a sua interação com ele. Estes últimos só serão ativados com o seu consentimento.',
@@ -18,7 +18,7 @@ export const translations = {
   }
 }
 
-export const sections = {
+export const SECTIONS = {
   header: {
     title: 'Utilização de cookies',
     description: 'Utilizamos cookies para assegurar as funções básicas do website e melhorar a sua experiência online.'

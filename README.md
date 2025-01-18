@@ -220,55 +220,12 @@ If you want to change these permissions, edit the files at `site/blueprints/user
 
 ## Cookie Consent Notification
 
-By default, and for GDPR and CCPA compliance reasons, a cookie consent notification is enabled.
-A list of integrations is available, so check the [Integrations](#integrations) section below.
-
-The consent notification comes with 5 categories: 
-- `necessary`
-- `measurement`
-- `marketing`
-- `functionality`
-- `experience`
-
-All categories are disabled by default, except the `necessary` category which is always enabled.
-
-If an integration is used, the categories related to that integration will be enabled.
-For example, if Google Analytics is integrated, the `measurement` and `marketing` categories will be enabled and synced according to user preferences.
-
-If you do not need a cookie consent notification, just remove the following snippet from the master layout:
-
-```php
-// snippets/layout.php
-
-// remove this line from the <head> block
-<?= snippet('consent/notification') ?>
-```
-
-For the full cookie consent options, visit the [plugin](https://github.com/zephir/kirby-cookieconsent?tab=readme-ov-file#3-options) page.
-
-### Integrations
-
-List of currently available integrations:
-
-- [Google Analytics](#google-analytics)
-
-#### Google Analytics
-
-If you want to add Google Analytics to your website and be compliant with GDPR and CCPA regulations,
-just set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file.
-
-```dotenv
-# set Google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
-CONSENT_GOOGLE_TRACKING_ID=G-XXXXXXXXXX
-```
-
-Syncs with the `mesaurement` and `marketing` consent notification categories.
+To be updated soon. Big changes coming for this one.
 
 ## Acknowledgments
 
 Thank you to all plugin's authors and contributors. Make sure to check and support them if you can:
 
-- [kirby-cookieconsent](https://github.com/zephir/kirby-cookieconsent)
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
 - [kirby-language-selector](https://github.com/junohamburg/kirby-language-selector)
