@@ -63,7 +63,12 @@ export default defineConfig(({ mode }) => ({
     port: port,
     strictPort: true,
     // defines the origin of the generated asset URLs during development
-    origin: origin
+    origin: origin,
+    // only allow requests from ddev
+    // https://github.com/vitejs/vite/security/advisories/GHSA-vg6x-rcgg-rjx6
+    cors: {
+      origin: process.env.DDEV_PRIMARY_URL
+    }
   },
 
   plugins: [
