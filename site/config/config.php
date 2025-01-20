@@ -9,6 +9,7 @@ return [
     'debug' => env('APP_DEBUG', true),
     'auth.methods' => ['password', 'password-reset'],
     'panel.language' => env('APP_PANEL_LANGUAGE', 'en'),
+    'thumbs.format' => 'webp',
     'tobimori.seo.lang' => env('APP_LANGUAGE', 'en'),
     'ready' => function (App $kirby) {
         $user = $kirby->user();
