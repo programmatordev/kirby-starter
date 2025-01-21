@@ -3,10 +3,17 @@
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 /** @var \Kirby\Template\Slots $slots */
+
+$analyticsPage = page('analytics');
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $site->lang() ?>">
+<html
+  lang="<?= $site->lang() ?>"
+  data-analytics='<?= Json::encode([
+    'googleAnalyticsId' => $analyticsPage->googleAnalyticsId()->isNotEmpty() ? $analyticsPage->googleAnalyticsId()->value() : null,
+  ]) ?>'
+>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

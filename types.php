@@ -191,6 +191,30 @@ namespace Kirby\Cms
     class Page
     {
         /**
+         * Returns the googleAnalyticsId field.
+         *
+         * Uses a `text` field in the `pages/analytics` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/text
+         */
+        public function googleAnalyticsId(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Page $instance */
+            return $instance->googleAnalyticsId();
+        }
+        /**
+         * Returns the info field.
+         *
+         * Uses a `info` field in the `pages/analytics` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/info
+         */
+        public function info(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\Page $instance */
+            return $instance->info();
+        }
+        /**
          * Returns the text field.
          *
          * Uses a `textarea` field in the `pages/default` blueprint.

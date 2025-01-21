@@ -71,15 +71,15 @@ export default class CookieConsentPlugin {
     // always include the "necessary" category
     const categories = [Category.NECESSARY];
 
-    // Google Analytics integration
-    if (import.meta.env.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID.length) {
-      categories.push(
-        Category.ANALYTICS,
-        Category.ADVERTISEMENT,
-        Category.FUNCTIONALITY,
-        Category.SECURITY
-      );
-    }
+    // // Google Analytics integration
+    // if (import.meta.env.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID.length) {
+    //   categories.push(
+    //     Category.ANALYTICS,
+    //     Category.ADVERTISEMENT,
+    //     Category.FUNCTIONALITY,
+    //     Category.SECURITY
+    //   );
+    // }
 
     return categories;
   }

@@ -1,0 +1,26 @@
+title: Analytics
+
+options:
+  changeSlug: false
+  changeStatus: false
+  changeTitle: false
+  create: false
+  delete: false
+  duplicate: false
+  list: false
+  move: false
+  preview: false
+  sort: false
+
+fields:
+  googleAnalyticsId:
+    label: Google Analytics ID
+    type: text
+    placeholder: G-XXXXXXXXXX
+    help: |
+      Set a <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics measurement ID</a> to enable tracking with your Google tag.
+  info:
+    label: false
+    type: info
+    theme: notice
+    text: The cookies consent notification will be automatically adapted to be compliant with GDPR regulation according to the settings on this page.

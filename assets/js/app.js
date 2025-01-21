@@ -6,11 +6,11 @@ import { Alpine } from "alpinejs";
 // import tailwind file
 import "../css/app.css";
 
-// init reactivity
+// add Alpine global and init reactivity
 window.Alpine = Alpine;
 Alpine.start();
 
-// handle page rendering and transitions
+// handle pages rendering and transitions
 const taxi = new Core({
   renderers: { default: DefaultRenderer },
   transitions: { default: FadeTransition }

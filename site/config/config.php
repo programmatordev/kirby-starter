@@ -9,9 +9,29 @@ return [
     'debug' => env('APP_DEBUG', true),
     'auth.methods' => ['password', 'password-reset'],
     'panel.language' => env('APP_PANEL_LANGUAGE', 'en'),
+    'panel.menu' => [
+        'site' => [
+            'current' => function(): bool {
+                $path = App::instance()->path();
+                return Str::contains($path, 'site');
+            },
+        ],
+        'languages',
+        'users',
+        'system',
+        'analytics' => [
+            'icon' => 'chart',
+            'label' => 'Analytics',
+            'link' => 'pages/analytics',
+            'current' => function(): bool {
+                $path = App::instance()->path();
+                return Str::contains($path, 'pages/analytics');
+            }
+        ]
+    ],
     'thumbs.format' => 'webp',
     'tobimori.seo.lang' => env('APP_LANGUAGE', 'en'),
-    'ready' => function (App $kirby) {
+    'ready' => function(App $kirby) {
         $user = $kirby->user();
         $isAdmin = $user?->isAdmin() ?? false;
 
