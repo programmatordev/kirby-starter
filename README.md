@@ -30,7 +30,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - [Production](#production)
 - [Libraries](#libraries)
 - [User Roles](#user-roles)
-- [Cookie Consent Notification (GDPR & CCPA compliance)](#cookie-consent-notification)
+- [Cookie Consent Notification (GDPR compliance)](#cookie-consent-notification)
 - [Acknowledgments](#acknowledgments)
 
 ## Get Started
@@ -220,7 +220,11 @@ If you want to change these permissions, edit the files at `site/blueprints/user
 
 ## Cookie Consent Notification
 
-To be updated soon. Big changes coming for this one.
+The cookie consent notification is enabled by default and is synchronized with the settings on the Analytics panel page.
+
+For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics.
+
+Additional integrations, such as the Meta Pixel, will be included in the future as needed.
 
 ## Acknowledgments
 
