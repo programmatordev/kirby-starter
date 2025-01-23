@@ -1,86 +1,66 @@
 import * as CookieConsent from "vanilla-cookieconsent";
-import * as Category from "./utils/categories.js";
+import { mergician } from "mergician";
 
-// import languages
-import * as En from "./languages/en.js";
-import * as Pt from "./languages/pt.js";
+import { CAT_NECESSARY } from './utils/categories.js';
+import { baseTranslations, baseSections, HEADER_SECTION } from "./utils/translations.js";
+import { googleAnalytics } from "./providers/google-analytics.js";
 
 import "vanilla-cookieconsent/dist/cookieconsent.css";
 
 export default class CookieConsentPlugin {
-  static categories = {
-    [Category.NECESSARY]: {
-      enabled: true,
-      readOnly: true
-    },
-    [Category.ANALYTICS]: {
-      autoClear: {
-        cookies: [
-          { name: /^_ga/ },
-          { name: '_gid' }
-        ]
-      }
-    },
-    [Category.ADVERTISEMENT]: {},
-    [Category.FUNCTIONALITY]: {},
-    [Category.SECURITY]: {}
-  }
-
-  static translations = {
-    en: En.TRANSLATIONS,
-    pt: Pt.TRANSLATIONS
-  }
-
-  static sections = {
-    en: En.SECTIONS,
-    pt: Pt.SECTIONS
-  }
-
   static init() {
-    let configOptions = {
-      categories: {},
+    // create custom merge
+    const merge = mergician({ appendArrays: true, dedupArrays: true });
+    // get consent providers settings
+    const consentProviders = JSON.parse(document.documentElement.getAttribute('data-consent'));
+
+    /** @type {import("../../types").CookieConsentConfig} */
+    let config = {
+      categories: {
+        [CAT_NECESSARY]: {
+          enabled: true,
+          readOnly: true
+        }
+      },
       language: {
         default: 'en',
-        // language based on html lang attribute
-        // https://cookieconsent.orestbida.com/reference/configuration-reference.html#language-autodetect
         autoDetect: 'document',
-        translations: {}
+        translations: baseTranslations
       }
     };
 
-    const languages = Object.keys(this.translations);
-    const categories = this.collectConsentCategories();
+    // CATEGORIES
+    // add additional categories according to configured providers
+    if (consentProviders.googleAnalytics) {
+      config.categories = merge(config.categories, googleAnalytics.categories);
+    }
 
-    // build config categories and translations
-    for (const language of languages) {
-      // add base translations and header section
-      configOptions.language.translations[language] = this.translations[language];
-      configOptions.language.translations[language].preferencesModal.sections.push(this.sections[language]['header']);
+    // SECTIONS
+    // set sections for all languages
+    for (const language in config.language.translations) {
+      // add header section for all languages
+      let sections = {
+        [HEADER_SECTION]: baseSections[language][HEADER_SECTION]
+      }
 
-      for (const category of categories) {
-        // add both the category and its related section
-        configOptions.categories[category] = this.categories[category];
-        configOptions.language.translations[language].preferencesModal.sections.push(this.sections[language][category]);
+      // add sections according to consent categories
+      for (const categoryName in config.categories) {
+        sections[categoryName] = baseSections[language][categoryName];
+      }
+
+      // merge providers section data
+      if (consentProviders.googleAnalytics) {
+        sections = merge(sections, googleAnalytics.sections[language]);
+      }
+
+      // add sections to config
+      config.language.translations[language].preferencesModal.sections = [];
+
+      for (const sectionName in sections) {
+        config.language.translations[language].preferencesModal.sections.push(sections[sectionName]);
       }
     }
 
-    CookieConsent.run(configOptions);
-  }
-
-  static collectConsentCategories() {
-    // always include the "necessary" category
-    const categories = [Category.NECESSARY];
-
-    // Google Analytics integration
-    if (import.meta.env.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID.length) {
-      categories.push(
-        Category.ANALYTICS,
-        Category.ADVERTISEMENT,
-        Category.FUNCTIONALITY,
-        Category.SECURITY
-      );
-    }
-
-    return categories;
+    CookieConsent.run(config);
   }
 }

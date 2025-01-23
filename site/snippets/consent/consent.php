@@ -1,5 +1,11 @@
-<?php if ($googleAnalyticsMeasurementId = env('VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID')): ?>
-  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id=<?= $googleAnalyticsMeasurementId ?>"></script>
+<?php
+  $googleAnalyticsId = site()->analyticsPage()->googleAnalyticsId()->isNotEmpty()
+    ? site()->analyticsPage()->googleAnalyticsId()->value()
+    : null;
+?>
+
+<?php if ($googleAnalyticsId): ?>
+  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id=<?= $googleAnalyticsId ?>"></script>
 
   <script type="text/plain" data-category="necessary">
     window.dataLayer = window.dataLayer || [];
@@ -19,7 +25,7 @@
     gtag('set', 'ads_data_redaction', true);
     gtag('js', new Date());
 
-    gtag('config', '<?= $googleAnalyticsMeasurementId ?>');
+    gtag('config', '<?= $googleAnalyticsId ?>');
   </script>
 
   <script type="text/plain" data-category="analytics">

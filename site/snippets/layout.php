@@ -6,7 +6,14 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $site->lang() ?>">
+<html
+  lang="<?= $site->lang() ?>"
+  data-consent='<?= Json::encode([
+    'googleAnalytics' => $site->analyticsPage()->googleAnalyticsId()->isNotEmpty()
+      ? $site->analyticsPage()->googleAnalyticsId()->value()
+      : null,
+  ]) ?>'
+>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
