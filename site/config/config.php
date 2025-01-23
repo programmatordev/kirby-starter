@@ -21,7 +21,7 @@ return [
         'system',
         'analytics' => [
             'icon' => 'chart',
-            'label' => 'Analytics',
+            'label' => 'analytics.page.title',
             'link' => 'pages/analytics',
             'current' => function(): bool {
                 $path = App::instance()->path();

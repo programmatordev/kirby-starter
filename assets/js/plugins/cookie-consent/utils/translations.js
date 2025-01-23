@@ -81,8 +81,8 @@ export const baseSections = {
       linkedCategory: CAT_NECESSARY,
     },
     [CAT_ANALYTICS]: {
-      title: 'Analítica',
-      description: 'Os cookies analíticos recolhem dados que ajudam a compreender como os utilizadores interagem com o site. Essas informações permitem melhorar o conteúdo e criar funcionalidades que enriquecem a experiência do utilizador.',
+      title: 'Análise',
+      description: 'Cookies de análise recolhem dados que ajudam a compreender como os utilizadores interagem com o site. Essas informações permitem melhorar o conteúdo e criar funcionalidades que enriquecem a experiência do utilizador.',
       linkedCategory: CAT_ANALYTICS,
     },
     [CAT_ADVERTISEMENT]: {
