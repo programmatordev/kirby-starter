@@ -3,15 +3,15 @@
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 /** @var \Kirby\Template\Slots $slots */
-
-$analyticsPage = page('analytics');
 ?>
 
 <!DOCTYPE html>
 <html
   lang="<?= $site->lang() ?>"
-  data-analytics='<?= Json::encode([
-    'googleAnalyticsId' => $analyticsPage->googleAnalyticsId()->isNotEmpty() ? $analyticsPage->googleAnalyticsId()->value() : null,
+  data-consent='<?= Json::encode([
+    'googleAnalytics' => $site->analyticsPage()->googleAnalyticsId()->isNotEmpty()
+      ? $site->analyticsPage()->googleAnalyticsId()->value()
+      : null,
   ]) ?>'
 >
   <head>

@@ -187,6 +187,11 @@ namespace Kirby\Cms
             /** @var \Kirby\Cms\Site $instance */
             return $instance->canonicalFor($url);
         }
+        public function analyticsPage(): \Kirby\Cms\Page
+        {
+            /** @var \Kirby\Cms\Site $instance */
+            return $instance->analyticsPage();
+        }
     }
     class Page
     {
