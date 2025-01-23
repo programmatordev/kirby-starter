@@ -11,12 +11,11 @@ const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
 const outDir = 'build';
 const assetsDir = 'assets';
 
-// find all css and js files from the assets directory
-const input = [...globSync('assets/**/*.{css,js}')].map(
+// find all files from the assets directory
+const input = [...globSync(['assets/js/app.js', 'assets/*(images|fonts)/**/*.*'])].map(
   (path) => resolve(process.cwd(), path)
 );
 
-// noinspection JSCheckFunctionSignatures,JSUnusedGlobalSymbols
 export default defineConfig(({ mode }) => ({
   base: mode === 'development' ? '/' : `/${outDir}`,
 
@@ -32,22 +31,26 @@ export default defineConfig(({ mode }) => ({
             return 'vendor';
           }
         },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
-        assetFileNames: ({ name }) => {
-          const fileName = name ?? '';
+        chunkFileNames: 'js/[name]-[hash].js',
+        entryFileNames: 'js/[name]-[hash].js',
+        assetFileNames: ({ names }) => {
+          const fileName = names ?? '';
 
           if (/\.(gif|jpe?g|png|svg)$/.test(fileName)) {
-            return 'assets/images/[name]-[hash][extname]';
+            return 'images/[name]-[hash][extname]';
+          }
+
+          if (/\.(woff2?)$/.test(fileName)) {
+            return 'fonts/[name]-[hash][extname]';
           }
 
           if (/\.css$/.test(fileName)) {
-            return 'assets/css/[name]-[hash][extname]';
+            return 'css/[name]-[hash][extname]';
           }
 
           // default value
           // https://rollupjs.org/guide/en/#outputassetfilenames
-          return 'assets/[name]-[hash][extname]';
+          return '[name]-[hash][extname]';
         },
       }
     }
@@ -60,13 +63,14 @@ export default defineConfig(({ mode }) => ({
     port: port,
     strictPort: true,
     // defines the origin of the generated asset URLs during development
-    origin: origin
+    origin: origin,
+    cors: true
   },
 
   plugins: [
     kirby({
       watch: [
-        'site/(templates|snippets)/**/*.php',
+        'site/(templates|snippets|controllers|models|layouts)/**/*.php',
         'content/**/*',
       ]
     })

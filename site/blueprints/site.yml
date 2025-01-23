@@ -2,7 +2,7 @@ title: Site
 
 tabs:
   content:
-    icon: text
+    icon: page
     sections:
       pages:
         type: pages

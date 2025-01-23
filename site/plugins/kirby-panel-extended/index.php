@@ -1,8 +1,8 @@
 <?php
 
-use Kirby\Cms\App as Kirby;
+use Kirby\Cms\App;
 
-Kirby::plugin('programmatordev/panel-extended', [
+App::plugin('programmatordev/panel-extended', [
     // register translations based on language files in the site/translations directory
     'translations' => A::keyBy(
         A::map(

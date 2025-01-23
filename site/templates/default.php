@@ -8,5 +8,5 @@
 
 <?php slot('content') ?>
   <h1 class="font-bold"><?= $page->title() ?></h1>
-  <div><?= $page->text()->kirbytext() ?></div>
+  <div class="[&_a]:underline"><?= $page->text()->kirbytext() ?></div>
 <?php endslot(); ?>

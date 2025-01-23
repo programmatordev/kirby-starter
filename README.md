@@ -13,13 +13,9 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - Uses [DDEV](https://ddev.com/), a Docker-based development environment;
 - [Vite](https://vitejs.dev/) with [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
 - [TailwindCSS](https://tailwindcss.com/);
-- Live reloading for `templates`, `snippets`, `content` and `assets` changes;
-- Page transitions;
 - SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
-- Development tools:
-  - Debug bar with [kirby-debugbar](https://github.com/Treast/kirby-debugbar) plugin;
-  - Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
+- Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
 - and more...
 
 ## Documentation
@@ -32,9 +28,9 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
   - [Static Assets Handling](#static-assets-handling)
 - [Production](#production)
-- [Page Transitions](#page-transitions)
+- [Libraries](#libraries)
 - [User Roles](#user-roles)
-- [Cookie Consent Notification (GDPR & CCPA compliance)](#cookie-consent-notification)
+- [Cookie Consent Notification (GDPR compliance)](#cookie-consent-notification)
 - [Acknowledgments](#acknowledgments)
 
 ## Get Started
@@ -191,26 +187,11 @@ When deploying, set the `APP_DEBUG` environment variable to `false`:
 APP_DEBUG=false
 ```
 
-## Page Transitions
+## Libraries
 
-A page transition manager is implemented by default using [taxi.js](https://taxi.js.org/).
-
-The following code in the `app.js` file handles this for you. 
-If you do not want to use page transitions, just remove it:
-
-```js
-// assets/js/app.js
-
-// handle page rendering and transitions
-const taxi = new Core({
-    renderers: { default: DefaultRenderer },
-    // a fadein/out transition is enabled by default
-    // to create your transition go to the assets/js/transitions folder for examples
-    transitions: { default: FadeTransition }
-});
-```
-
-Check the [taxi.js](https://taxi.js.org/) page for all available options and advantages of using it.
+- Page transitions and preloading with [Taxi.js](https://taxi.js.org/);
+- Reactivity with [Alpine.js](https://alpinejs.dev/);
+- Helper to write better responsive design with less code using [Fluid](https://fluid.tw/).
 
 ## User Roles
 
@@ -239,57 +220,18 @@ If you want to change these permissions, edit the files at `site/blueprints/user
 
 ## Cookie Consent Notification
 
-By default, and for GDPR and CCPA compliance reasons, a cookie consent notification is enabled.
-A list of integrations is available, so check the [Integrations](#integrations) section below.
+The cookie consent notification is enabled by default and is synchronized with the settings on the Analytics panel page.
 
-The consent notification comes with 5 categories: 
-- `necessary`
-- `measurement`
-- `marketing`
-- `functionality`
-- `experience`
+For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics.
 
-All categories are disabled by default, except the `necessary` category which is always enabled.
-
-If an integration is used, the categories related to that integration will be enabled.
-For example, if Google Analytics is integrated, the `measurement` and `marketing` categories will be enabled and synced according to user preferences.
-
-If you do not need a cookie consent notification, just remove the following snippet from the master layout:
-
-```php
-// snippets/layout.php
-
-// remove this line from the <head> block
-<?= snippet('consent/notification') ?>
-```
-
-For the full cookie consent options, visit the [plugin](https://github.com/zephir/kirby-cookieconsent?tab=readme-ov-file#3-options) page.
-
-### Integrations
-
-List of currently available integrations:
-
-- [Google Analytics](#google-analytics)
-
-#### Google Analytics
-
-If you want to add Google Analytics to your website and be compliant with GDPR and CCPA regulations,
-just set the `CONSENT_GOOGLE_TRACKING_ID` in the `.env` file.
-
-```dotenv
-# set Google tracking id (G-XXXXXXXXXX/AW-XXXXXXXXXX) to sync cookie consent with analytics and ads
-CONSENT_GOOGLE_TRACKING_ID=G-1234567890
-```
-
-Syncs with the `mesaurement` and `marketing` consent notification categories.
+Additional integrations, such as the Meta Pixel, will be included in the future as needed.
 
 ## Acknowledgments
 
 Thank you to all plugin's authors and contributors. Make sure to check and support them if you can:
 
-- [kirby-cookieconsent](https://github.com/zephir/kirby-cookieconsent)
-- [kirby-debugbar](https://github.com/Treast/kirby-debugbar)
 - [kirby-env](https://github.com/beebmx/kirby-env)
+- [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
 - [kirby-language-selector](https://github.com/junohamburg/kirby-language-selector)
 - [kirby-seo](https://github.com/tobimori/kirby-seo)
 - [kirby-types](https://github.com/lukaskleinschmidt/kirby-types)

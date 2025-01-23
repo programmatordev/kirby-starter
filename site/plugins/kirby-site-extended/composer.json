@@ -1,6 +1,6 @@
 {
-  "name": "programmatordev/kirby-users-extended",
-  "description": "Extends users panel area with more options",
+  "name": "programmatordev/kirby-site-extended",
+  "description": "Extends site with more options",
   "version": "1.0.0-dev",
   "license": "MIT",
   "authors": [
