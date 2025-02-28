@@ -232,7 +232,6 @@ Thank you to all plugin's authors and contributors. Make sure to check and suppo
 
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
-- [kirby-language-selector](https://github.com/junohamburg/kirby-language-selector)
 - [kirby-seo](https://github.com/tobimori/kirby-seo)
 - [kirby-types](https://github.com/lukaskleinschmidt/kirby-types)
 - [kirby-vite](https://github.com/arnoson/kirby-vite)
