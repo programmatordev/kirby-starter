@@ -2,7 +2,6 @@
 
 namespace KirbyStarter;
 
-use Kirby\Cms\App;
 use Kirby\Toolkit\Str;
 
 class PanelHelper
@@ -19,7 +18,7 @@ class PanelHelper
 
     static function isCurrentPage(string $link): bool
     {
-        $path = App::instance()->path();
+        $path = kirby()->path();
         return Str::contains($path, $link);
     }
 }
