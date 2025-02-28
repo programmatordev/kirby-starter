@@ -51,6 +51,9 @@
     # block direct access to Kirby and the Panel sources
     RewriteRule ^kirby/(.*) index.php [L]
 
+    # block direct access to starter classes
+    RewriteRule ^src/(.*) index.php [L]
+
     # block all files in the assets folder from being accessed directly
     RewriteRule ^assets/(.*) index.php [L]
 

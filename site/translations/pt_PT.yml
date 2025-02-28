@@ -7,7 +7,7 @@ role.editor.title: Editor
 role.editor.description: Tem acesso a todo o conteúdo, excepto à gestão de utilizadores
 
 # analytics
-analytics.page.title: Análise
+analytics.page.title: Analytics
 analytics.page.notice: A notificação de consentimento de cookies será automaticamente adaptada para estar em conformidade com o regulamento GDPR de acordo com as configurações nesta página.
 analytics.field.googleAnalytics.label: Google Analytics ID
 analytics.field.googleAnalytics.help: Configure um <a href="https://support.google.com/analytics/answer/12270356" target="_blank">ID de medição do Google Analytics</a> para incluir a sua tag Google no website.
