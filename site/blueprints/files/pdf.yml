@@ -1,0 +1,7 @@
+title: files.pdf.title
+
+accept:
+  extension: pdf
+
+fields:
+  hidden: true

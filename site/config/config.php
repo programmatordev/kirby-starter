@@ -2,6 +2,7 @@
 
 use Beebmx\KirbyEnv;
 use Kirby\Cms\App;
+use KirbyStarter\PanelHelper;
 
 KirbyEnv::load('.');
 
@@ -10,24 +11,11 @@ return [
     'auth.methods' => ['password', 'password-reset'],
     'panel.language' => env('APP_PANEL_LANGUAGE', 'en'),
     'panel.menu' => [
-        'site' => [
-            'current' => function(): bool {
-                $path = App::instance()->path();
-                return Str::contains($path, 'site');
-            },
-        ],
+        'site' => ['current' => fn() => PanelHelper::isCurrentPage('site')],
         'languages',
         'users',
         'system',
-        'analytics' => [
-            'icon' => 'chart',
-            'label' => 'analytics.page.title',
-            'link' => 'pages/analytics',
-            'current' => function(): bool {
-                $path = App::instance()->path();
-                return Str::contains($path, 'pages/analytics');
-            }
-        ]
+        'analytics' => PanelHelper::buildMenuPage('chart', 'analytics.page.title', 'pages/analytics')
     ],
     'thumbs.format' => 'webp',
     'tobimori.seo.lang' => env('APP_LANGUAGE', 'en'),

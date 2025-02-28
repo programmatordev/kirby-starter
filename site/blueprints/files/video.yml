@@ -1,0 +1,8 @@
+title: files.video.title
+
+accept:
+  mime: video/*
+  type: video
+
+fields:
+  hidden: true
