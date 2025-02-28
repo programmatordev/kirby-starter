@@ -11,3 +11,8 @@ analytics.page.title: Analytics
 analytics.page.notice: The cookies consent notification will be automatically adapted to be compliant with GDPR regulation according to the settings on this page.
 analytics.field.googleAnalytics.label: Google Analytics ID
 analytics.field.googleAnalytics.help: Set a <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics measurement ID</a> to include your Google tag on the website.
+
+# blueprints
+files.image.title: Image
+files.video.title: Video
+files.pdf.title: PDF

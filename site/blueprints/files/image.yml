@@ -1,0 +1,8 @@
+title: files.image.title
+
+accept:
+  mime: image/*
+  type: image
+
+fields:
+  hidden: true
