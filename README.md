@@ -10,12 +10,14 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 
 ## Features
 
-- Uses [DDEV](https://ddev.com/), a Docker-based development environment;
-- [Vite](https://vitejs.dev/) with [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
-- [TailwindCSS](https://tailwindcss.com/);
-- SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
-- Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
-- Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin.
+- 🐳 Uses [DDEV](https://ddev.com/), a Docker-based development environment;
+- ⚡️️ [Vite](https://vitejs.dev/) with [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
+- 🍃 CSS with [TailwindCSS](https://tailwindcss.com/) framework;
+- 🚕 Pages transitions and preloading with [Taxi.js](https://taxi.js.org/);
+- ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
+- 🔎 SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
+- 🌱 Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
+- 🔥 Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin;
 - and more...
 
 ## Documentation
@@ -191,6 +193,7 @@ APP_DEBUG=false
 
 - Page transitions and preloading with [Taxi.js](https://taxi.js.org/);
 - Reactivity with [Alpine.js](https://alpinejs.dev/);
+- CSS with [TailwindCSS](https://tailwindcss.com/) framework;
 - Helper to write better responsive design with less code using [Fluid](https://fluid.tw/).
 
 ## User Roles
