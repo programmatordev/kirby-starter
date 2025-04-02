@@ -257,6 +257,23 @@ namespace Kirby\Cms
             return $instance->robots($lang);
         }
     }
+    class File
+    {
+        /**
+         * Returns the hidden field.
+         *
+         * Uses a `hidden` field in the `files/image` blueprint.\
+         * Uses a `hidden` field in the `files/pdf` blueprint.\
+         * Uses a `hidden` field in the `files/video` blueprint.
+         *
+         * @see https://getkirby.com/docs/reference/panel/fields/hidden
+         */
+        public function hidden(): \Kirby\Content\Field
+        {
+            /** @var \Kirby\Cms\File $instance */
+            return $instance->hidden();
+        }
+    }
     class Layout
     {
         /**
