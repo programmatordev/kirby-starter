@@ -2,7 +2,7 @@ Title: Error
 
 ----
 
-Text: 
+Text: Page not found.
 
 ----
 
