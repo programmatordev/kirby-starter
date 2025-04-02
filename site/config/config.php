@@ -19,6 +19,7 @@ return [
     ],
     'thumbs.format' => 'webp',
     'tobimori.seo.lang' => env('APP_LANGUAGE', 'en'),
+    'tobimori.seo.sitemap.excludeTemplates' => ['error'],
     'ready' => function(App $kirby) {
         $user = $kirby->user();
         $isAdmin = $user?->isAdmin() ?? false;
