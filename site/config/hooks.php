@@ -3,7 +3,7 @@
 use Kirby\Cms\App;
 
 return [
-    'page.update:after' => function() {
+    'page.update:after' => function () {
         /** @var App $this */
         $debug = $this->option('debug');
 

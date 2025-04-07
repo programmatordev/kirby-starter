@@ -2,7 +2,7 @@
 
 use Kirby\Cms\App;
 
-return function(App $kirby) {
+return function (App $kirby) {
     $user = $kirby->user();
     $isAdmin = $user?->isAdmin() ?? false;
 
