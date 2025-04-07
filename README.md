@@ -37,39 +37,51 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 
 ## Get Started
 
-Before starting, make sure you have [DDEV](https://ddev.com/get-started/) installed. If not, follow their instructions [here](https://ddev.com/get-started/).
+Before starting, make sure you have [DDEV](https://ddev.com/get-started/) installed. 
+If not, follow their instructions [here](https://ddev.com/get-started/).
 
 `STEP 1`
 
 Download this project to a directory of your choosing.
 
-`STEP 2` 
+`STEP 2`
+
+Open the `.ddev/config.yaml` file and update the `name` property to match your project's name. 
+This setting determines the domain for your local environment.
+
+For example, if you set `name` to `kirby-project`, your local domain will be `https://kirby-project.ddev.site`.
+
+`STEP 3` 
 
 On your terminal, go to your project directory and run the following commands:
 
 ```bash
-ddev start # initialize Docker and all required containers
+# initialize Docker and all required containers
+# the local domain will be given to you at the end of this process (check step 2)
+ddev start
 ```
 
 ```bash
-ddev composer install # install PHP dependencies
+# install PHP dependencies
+ddev composer install
 ```
 
 ```bash
-ddev npm install # install Node.js dependencies
+# install Node.js dependencies
+ddev npm install
 ```
 
-`STEP 3` 
+`STEP 4` 
 
 Include a `.env` file in your project root.
 A `.env.example` file already exists, so you can either rename it or create a new one.
 
-`STEP 4` 
+`STEP 5` 
 
-To launch the project in the browser, run the following command:
+Run the following command to start development mode:
 
 ```bash
-ddev launch
+ddev npm run dev
 ```
 
 ## Development

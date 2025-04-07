@@ -6,13 +6,16 @@ use Kirby\Toolkit\Str;
 
 class PanelHelper
 {
-    static function buildMenuPage(string $icon, string $label, string $link): array
+    static function buildMenuEntry(string $icon, string $label, string $link, bool $isEnabled = true): array
     {
         return [
             'icon' => $icon,
             'label' => $label,
             'link' => $link,
-            'current' => fn() => self::isCurrentPage($link)
+            'current' => self::isCurrentPage($link),
+            // decide to show menu entry or not
+            // for example, can be useful in cases where it should only be enabled for certain roles
+            'menu' => $isEnabled
         ];
     }
 
