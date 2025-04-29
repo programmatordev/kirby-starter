@@ -222,7 +222,8 @@ namespace Kirby\Cms
         /**
          * Returns the text field.
          *
-         * Uses a `textarea` field in the `pages/default` blueprint.
+         * Uses a `textarea` field in the `pages/default` blueprint.\
+         * Uses a `textarea` field in the `pages/error` blueprint.
          *
          * @see https://getkirby.com/docs/reference/panel/fields/textarea
          */
