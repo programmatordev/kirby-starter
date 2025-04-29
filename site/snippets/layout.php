@@ -21,10 +21,10 @@
     <?= snippet('favicon') ?>
 
     <?= $slots->styles() ?>
-    <?= vite()->css('assets/js/app.js') ?>
+    <?= vite()->css('assets/scripts/app.js') ?>
 
     <?= $slots->scripts() ?>
-    <?= vite()->js('assets/js/app.js', ['defer' => true]) ?>
+    <?= vite()->js('assets/scripts/app.js', ['defer' => true]) ?>
 
     <?= snippet('consent/consent') ?>
   </head>
