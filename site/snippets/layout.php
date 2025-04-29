@@ -6,17 +6,16 @@
 ?>
 
 <!DOCTYPE html>
-<html
-  lang="<?= $site->lang() ?>"
-  data-consent='<?= Json::encode([
-    'googleAnalytics' => $site->analyticsPage()->googleAnalyticsId()->isNotEmpty()
-      ? $site->analyticsPage()->googleAnalyticsId()->value()
-      : null,
-  ]) ?>'
->
+<html lang="<?= $site->lang() ?>">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="site-consent-providers" content='<?= Json::encode([
+      'googleAnalytics' => $site->analyticsPage()->googleAnalyticsId()->isNotEmpty()
+        ? $site->analyticsPage()->googleAnalyticsId()->value()
+        : null,
+    ]) ?>'>
+
     <?= snippet('seo/head') ?>
     <?= snippet('favicon') ?>
 
