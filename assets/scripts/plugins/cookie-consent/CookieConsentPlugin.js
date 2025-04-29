@@ -11,8 +11,11 @@ export default class CookieConsentPlugin {
   static init() {
     // create custom merge
     const merge = mergician({ appendArrays: true, dedupArrays: true });
-    // get consent providers settings
-    const consentProviders = JSON.parse(document.documentElement.getAttribute('data-consent'));
+    // get consent providers settings from meta tag
+    const providers = JSON.parse(
+      document.querySelector('meta[name="site-consent-providers"]').getAttribute('content')
+    );
+
 
     /** @type {import("../../types").CookieConsentConfig} */
     let config = {
@@ -31,7 +34,7 @@ export default class CookieConsentPlugin {
 
     // CATEGORIES
     // add additional categories according to configured providers
-    if (consentProviders.googleAnalytics) {
+    if (providers.googleAnalytics) {
       config.categories = merge(config.categories, googleAnalytics.categories);
     }
 
@@ -49,7 +52,7 @@ export default class CookieConsentPlugin {
       }
 
       // merge providers section data
-      if (consentProviders.googleAnalytics) {
+      if (providers.googleAnalytics) {
         sections = merge(sections, googleAnalytics.sections[language]);
       }
 
