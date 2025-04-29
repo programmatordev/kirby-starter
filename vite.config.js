@@ -12,7 +12,7 @@ const outDir = 'build';
 const assetsDir = 'assets';
 
 // find all files from the assets directory
-const input = [...globSync(['assets/js/app.js', 'assets/*(images|fonts)/**/*.*'])].map(
+const input = [...globSync(['assets/scripts/app.js', 'assets/*(images|fonts)/**/*.*'])].map(
   (path) => resolve(process.cwd(), path)
 );
 
@@ -31,8 +31,8 @@ export default defineConfig(({ mode }) => ({
             return 'vendor';
           }
         },
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'scripts/[name]-[hash].js',
+        entryFileNames: 'scripts/[name]-[hash].js',
         assetFileNames: ({ names }) => {
           const fileName = names ?? '';
 
@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => ({
           }
 
           if (/\.css$/.test(fileName)) {
-            return 'css/[name]-[hash][extname]';
+            return 'styles/[name]-[hash][extname]';
           }
 
           // default value

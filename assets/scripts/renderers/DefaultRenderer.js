@@ -1,5 +1,5 @@
 import { Renderer } from "@unseenco/taxi";
-import CookieConsentPlugin from "../plugins/cookie-consent/cookie-consent.js";
+import CookieConsentPlugin from "../plugins/cookie-consent/CookieConsentPlugin.js";
 
 export default class DefaultRenderer extends Renderer {
   initialLoad() {
