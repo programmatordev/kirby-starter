@@ -226,7 +226,7 @@ To disable this behavior, set the `hideAdminUsers` to `false`:
 
 return [
     // ...
-    'programmatordev.users-extended.hideAdminUsers' => false
+    'programmatordev.panel-extended.hideAdminUsers' => false
 ];
 ```
 

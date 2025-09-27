@@ -3,14 +3,7 @@
 use Kirby\Cms\App;
 
 App::plugin('programmatordev/panel-extended', [
-    'translations' => A::keyBy(
-        A::map(
-            Dir::read($dir = dirname(__DIR__, 2) . '/translations'),
-            fn ($file) => A::merge(
-                ['lang' => F::name($file)],
-                Yaml::decode(F::read($dir . '/' . $file))
-            )
-        ),
-        'lang'
-    )
+    'options' => require __DIR__ . '/options.php',
+    'areas' => require __DIR__ . '/areas.php',
+    'translations' => require __DIR__ . '/translations.php',
 ]);
