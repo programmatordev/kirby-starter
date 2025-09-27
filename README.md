@@ -42,14 +42,14 @@ If not, follow their instructions [here](https://ddev.com/get-started/).
 
 `STEP 1`
 
-Download this project to a directory of your choosing.
+Download this project to a directory of your choice.
 
 `STEP 2`
 
 Open the `.ddev/config.yaml` file and update the `name` property to match your project's name. 
 This setting determines the domain for your local environment.
 
-For example, if you set `name` to `kirby-project`, your local domain will be `https://kirby-project.ddev.site`.
+For example, if you set `name` to `my-project`, your local domain will be `https://my-project.ddev.site`.
 
 `STEP 3` 
 
@@ -86,9 +86,9 @@ ddev npm run dev
 
 ## Development
 
-This project uses [Vite](https://vitejs.dev/) and [TailwindCSS](https://tailwindcss.com/) for frontend development.
+This project uses [Vite](https://vitejs.dev/) for frontend development.
 
-Make sure to run the following command when in development mode:
+Run the following command when in development mode:
 
 ```bash
 ddev npm run dev
@@ -96,7 +96,7 @@ ddev npm run dev
 
 ### Kirby CLI
 
-The [Kirby CLI](https://github.com/getkirby/cli) is available to help with development. Make sure to run the following command for all available options:
+The [Kirby CLI](https://github.com/getkirby/cli) is available to help with development. Run the following command for all available options:
 
 ```bash
 ddev kirby
@@ -115,10 +115,10 @@ Some recommended pages:
 
 ### Assets
 
-All assets files should be included in the `assets` folder in the root directory:
+All assets should be included in the `assets` folder in the root directory:
 
-- `assets/css` for CSS files
-- `assets/js` for JS files
+- `assets/styles` for CSS files
+- `assets/scripts` for JS files
 - `assets/images` for images
 - `assets/fonts` for fonts
 
@@ -135,7 +135,7 @@ To include other global CSS and JS files, use the following code in the `<head>`
 <?= vite().css('path/to/file.css') ?>
 ```
 
-For JS files, always include `defer` for optimal performance:
+For JS files, always include `defer` for better performance:
 
 ```php
 <?= vite().js('path/to/file.js', ['defer' => true]) ?>
@@ -161,7 +161,7 @@ More information about [slots](https://getkirby.com/docs/guide/templates/snippet
 
 ### Static Assets Handling
 
-To add static assets to a page (images, fonts, etc.) use the following code:
+To add static assets to a page (images, fonts, etc.), use the following code:
 
 ```php
 <?= vite().file('path/to/file.svg') ?>
@@ -187,7 +187,7 @@ Using Tailwind, considering that CSS files are in `assets/css` and images are in
 
 ## Production
 
-Before deploying the site to production, or to check the production version locally, make sure to run the following command:
+Before deploying the site to production or to check the production version locally, make sure to run the following command:
 
 ```bash
 ddev npm run build
@@ -225,9 +225,8 @@ To disable this behavior, set the `hideAdminUsers` to `false`:
 // config.php
 
 return [
-    'programmatordev.users-extended' => [
-        'hideAdminUsers' => false
-    ]
+    // ...
+    'programmatordev.users-extended.hideAdminUsers' => false
 ];
 ```
 
