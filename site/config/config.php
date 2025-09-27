@@ -10,7 +10,7 @@ return [
     'panel.language' => env('APP_PANEL_LANGUAGE', 'en'),
     'panel.menu' => require __DIR__ . '/panelMenu.php',
     'thumbs.format' => 'webp',
-    'tobimori.seo.lang' => env('APP_LANGUAGE', 'en'),
+    'tobimori.seo.locale' => env('APP_LANGUAGE', 'en'),
     'tobimori.seo.sitemap.excludeTemplates' => ['error'],
     'ready' => require __DIR__ . '/ready.php',
     'hooks' => require __DIR__ . '/hooks.php',
