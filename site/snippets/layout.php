@@ -1,18 +1,16 @@
 <?php
-/** @var \Kirby\Cms\App $kirby */
-/** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 /** @var \Kirby\Template\Slots $slots */
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $site->lang() ?>">
+<html lang="<?= site()->lang() ?>">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="site-consent-providers" content='<?= Json::encode([
-      'googleAnalytics' => $site->analyticsPage()->googleAnalyticsId()->isNotEmpty()
-        ? $site->analyticsPage()->googleAnalyticsId()->value()
+      'googleAnalytics' => site()->analyticsPage()->googleAnalyticsId()->isNotEmpty()
+        ? site()->analyticsPage()->googleAnalyticsId()->value()
         : null,
     ]) ?>'>
 
@@ -28,25 +26,23 @@
     <?= snippet('consent/consent') ?>
   </head>
 
-  <body class="~p-8/24 ~text-base/xl bg-teal-500">
-    <h1 class="font-mono ~text-5xl/7xl"><?= $site->title() ?></h1>
+  <body class="p-8 text-base bg-teal-500 sm:p-24 sm:text-xl">
+    <h1 class="font-mono font-bold text-5xl sm:text-7xl"><?= site()->title() ?></h1>
 
     <nav class="mt-6">
       <ul class="flex gap-2">
-        <?php foreach ($site->pages()->listed() as $item): ?>
+        <?php foreach (site()->pages()->listed() as $item): ?>
           <li><a class="underline" href="<?= $item->url() ?>"><?= $item->title() ?></a></li>
         <?php endforeach; ?>
       </ul>
     </nav>
 
     <main class="py-6" data-taxi>
-      <div data-taxi-view>
-        <?= $slots->content() ?>
-      </div>
+      <?= $slots->content() ?>
     </main>
 
     <div class="[&_a]:underline" x-data="{ count: 0 }">
-      <button class="py-1 px-2 bg-black text-teal-500" @click="count++">Click me</button>
+      <button class="py-1 px-2 cursor-pointer bg-black text-teal-500" @click="count++">Click me</button>
       <span x-text="count"></span>
 
       <template x-if="count > 0">

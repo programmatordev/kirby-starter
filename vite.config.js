@@ -1,7 +1,8 @@
-import { globSync } from 'glob';
-import { resolve } from 'path';
-import { defineConfig } from 'vite';
-import kirby from 'vite-plugin-kirby';
+import { globSync } from "glob";
+import { resolve } from "path";
+import { defineConfig } from "vite";
+import kirby from "vite-plugin-kirby";
+import tailwindcss from "@tailwindcss/vite";
 
 // set port and origin for server config
 const port = 5173;
@@ -25,12 +26,6 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       input: input,
       output: {
-        manualChunks: (id) => {
-          // split vendor chunk for cacheability
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
-        },
         chunkFileNames: 'scripts/[name]-[hash].js',
         entryFileNames: 'scripts/[name]-[hash].js',
         assetFileNames: ({ names }) => {
@@ -73,6 +68,7 @@ export default defineConfig(({ mode }) => ({
         'site/(templates|snippets|controllers|models|layouts)/**/*.php',
         'content/**/*',
       ]
-    })
+    }),
+    tailwindcss(),
   ]
 }));
