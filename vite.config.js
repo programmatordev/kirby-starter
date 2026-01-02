@@ -13,9 +13,11 @@ const outDir = 'build';
 const assetsDir = 'assets';
 
 // find all files from the assets directory
-const input = [...globSync(['assets/scripts/app.js', 'assets/*(images|fonts)/**/*.*'])].map(
-  (path) => resolve(process.cwd(), path)
-);
+const input = globSync([
+  'assets/scripts/app.js',
+  'assets/styles/app.css',
+  'assets/{images,fonts}/**/*.*'
+]).map((path) => resolve(process.cwd(), path));
 
 export default defineConfig(({ mode }) => ({
   base: mode === 'development' ? '/' : `/${outDir}`,
@@ -28,14 +30,14 @@ export default defineConfig(({ mode }) => ({
       output: {
         chunkFileNames: 'scripts/[name]-[hash].js',
         entryFileNames: 'scripts/[name]-[hash].js',
-        assetFileNames: ({ names }) => {
-          const fileName = names ?? '';
+        assetFileNames: (chunkInfo) => {
+          const fileName = chunkInfo.names?.[0] ?? '';
 
-          if (/\.(gif|jpe?g|png|svg)$/.test(fileName)) {
+          if (/\.(gif|jpe?g|png|svg|webp|avif)$/i.test(fileName)) {
             return 'images/[name]-[hash][extname]';
           }
 
-          if (/\.(woff2?)$/.test(fileName)) {
+          if (/\.(woff2?|eot|ttf|otf)$/i.test(fileName)) {
             return 'fonts/[name]-[hash][extname]';
           }
 
@@ -65,7 +67,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     kirby({
       watch: [
-        'site/(templates|snippets|controllers|models|layouts)/**/*.php',
+        'site/(templates|snippets|controllers|models|collections)/**/*.php',
         'content/**/*',
       ]
     }),
