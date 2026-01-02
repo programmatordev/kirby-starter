@@ -1,4 +1,7 @@
 @import "tailwindcss";
 
-/* https://alpinejs.dev/directives/cloak */
-[x-cloak] { @apply hidden! }
+@layer base {
+  /* https://alpinejs.dev/directives/cloak */
+  [x-cloak] { @apply hidden! }
+}
+
