@@ -13,5 +13,4 @@ return [
     'tobimori.seo.locale' => env('APP_LANGUAGE', 'en'),
     'tobimori.seo.sitemap.excludeTemplates' => ['error'],
     'ready' => require __DIR__ . '/ready.php',
-    'hooks' => require __DIR__ . '/hooks.php',
 ];
