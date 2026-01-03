@@ -17,10 +17,7 @@
     <?= snippet('seo/head') ?>
     <?= snippet('favicon') ?>
 
-    <?= $slots->styles() ?>
     <?= vite()->css('assets/scripts/app.js') ?>
-
-    <?= $slots->scripts() ?>
     <?= vite()->js('assets/scripts/app.js', ['defer' => true]) ?>
 
     <?= snippet('consent/consent') ?>

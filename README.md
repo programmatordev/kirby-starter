@@ -141,24 +141,6 @@ For JS files, always include `defer` for better performance:
 <?= vite().js('path/to/file.js', ['defer' => true]) ?>
 ```
 
-To include CSS and JS files in a specific page, use the existing `slots` for that purpose:
-
-```php
-<?php slot('styles') ?>
-    <?= vite().css('path/to/file.css') ?>
-<?php endslot() ?>
-
-<?php slot('scripts') ?>
-    <?= vite().js('path/to/file.js', ['defer' => true]) ?>
-<?php endslot() ?>
-
-<?php slot('content') ?>
-    <!-- HTML page content... -->
-<?php endslot() ?>
-```
-
-More information about [slots](https://getkirby.com/docs/guide/templates/snippets#passing-slots-to-snippets).
-
 ### Static Assets Handling
 
 To add static assets to a page (images, fonts, etc.), use the following code:
@@ -240,5 +222,4 @@ Thank you to all plugin's authors and contributors. Make sure to check and suppo
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
 - [kirby-seo](https://github.com/tobimori/kirby-seo)
-- [kirby-types](https://github.com/lukaskleinschmidt/kirby-types)
 - [kirby-vite](https://github.com/arnoson/kirby-vite)
