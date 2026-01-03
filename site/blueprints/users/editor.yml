@@ -7,9 +7,10 @@ permissions:
     system: false
     users: false
   user:
+    changeRole: false
     delete: false
 
-# hide default notice
+# hide the default notice
 # change if you want to add more fields related to a role
 fields:
   hidden: true
