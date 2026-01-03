@@ -41,6 +41,7 @@ Icon
 # Editors
 # (sensitive workspace files)
 # ---------------------------
+
 *.sublime-workspace
 /.vscode
 /.idea

@@ -201,13 +201,6 @@ When deploying, set the `APP_DEBUG` environment variable to `false`:
 APP_DEBUG=false
 ```
 
-## Libraries
-
-- Page transitions and preloading with [Taxi.js](https://taxi.js.org/);
-- Reactivity with [Alpine.js](https://alpinejs.dev/);
-- CSS with [TailwindCSS](https://tailwindcss.com/) framework;
-- Helper to write better responsive design with less code using [Fluid](https://fluid.tw/).
-
 ## User Roles
 
 By default, these three user roles are available:
