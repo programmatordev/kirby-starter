@@ -17,7 +17,6 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
 - 🔎 SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - 🌱 Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
-- 🔥 Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin;
 - and more...
 
 ## Documentation
