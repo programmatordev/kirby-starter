@@ -15,7 +15,7 @@
     "getkirby/cms": "^5.2",
     "arnoson/kirby-vite": "^5.6",
     "beebmx/kirby-env": "^5.1",
-    "tobimori/kirby-seo": "2.0.0-alpha.3",
+    "tobimori/kirby-seo": "2.0.0-alpha.8",
     "moritzebeling/kirby-favicon": "^1.0"
   },
   "require-dev": {
