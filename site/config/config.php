@@ -2,7 +2,7 @@
 
 use Beebmx\KirbyEnv;
 
-KirbyEnv::load('.');
+KirbyEnv::load(dirname(__DIR__, 2));
 
 return [
     'debug' => env('APP_DEBUG', true),
