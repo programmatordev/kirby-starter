@@ -7,7 +7,7 @@ export default class FadeTransition extends Transition {
   cssEasing = 'cubic-bezier(0.23, 1, 0.32, 1)';
 
   onLeave({ from, trigger, done }) {
-    // scroll to top/left before page transition
+    // scroll to top/left on page transition
     animateScrollTo([0, 0], {
       speed: this.duration,
       minDuration: this.duration,
@@ -19,23 +19,13 @@ export default class FadeTransition extends Transition {
     });
 
     this.wrapper
-      .animate(
-        { opacity: 0 },
-        { duration: this.duration, fill: 'forwards', easing: this.cssEasing }
-      )
-      .onfinish = () => {
-        done();
-      }
+      .animate({ opacity: 0 }, { duration: this.duration, fill: 'forwards', easing: this.cssEasing })
+      .onfinish = () => done();
   }
 
   onEnter({ to, trigger, done }) {
     this.wrapper
-      .animate(
-        { opacity: 1 },
-        { duration: this.duration, fill: 'forwards', easing: this.cssEasing }
-      )
-      .onfinish = () => {
-        done();
-      }
+      .animate({ opacity: 1 }, { duration: this.duration, fill: 'forwards', easing: this.cssEasing })
+      .onfinish = () => done();
   }
 }
