@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @layer base {
+  /* try to match Figma font rendering */
+  body { @apply antialiased }
   /* https://alpinejs.dev/directives/cloak */
   [x-cloak] { @apply hidden! }
 }
