@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "KirbyStarter\\": "classes/"
+      "App\\": "site/classes/"
     }
   },
   "config": {
