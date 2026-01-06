@@ -1,4 +1,4 @@
-import { CATEGORY_ADVERTISEMENT, CATEGORY_ANALYTICS, CATEGORY_FUNCTIONALITY, CATEGORY_SECURITY } from "../utils/categories.js";
+import { CATEGORY_ADVERTISEMENT, CATEGORY_ANALYTICS, CATEGORY_FUNCTIONALITY } from "../utils/categories.js";
 
 export const googleAnalytics = {
   // categories related to this provider
@@ -13,8 +13,7 @@ export const googleAnalytics = {
       }
     },
     [CATEGORY_ADVERTISEMENT]: {},
-    [CATEGORY_FUNCTIONALITY]: {},
-    [CATEGORY_SECURITY]: {}
+    [CATEGORY_FUNCTIONALITY]: {}
   },
   // section information related to this provider
   // to be appended to base section information

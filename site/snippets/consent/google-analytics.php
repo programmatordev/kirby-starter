@@ -18,7 +18,7 @@ $googleAnalyticsId = $trackers['googleAnalyticsId'];
         ad_personalization: 'denied',
         functionality_storage: 'denied',
         personalization_storage: 'denied',
-        security_storage: 'denied',
+        security_storage: 'granted',
         wait_for_update: 500
     });
 
@@ -46,12 +46,6 @@ $googleAnalyticsId = $trackers['googleAnalyticsId'];
     gtag('consent', 'update', {
         functionality_storage: 'granted',
         personalization_storage: 'granted'
-    });
-  </script>
-
-  <script type="text/plain" data-category="security">
-    gtag('consent', 'update', {
-        security_storage: 'granted'
     });
   </script>
 <?php endif; ?>

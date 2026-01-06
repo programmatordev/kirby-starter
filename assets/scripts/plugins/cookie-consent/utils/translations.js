@@ -1,4 +1,4 @@
-import { CATEGORY_NECESSARY, CATEGORY_ANALYTICS, CATEGORY_ADVERTISEMENT, CATEGORY_FUNCTIONALITY, CATEGORY_SECURITY } from './categories.js';
+import { CATEGORY_NECESSARY, CATEGORY_ANALYTICS, CATEGORY_ADVERTISEMENT, CATEGORY_FUNCTIONALITY } from './categories.js';
 
 export const HEADER_SECTION = 'headerSection';
 
@@ -63,11 +63,6 @@ export const baseSections = {
       title: 'Functionality',
       description: 'These cookies allow us to remember choices you make, such as your language or region, in order to provide enhanced and more personalised features. They are only used with your consent.',
       linkedCategory: CATEGORY_FUNCTIONALITY,
-    },
-    [CATEGORY_SECURITY]: {
-      title: 'Security',
-      description: 'These cookies are used to ensure the security of the website, including the prevention of misuse and fraudulent activities.',
-      linkedCategory: CATEGORY_SECURITY,
     }
   },
 
@@ -95,11 +90,6 @@ export const baseSections = {
       title: 'Funcionalidade',
       description: 'Estes cookies permitem memorizar escolhas feitas por si, como o idioma ou a região, de forma a disponibilizar funcionalidades personalizadas. Só são utilizados mediante o seu consentimento.',
       linkedCategory: CATEGORY_FUNCTIONALITY,
-    },
-    [CATEGORY_SECURITY]: {
-      title: 'Segurança',
-      description: 'Estes cookies são utilizados para garantir a segurança do website, incluindo a prevenção de utilizações abusivas e tentativas de fraude.',
-      linkedCategory: CATEGORY_SECURITY,
     }
   }
 }
