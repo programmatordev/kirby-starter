@@ -1,12 +1,15 @@
 <?php
 
 use Kirby\Cms\App;
-use Kirby\Cms\Page;
 
 App::plugin('programmatordev/site-extended', [
     'siteMethods' => [
-        'analyticsPage' => function(): Page {
-            return page('trackers');
+        'trackers' => function(): array {
+            $trackersPage = page('trackers');
+
+            return [
+                'googleAnalyticsId' => $trackersPage->googleAnalyticsId()->value() ?: null
+            ];
         }
     ]
 ]);

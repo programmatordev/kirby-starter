@@ -1,7 +1,7 @@
 import * as CookieConsent from "vanilla-cookieconsent";
 import { mergician } from "mergician";
 
-import { CAT_NECESSARY } from './utils/categories.js';
+import { CATEGORY_NECESSARY } from "./utils/categories.js";
 import { baseTranslations, baseSections, HEADER_SECTION } from "./utils/translations.js";
 import { googleAnalytics } from "./providers/google-analytics.js";
 
@@ -11,16 +11,11 @@ export default class CookieConsentPlugin {
   static init() {
     // create custom merge
     const merge = mergician({ appendArrays: true, dedupArrays: true });
-    // get consent providers settings from meta tag
-    const providers = JSON.parse(
-      document.querySelector('meta[name="site-consent-providers"]').getAttribute('content')
-    );
-
 
     /** @type {import("../../types").CookieConsentConfig} */
-    let config = {
+    const config = {
       categories: {
-        [CAT_NECESSARY]: {
+        [CATEGORY_NECESSARY]: {
           enabled: true,
           readOnly: true
         }
@@ -34,14 +29,14 @@ export default class CookieConsentPlugin {
 
     // CATEGORIES
     // add additional categories according to configured providers
-    if (providers.googleAnalytics) {
+    if (window.trackers.googleAnalyticsId) {
       config.categories = merge(config.categories, googleAnalytics.categories);
     }
 
     // SECTIONS
     // set sections for all languages
     for (const language in config.language.translations) {
-      // add header section for all languages
+      // add the header section for all languages
       let sections = {
         [HEADER_SECTION]: baseSections[language][HEADER_SECTION]
       }
@@ -52,7 +47,7 @@ export default class CookieConsentPlugin {
       }
 
       // merge providers section data
-      if (providers.googleAnalytics) {
+      if (window.trackers.googleAnalyticsId) {
         sections = merge(sections, googleAnalytics.sections[language]);
       }
 
