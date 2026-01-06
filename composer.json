@@ -5,26 +5,25 @@
   "keywords": ["kirby", "kirby-cms", "tailwindcss", "ddev", "vite", "alpinejs"],
   "authors": [
     {
-      "name": "André Pimpão",
-      "email": "a.pimpao@programmator.dev",
+      "name": "Programmator",
+      "email": "hotline@programmator.dev",
       "homepage": "https://programmator.dev"
     }
   ],
   "require": {
-    "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
-    "getkirby/cms": "^4.7.0",
-    "arnoson/kirby-vite": "^5.4",
-    "beebmx/kirby-env": "^4.2",
-    "tobimori/kirby-seo": "^1.1",
+    "php": ">=8.3.0",
+    "getkirby/cms": "^5.2",
+    "arnoson/kirby-vite": "^5.6",
+    "beebmx/kirby-env": "^5.1",
+    "tobimori/kirby-seo": "2.0.0-alpha.8",
     "moritzebeling/kirby-favicon": "^1.0"
   },
   "require-dev": {
-    "symfony/var-dumper": "^6.4",
-    "lukaskleinschmidt/kirby-types": "^2.0"
+    "symfony/var-dumper": "^7.4"
   },
   "autoload": {
     "psr-4": {
-      "KirbyStarter\\": "classes/"
+      "App\\": "site/classes/"
     }
   },
   "config": {

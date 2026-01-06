@@ -15,7 +15,6 @@ package-lock.json
 # ------------
 
 /site/plugins/*
-!/site/plugins/kirby-users-extended
 !/site/plugins/kirby-panel-extended
 !/site/plugins/kirby-site-extended
 /site/config/vite.config.php
@@ -42,6 +41,7 @@ Icon
 # Editors
 # (sensitive workspace files)
 # ---------------------------
+
 *.sublime-workspace
 /.vscode
 /.idea

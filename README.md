@@ -17,7 +17,6 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
 - 🔎 SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - 🌱 Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
-- 🔥 Auto-generated type hints with [kirby-types](https://github.com/lukaskleinschmidt/kirby-types) plugin;
 - and more...
 
 ## Documentation
@@ -42,14 +41,14 @@ If not, follow their instructions [here](https://ddev.com/get-started/).
 
 `STEP 1`
 
-Download this project to a directory of your choosing.
+Download this project to a directory of your choice.
 
 `STEP 2`
 
 Open the `.ddev/config.yaml` file and update the `name` property to match your project's name. 
 This setting determines the domain for your local environment.
 
-For example, if you set `name` to `kirby-project`, your local domain will be `https://kirby-project.ddev.site`.
+For example, if you set `name` to `my-project`, your local domain will be `https://my-project.ddev.site`.
 
 `STEP 3` 
 
@@ -86,9 +85,9 @@ ddev npm run dev
 
 ## Development
 
-This project uses [Vite](https://vitejs.dev/) and [TailwindCSS](https://tailwindcss.com/) for frontend development.
+This project uses [Vite](https://vitejs.dev/) for frontend development.
 
-Make sure to run the following command when in development mode:
+Run the following command when in development mode:
 
 ```bash
 ddev npm run dev
@@ -96,7 +95,7 @@ ddev npm run dev
 
 ### Kirby CLI
 
-The [Kirby CLI](https://github.com/getkirby/cli) is available to help with development. Make sure to run the following command for all available options:
+The [Kirby CLI](https://github.com/getkirby/cli) is available to help with development. Run the following command for all available options:
 
 ```bash
 ddev kirby
@@ -115,10 +114,10 @@ Some recommended pages:
 
 ### Assets
 
-All assets files should be included in the `assets` folder in the root directory:
+All assets should be included in the `assets` folder in the root directory:
 
-- `assets/css` for CSS files
-- `assets/js` for JS files
+- `assets/styles` for CSS files
+- `assets/scripts` for JS files
 - `assets/images` for images
 - `assets/fonts` for fonts
 
@@ -135,33 +134,15 @@ To include other global CSS and JS files, use the following code in the `<head>`
 <?= vite().css('path/to/file.css') ?>
 ```
 
-For JS files, always include `defer` for optimal performance:
+For JS files, always include `defer` for better performance:
 
 ```php
 <?= vite().js('path/to/file.js', ['defer' => true]) ?>
 ```
 
-To include CSS and JS files in a specific page, use the existing `slots` for that purpose:
-
-```php
-<?php slot('styles') ?>
-    <?= vite().css('path/to/file.css') ?>
-<?php endslot() ?>
-
-<?php slot('scripts') ?>
-    <?= vite().js('path/to/file.js', ['defer' => true]) ?>
-<?php endslot() ?>
-
-<?php slot('content') ?>
-    <!-- HTML page content... -->
-<?php endslot() ?>
-```
-
-More information about [slots](https://getkirby.com/docs/guide/templates/snippets#passing-slots-to-snippets).
-
 ### Static Assets Handling
 
-To add static assets to a page (images, fonts, etc.) use the following code:
+To add static assets to a page (images, fonts, etc.), use the following code:
 
 ```php
 <?= vite().file('path/to/file.svg') ?>
@@ -187,7 +168,7 @@ Using Tailwind, considering that CSS files are in `assets/css` and images are in
 
 ## Production
 
-Before deploying the site to production, or to check the production version locally, make sure to run the following command:
+Before deploying the site to production or to check the production version locally, make sure to run the following command:
 
 ```bash
 ddev npm run build
@@ -200,13 +181,6 @@ When deploying, set the `APP_DEBUG` environment variable to `false`:
 
 APP_DEBUG=false
 ```
-
-## Libraries
-
-- Page transitions and preloading with [Taxi.js](https://taxi.js.org/);
-- Reactivity with [Alpine.js](https://alpinejs.dev/);
-- CSS with [TailwindCSS](https://tailwindcss.com/) framework;
-- Helper to write better responsive design with less code using [Fluid](https://fluid.tw/).
 
 ## User Roles
 
@@ -225,9 +199,8 @@ To disable this behavior, set the `hideAdminUsers` to `false`:
 // config.php
 
 return [
-    'programmatordev.users-extended' => [
-        'hideAdminUsers' => false
-    ]
+    // ...
+    'programmatordev.panel-extended.hideAdminUsers' => false
 ];
 ```
 
@@ -248,5 +221,4 @@ Thank you to all plugin's authors and contributors. Make sure to check and suppo
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
 - [kirby-seo](https://github.com/tobimori/kirby-seo)
-- [kirby-types](https://github.com/lukaskleinschmidt/kirby-types)
 - [kirby-vite](https://github.com/arnoson/kirby-vite)

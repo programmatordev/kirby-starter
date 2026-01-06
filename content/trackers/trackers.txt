@@ -1,8 +1,12 @@
-Title: Analytics
+Title: Trackers
 
 ----
 
 Googleanalyticsid: 
+
+----
+
+Metapixelid: 
 
 ----
 

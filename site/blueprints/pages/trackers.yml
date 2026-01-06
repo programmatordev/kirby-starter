@@ -1,0 +1,33 @@
+title: trackers.page.title
+
+buttons:
+  settings: true
+  languages: true
+
+options:
+  changeSlug: false
+  changeStatus: false
+  create: false
+  delete: false
+  duplicate: false
+  list: false
+  move: false
+  preview: false
+  sort: false
+
+fields:
+  googleAnalyticsId:
+    label: trackers.googleAnalyticsId.label
+    type: text
+    placeholder: G-XXXXXXXXXX
+    help: trackers.googleAnalyticsId.help
+  metaPixelId:
+    label: trackers.metaPixelId.label
+    type: text
+    placeholder: XXXXXXXXX
+    help: trackers.metaPixelId.help
+  info:
+    label: false
+    type: info
+    theme: notice
+    text: trackers.page.notice

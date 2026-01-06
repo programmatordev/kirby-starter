@@ -1,10 +1,10 @@
-import { CAT_ADVERTISEMENT, CAT_ANALYTICS, CAT_FUNCTIONALITY, CAT_SECURITY } from "../utils/categories.js";
+import { CATEGORY_ADVERTISEMENT, CATEGORY_ANALYTICS, CATEGORY_FUNCTIONALITY } from "../utils/categories.js";
 
 export const googleAnalytics = {
   // categories related to this provider
   // and respective settings
   categories: {
-    [CAT_ANALYTICS]: {
+    [CATEGORY_ANALYTICS]: {
       autoClear: {
         cookies: [
           { name: /^_ga/ },
@@ -12,15 +12,14 @@ export const googleAnalytics = {
         ]
       }
     },
-    [CAT_ADVERTISEMENT]: {},
-    [CAT_FUNCTIONALITY]: {},
-    [CAT_SECURITY]: {}
+    [CATEGORY_ADVERTISEMENT]: {},
+    [CATEGORY_FUNCTIONALITY]: {}
   },
   // section information related to this provider
   // to be appended to base section information
   sections: {
     en: {
-      [CAT_ANALYTICS]: {
+      [CATEGORY_ANALYTICS]: {
         cookieTable: {
           headers: {
             name: 'Name',
@@ -45,8 +44,9 @@ export const googleAnalytics = {
         }
       },
     },
+
     pt: {
-      [CAT_ANALYTICS]: {
+      [CATEGORY_ANALYTICS]: {
         cookieTable: {
           headers: {
             name: 'Nome',

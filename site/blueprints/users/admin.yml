@@ -1,7 +1,7 @@
 title: role.admin.title
 description: role.admin.description
 
-# hide default notice
+# hide the default notice
 # change if you want to add more fields related to a role
 fields:
   hidden: true
