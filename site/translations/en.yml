@@ -6,11 +6,11 @@ role.owner.description: Has access to all content
 role.editor.title: Editor
 role.editor.description: Has access to all content, except users management
 
-# analytics
-analytics.page.title: Analytics
-analytics.page.notice: The cookies consent notification will be automatically adapted to be compliant with GDPR regulation according to the settings on this page.
-analytics.field.googleAnalytics.label: Google Analytics ID
-analytics.field.googleAnalytics.help: Set a <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics measurement ID</a> to include your Google tag on the website.
+# trackers
+trackers.page.title: Trackers
+trackers.page.notice: The cookies consent notification will be automatically adapted to be compliant with GDPR regulation according to the settings on this page.
+trackers.googleAnalyticsId.label: Google Analytics ID
+trackers.googleAnalyticsId.help: Set a <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics measurement ID</a> to include your Google tag on the website.
 
 # blueprints
 files.image.title: Image

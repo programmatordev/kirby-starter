@@ -8,7 +8,7 @@ return function () {
         'languages',
         'users',
         '-',
-        'analytics' => PanelHelper::buildMenuEntry('chart', 'analytics.page.title', 'pages/analytics'),
+        'trackers' => PanelHelper::buildMenuEntry('preview', 'trackers.page.title', 'pages/trackers'),
         '-',
         'system'
     ];

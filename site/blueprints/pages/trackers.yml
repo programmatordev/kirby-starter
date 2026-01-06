@@ -1,4 +1,8 @@
-title: analytics.page.title
+title: trackers.page.title
+
+buttons:
+  settings: true
+  languages: true
 
 options:
   changeSlug: false
@@ -13,12 +17,12 @@ options:
 
 fields:
   googleAnalyticsId:
-    label: analytics.field.googleAnalytics.label
+    label: trackers.googleAnalyticsId.label
     type: text
     placeholder: G-XXXXXXXXXX
-    help: analytics.field.googleAnalytics.help
+    help: trackers.googleAnalyticsId.help
   info:
     label: false
     type: info
     theme: notice
-    text: analytics.page.notice
+    text: trackers.page.notice

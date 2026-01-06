@@ -6,7 +6,7 @@ use Kirby\Cms\Page;
 App::plugin('programmatordev/site-extended', [
     'siteMethods' => [
         'analyticsPage' => function(): Page {
-            return page('analytics');
+            return page('trackers');
         }
     ]
 ]);
