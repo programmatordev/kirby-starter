@@ -21,6 +21,11 @@ fields:
     type: text
     placeholder: G-XXXXXXXXXX
     help: trackers.googleAnalyticsId.help
+  metaPixelId:
+    label: trackers.metaPixelId.label
+    type: text
+    placeholder: XXXXXXXXX
+    help: trackers.metaPixelId.help
   info:
     label: false
     type: info

@@ -8,7 +8,8 @@ App::plugin('programmatordev/site-extended', [
             $trackersPage = page('trackers');
 
             return [
-                'googleAnalyticsId' => $trackersPage->googleAnalyticsId()->value() ?: null
+                'googleAnalyticsId' => $trackersPage->googleAnalyticsId()->value() ?: null,
+                'metaPixelId' => $trackersPage->metaPixelId()->value() ?: null
             ];
         }
     ]

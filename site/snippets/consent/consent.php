@@ -9,3 +9,4 @@ $trackers = site()->trackers();
 </script>
 
 <?= snippet('consent/google-analytics', compact('trackers')) ?>
+<?= snippet('consent/meta-pixel', compact('trackers')) ?>

@@ -3,7 +3,9 @@ import { mergician } from "mergician";
 
 import { CATEGORY_NECESSARY } from "./utils/categories.js";
 import { baseTranslations, baseSections, HEADER_SECTION } from "./utils/translations.js";
+
 import { googleAnalytics } from "./providers/google-analytics.js";
+import { metaPixel } from "./providers/meta-pixel.js";
 
 import "vanilla-cookieconsent/dist/cookieconsent.css";
 
@@ -31,6 +33,9 @@ export default class CookieConsentPlugin {
     // add additional categories according to configured providers
     if (window.trackers.googleAnalyticsId) {
       config.categories = merge(config.categories, googleAnalytics.categories);
+    }
+    if (window.trackers.metaPixelId) {
+      config.categories = merge(config.categories, metaPixel.categories);
     }
 
     // SECTIONS

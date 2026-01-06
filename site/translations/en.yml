@@ -10,7 +10,9 @@ role.editor.description: Has access to all content, except users management
 trackers.page.title: Trackers
 trackers.page.notice: The cookies consent notification will be automatically adapted to be compliant with GDPR regulation according to the settings on this page.
 trackers.googleAnalyticsId.label: Google Analytics ID
-trackers.googleAnalyticsId.help: Set a <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics measurement ID</a> to include your Google tag on the website.
+trackers.googleAnalyticsId.help: More about <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics</a>.
+trackers.metaPixelId.label: Meta Pixel ID
+trackers.metaPixelId.help: More about <a href="https://www.facebook.com/business/help/952192354843755?id=1205376682832142" target="_blank">Meta Pixel</a>.
 
 # blueprints
 files.image.title: Image
