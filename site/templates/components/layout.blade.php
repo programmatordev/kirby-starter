@@ -1,36 +1,31 @@
-<?php
-/** @var \Kirby\Cms\Page $page */
-/** @var \Kirby\Template\Slots $slots */
-?>
-
 <!DOCTYPE html>
-<html lang="<?= site()->lang() ?>">
+<html lang="{{ site()->lang() }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?= snippet('seo/head') ?>
-    <?= snippet('favicon') ?>
+    @snippet('seo/head')
+    @snippet('favicon')
 
-    <?= vite()->css('assets/scripts/app.js') ?>
-    <?= vite()->js('assets/scripts/app.js', ['defer' => true]) ?>
+    {!! vite()->css('assets/scripts/app.js') !!}
+    {!! vite()->js('assets/scripts/app.js', ['defer' => true]) !!}
 
-    <?= snippet('consent/consent') ?>
+    <x-consent />
   </head>
 
   <body class="p-8 text-base bg-teal-500 sm:p-24 sm:text-xl">
-    <h1 class="font-mono font-bold text-5xl sm:text-7xl"><?= site()->title() ?></h1>
+    <h1 class="font-mono font-bold text-5xl sm:text-7xl">{{ site()->title() }}</h1>
 
     <nav class="mt-6">
       <ul class="flex gap-2">
-        <?php foreach (site()->pages()->listed() as $item): ?>
-          <li><a class="underline" href="<?= $item->url() ?>"><?= $item->title() ?></a></li>
-        <?php endforeach; ?>
+        @foreach (site()->pages()->listed() as $item)
+          <li><a class="underline" href="{{ $item->url() }}">{{ $item->title() }}</a></li>
+        @endforeach
       </ul>
     </nav>
 
     <main class="py-6" data-taxi>
-      <?= $slots->content() ?>
+      {{ $slot }}
     </main>
 
     <div class="[&_a]:underline" x-data="{ count: 0 }">
@@ -58,6 +53,6 @@
       </template>
     </div>
 
-    <?= snippet('seo/schemas') ?>
+    @snippet('seo/schemas')
   </body>
 </html>
