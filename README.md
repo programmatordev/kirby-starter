@@ -124,13 +124,13 @@ By default, a global `app.css` and `app.js` are included across the site.
 
 To include other global CSS and JS files, use the following code in the `<head>` of your layout:
 
-```html
+```php
 {!! vite().css('path/to/file.css') !!}
 ```
 
 For JS files, always include `defer` for better performance:
 
-```html
+```php
 {!! vite().js('path/to/file.js', ['defer' => true]) !!}
 ```
 
@@ -138,7 +138,7 @@ For JS files, always include `defer` for better performance:
 
 To add static assets to a page (images, fonts, etc.), use the following code:
 
-```html
+```php
 {{ vite().file('path/to/file.svg') }}
 ```
 
