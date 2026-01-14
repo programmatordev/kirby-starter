@@ -11,12 +11,13 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 ## Features
 
 - 🐳 Uses [DDEV](https://ddev.com/), a Docker-based development environment;
-- ⚡️️ [Vite](https://vitejs.dev/) with [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
-- 🍃 CSS with [TailwindCSS](https://tailwindcss.com/) framework;
+- ⚡️️ [Vite](https://vitejs.dev/) with the [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
+- 🍃 CSS with the [TailwindCSS](https://tailwindcss.com/) framework;
+- 🔪 Blade as the templating engine with the [kirby-blade](https://github.com/lukasleitsch/kirby-blade) plugin;
 - 🚕 Pages transitions and preloading with [Taxi.js](https://taxi.js.org/);
 - ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
-- 🔎 SEO management with [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
-- 🌱 Environment variables with [kirby-env](https://github.com/beebmx/kirby-env) plugin;
+- 🔎 SEO management with the [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
+- 🌱 Environment variables with the [kirby-env](https://github.com/beebmx/kirby-env) plugin;
 - and more...
 
 ## Documentation
@@ -24,12 +25,11 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - [Get Started](#get-started)
 - [Development](#development)
   - [Kirby CLI](#kirby-cli)
-  - [Template System](#template-system)
+  - [Templating Engine](#templating-engine)
   - [Assets](#assets)
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
   - [Static Assets Handling](#static-assets-handling)
 - [Production](#production)
-- [Libraries](#libraries)
 - [User Roles](#user-roles)
 - [Cookie Consent Notification (GDPR compliance)](#cookie-consent-notification)
 - [Acknowledgments](#acknowledgments)
@@ -101,16 +101,10 @@ The [Kirby CLI](https://github.com/getkirby/cli) is available to help with devel
 ddev kirby
 ```
 
-### Template System
+### Templating Engine
 
-Kirby is used as the template engine. Check the [documentation](https://getkirby.com/docs/guide).
-
-Some recommended pages:
-
-- [Rendering and logic](https://getkirby.com/docs/guide/templates/basics)
-- [Template helpers](https://getkirby.com/docs/reference/templates/helpers)
-- [Template field methods](https://getkirby.com/docs/reference/templates/field-methods)
-- [Toolkit](https://getkirby.com/docs/reference/objects#toolkit)
+Blade is used as the templating engine. 
+Check the [plugin documentation](https://github.com/lukasleitsch/kirby-blade) and the [official documentation](https://laravel.com/docs/blade) for more information.
 
 ### Assets
 
@@ -130,32 +124,32 @@ By default, a global `app.css` and `app.js` are included across the site.
 
 To include other global CSS and JS files, use the following code in the `<head>` of your layout:
 
-```php
-<?= vite().css('path/to/file.css') ?>
+```bladehtml
+{!! vite().css('path/to/file.css') !!}
 ```
 
 For JS files, always include `defer` for better performance:
 
-```php
-<?= vite().js('path/to/file.js', ['defer' => true]) ?>
+```bladehtml
+{!! vite().js('path/to/file.js', ['defer' => true]) !!}
 ```
 
 ### Static Assets Handling
 
 To add static assets to a page (images, fonts, etc.), use the following code:
 
-```php
-<?= vite().file('path/to/file.svg') ?>
+```bladehtml
+{{ vite().file('path/to/file.svg') }}
 ```
 
 Examples:
 
-```html
-<img src="<?= vite().file('path/to/file.svg') ?>" alt="Image">
+```bladehtml
+<img src="{{ vite().file('path/to/file.svg') }}" alt="Image">
 ```
 
-```html
-<link rel="preload" href="<?= vite()->file('path/to/font.woff2') ?>" as="font" type="font/woff2" crossorigin>
+```bladehtml
+<link rel="preload" href="{{ vite()->file('path/to/font.woff2') }}" as="font" type="font/woff2" crossorigin>
 ```
 
 For images in CSS, always enter the path of the image relative to the CSS file.
@@ -208,16 +202,17 @@ If you want to change these permissions, edit the files at `site/blueprints/user
 
 ## Cookie Consent Notification
 
-The cookie consent notification is enabled by default and is synchronized with the settings on the Analytics panel page.
+The cookie consent notification is enabled by default and is synchronized with the settings on the Trackers panel page.
 
 For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics.
 
-Additional integrations, such as the Meta Pixel, will be included in the future as needed.
+Additional integrations will be included in the future as needed.
 
 ## Acknowledgments
 
 Thank you to all plugin's authors and contributors. Make sure to check and support them if you can:
 
+- [kirby-blade](https://github.com/lukasleitsch/kirby-blade)
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
 - [kirby-seo](https://github.com/tobimori/kirby-seo)
