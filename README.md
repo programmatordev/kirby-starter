@@ -103,7 +103,7 @@ ddev kirby
 
 ### Templating Engine
 
-Blade is used as the templating engine. 
+[Blade](https://laravel.com/docs/blade) is used as the templating engine. 
 Check the [plugin documentation](https://github.com/lukasleitsch/kirby-blade) and the [official documentation](https://laravel.com/docs/blade) for more information.
 
 ### Assets
