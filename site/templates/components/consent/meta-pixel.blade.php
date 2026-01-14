@@ -1,10 +1,10 @@
-<?php
-/** @var array $trackers */
+@props(['trackers'])
 
-$metaPixelId = $trackers['metaPixelId'];
-?>
+@php
+  $metaPixelId = $trackers['metaPixelId'];
+@endphp
 
-<?php if ($metaPixelId !== null): ?>
+@if ($metaPixelId !== null)
   <script type="text/plain" data-category="advertisement">
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -16,7 +16,7 @@ $metaPixelId = $trackers['metaPixelId'];
     'https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('consent', 'grant');
-    fbq('init', '<?= $metaPixelId ?>');
+    fbq('init', '{{ $metaPixelId }}');
     fbq('track', 'PageView');
   </script>
-<?php endif; ?>
+@endif

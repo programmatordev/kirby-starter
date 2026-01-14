@@ -1,11 +1,11 @@
-<?php
-/** @var array $trackers */
+@props(['trackers'])
 
-$googleAnalyticsId = $trackers['googleAnalyticsId'];
-?>
+@php
+  $googleAnalyticsId = $trackers['googleAnalyticsId'];
+@endphp
 
-<?php if ($googleAnalyticsId !== null): ?>
-  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id=<?= $googleAnalyticsId ?>"></script>
+@if ($googleAnalyticsId !== null)
+  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalyticsId }}"></script>
 
   <script type="text/plain" data-category="necessary">
     window.dataLayer = window.dataLayer || [];
@@ -24,8 +24,7 @@ $googleAnalyticsId = $trackers['googleAnalyticsId'];
 
     gtag('set', 'ads_data_redaction', true);
     gtag('js', new Date());
-
-    gtag('config', '<?= $googleAnalyticsId ?>');
+    gtag('config', '{{ $googleAnalyticsId }}');
   </script>
 
   <script type="text/plain" data-category="analytics">
@@ -48,4 +47,4 @@ $googleAnalyticsId = $trackers['googleAnalyticsId'];
         personalization_storage: 'granted'
     });
   </script>
-<?php endif; ?>
+@endif
