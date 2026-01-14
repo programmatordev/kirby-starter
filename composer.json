@@ -1,8 +1,8 @@
 {
   "name": "programmatordev/kirby-starter",
-  "description": "A very opinionated Kirby CMS development stack with DDEV, Vite, Alpine.js and TailwindCSS",
+  "description": "A very opinionated Kirby CMS development stack with DDEV, Vite, Blade, Alpine.js and Tailwind CSS",
   "type": "project",
-  "keywords": ["kirby", "kirby-cms", "tailwindcss", "ddev", "vite", "alpinejs"],
+  "keywords": ["kirby", "kirby-cms", "tailwindcss", "ddev", "vite", "alpine-js", "blade"],
   "authors": [
     {
       "name": "Programmator",

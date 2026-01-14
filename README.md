@@ -12,8 +12,8 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 
 - 🐳 Uses [DDEV](https://ddev.com/), a Docker-based development environment;
 - ⚡️️ [Vite](https://vitejs.dev/) with the [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
-- 🍃 CSS with the [TailwindCSS](https://tailwindcss.com/) framework;
-- 🔪 Blade as the templating engine with the [kirby-blade](https://github.com/lukasleitsch/kirby-blade) plugin;
+- 🍃 CSS with the [Tailwind CSS](https://tailwindcss.com/) framework;
+- 🔪 [Blade](https://laravel.com/docs/blade) as the templating engine with the [kirby-blade](https://github.com/lukasleitsch/kirby-blade) plugin;
 - 🚕 Pages transitions and preloading with [Taxi.js](https://taxi.js.org/);
 - ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
 - 🔎 SEO management with the [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
@@ -119,18 +119,18 @@ All assets should be included in the `assets` folder in the root directory:
 
 By default, a global `app.css` and `app.js` are included across the site.
 
-- The `app.css` file should be used for TailwindCSS;
+- The `app.css` file should be used for Tailwind CSS;
 - The `app.js` file should be used for JavaScript code across all pages of the site.
 
 To include other global CSS and JS files, use the following code in the `<head>` of your layout:
 
-```bladehtml
+```html
 {!! vite().css('path/to/file.css') !!}
 ```
 
 For JS files, always include `defer` for better performance:
 
-```bladehtml
+```html
 {!! vite().js('path/to/file.js', ['defer' => true]) !!}
 ```
 
@@ -138,27 +138,21 @@ For JS files, always include `defer` for better performance:
 
 To add static assets to a page (images, fonts, etc.), use the following code:
 
-```bladehtml
+```html
 {{ vite().file('path/to/file.svg') }}
 ```
 
 Examples:
 
-```bladehtml
+```html
 <img src="{{ vite().file('path/to/file.svg') }}" alt="Image">
 ```
 
-```bladehtml
+```html
 <link rel="preload" href="{{ vite()->file('path/to/font.woff2') }}" as="font" type="font/woff2" crossorigin>
 ```
 
 For images in CSS, always enter the path of the image relative to the CSS file.
-
-Using Tailwind, considering that CSS files are in `assets/css` and images are in `assets/images`, an example would be:
-
-```html
-<div class="aspect-square bg-[url('../images/file.jpg')]"></div>
-```
 
 ## Production
 
