@@ -1,12 +1,14 @@
 @props(['trackers'])
 
 @php
+  use Kirby\Data\Json;
+
   $googleAnalyticsId = $trackers['googleAnalyticsId'];
+  $googleAdsId = $trackers['googleAdsId'];
+  $googleTagId = $googleAnalyticsId ?? $googleAdsId;
 @endphp
 
-@if ($googleAnalyticsId !== null)
-  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalyticsId }}"></script>
-
+@if ($googleTagId !== null)
   <script type="text/plain" data-category="necessary">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -24,27 +26,42 @@
 
     gtag('set', 'ads_data_redaction', true);
     gtag('js', new Date());
-    gtag('config', '{{ $googleAnalyticsId }}');
+
+    @if ($googleAnalyticsId !== null)
+      gtag('config', {!! Json::encode($googleAnalyticsId) !!});
+    @endif
+
+    @if ($googleAdsId !== null)
+      gtag('config', {!! Json::encode($googleAdsId) !!});
+    @endif
   </script>
 
-  <script type="text/plain" data-category="analytics">
-    gtag('consent', 'update', {
-        analytics_storage: 'granted'
-    });
-  </script>
+  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id={{ $googleTagId }}"></script>
 
-  <script type="text/plain" data-category="advertisement">
-    gtag('consent', 'update', {
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted'
-    });
-  </script>
+  @if ($googleAnalyticsId !== null)
+    <script type="text/plain" data-category="analytics">
+      gtag('consent', 'update', {
+          analytics_storage: 'granted'
+      });
+    </script>
+  @endif
 
-  <script type="text/plain" data-category="functionality">
-    gtag('consent', 'update', {
-        functionality_storage: 'granted',
-        personalization_storage: 'granted'
-    });
-  </script>
+  @if ($googleAnalyticsId !== null || $googleAdsId !== null)
+    <script type="text/plain" data-category="advertisement">
+      gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted'
+      });
+    </script>
+  @endif
+
+  @if ($googleAnalyticsId !== null)
+    <script type="text/plain" data-category="functionality">
+      gtag('consent', 'update', {
+          functionality_storage: 'granted',
+          personalization_storage: 'granted'
+      });
+    </script>
+  @endif
 @endif
