@@ -14,6 +14,7 @@ const assetsDir = 'assets';
 
 // find all files from the assets directory
 // app.css stays as an explicit entry so app styles and dependency CSS emit separately.
+// Images and fonts are explicit entries so vite().file() can resolve hashed URLs.
 const input = globSync([
   'assets/scripts/app.js',
   'assets/styles/app.css',
