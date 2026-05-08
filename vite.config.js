@@ -25,10 +25,10 @@ export default defineConfig(({ mode }) => ({
   base: mode === 'development' ? '/' : `/${outDir}/`,
 
   build: {
-    outDir: outDir,
-    assetsDir: assetsDir,
+    outDir,
+    assetsDir,
     rollupOptions: {
-      input: input,
+      input,
       output: {
         chunkFileNames: 'scripts/[name]-[hash].js',
         entryFileNames: 'scripts/[name]-[hash].js',
@@ -59,7 +59,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     // respond to all network requests:
     host: '0.0.0.0',
-    port: port,
+    port,
     strictPort: true,
     // defines the origin of the generated asset URLs during development
     origin: origin,
