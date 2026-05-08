@@ -93,6 +93,12 @@ Run the following command when in development mode:
 ddev npm run dev
 ```
 
+To check the production build and lint project PHP files for syntax errors, run:
+
+```bash
+ddev npm run check
+```
+
 ### Kirby CLI
 
 The [Kirby CLI](https://github.com/getkirby/cli) is available to help with development. Run the following command for all available options:
@@ -198,9 +204,13 @@ If you want to change these permissions, edit the files at `site/blueprints/user
 
 The cookie consent notification is enabled by default and is synchronized with the settings on the Trackers panel page.
 
-For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics.
+Supported trackers:
 
-Additional integrations will be included in the future as needed.
+- `Google Analytics ID`
+- `Google Ads ID`
+- `Meta Pixel ID`
+
+For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics. The same applies to the other supported tracker IDs.
 
 ## Acknowledgments
 
