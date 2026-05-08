@@ -55,6 +55,9 @@ export default class CookieConsentPlugin {
       if (window.trackers.googleAnalyticsId) {
         sections = merge(sections, googleAnalytics.sections[language]);
       }
+      if (window.trackers.metaPixelId) {
+        sections = merge(sections, metaPixel.sections[language]);
+      }
 
       // add sections to config
       config.language.translations[language].preferencesModal.sections = [];

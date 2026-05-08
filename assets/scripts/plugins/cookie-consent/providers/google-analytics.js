@@ -35,10 +35,10 @@ export const googleAnalytics = {
               expiration: 'Expires after 2 years'
             },
             {
-              name: '_gid',
+              name: '_ga_*',
               domain: 'Google Analytics',
-              description: 'Cookie set by <a href=\"https://business.safety.google/adscookies/\" target="_blank">Google Analytics</a>',
-              expiration: 'Expires after 24 hours'
+              description: 'Cookie set by <a href=\"https://business.safety.google/adscookies/\" target="_blank">Google Analytics</a> to persist session state',
+              expiration: 'Expires after 2 years'
             }
           ]
         }
@@ -62,10 +62,10 @@ export const googleAnalytics = {
               expiration: 'Expira em 2 anos'
             },
             {
-              name: '_gid',
+              name: '_ga_*',
               domain: 'Google Analytics',
-              description: 'Cookie gerido pelo <a href=\"https://business.safety.google/adscookies/\" target="_blank">Google Analytics</a>',
-              expiration: 'Expira em 24 horas'
+              description: 'Cookie gerido pelo <a href=\"https://business.safety.google/adscookies/\" target="_blank">Google Analytics</a> para manter o estado da sessão',
+              expiration: 'Expira em 2 anos'
             }
           ]
         }
