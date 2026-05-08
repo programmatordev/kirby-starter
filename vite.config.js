@@ -13,6 +13,8 @@ const outDir = 'build';
 const assetsDir = 'assets';
 
 // find all files from the assets directory
+// app.css stays as an explicit entry so app styles and dependency CSS emit separately.
+// PHP templates can reference images and fonts through vite().file(), so include them in the manifest.
 const input = globSync([
   'assets/scripts/app.js',
   'assets/styles/app.css',
@@ -20,18 +22,18 @@ const input = globSync([
 ]).map((path) => resolve(process.cwd(), path));
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'development' ? '/' : `/${outDir}`,
+  base: mode === 'development' ? '/' : `/${outDir}/`,
 
   build: {
-    outDir: outDir,
-    assetsDir: assetsDir,
+    outDir,
+    assetsDir,
     rollupOptions: {
-      input: input,
+      input,
       output: {
         chunkFileNames: 'scripts/[name]-[hash].js',
         entryFileNames: 'scripts/[name]-[hash].js',
         assetFileNames: (chunkInfo) => {
-          const fileName = chunkInfo.names?.[0] ?? '';
+          const fileName = chunkInfo.names?.[0] ?? chunkInfo.originalFileNames?.[0] ?? '';
 
           if (/\.(gif|jpe?g|png|svg|webp|avif)$/i.test(fileName)) {
             return 'images/[name]-[hash][extname]';
@@ -57,10 +59,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     // respond to all network requests:
     host: '0.0.0.0',
-    port: port,
+    port,
     strictPort: true,
     // defines the origin of the generated asset URLs during development
-    origin: origin,
+    origin,
     cors: true
   },
 
