@@ -1,6 +1,8 @@
 @props(['trackers'])
 
 @php
+  use Kirby\Data\Json;
+
   $metaPixelId = $trackers['metaPixelId'];
 @endphp
 
@@ -16,7 +18,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('consent', 'grant');
-    fbq('init', '{{ $metaPixelId }}');
+    fbq('init', {!! Json::encode($metaPixelId) !!});
     fbq('track', 'PageView');
   </script>
 @endif

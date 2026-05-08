@@ -1,6 +1,8 @@
 @props(['trackers'])
 
 @php
+  use Kirby\Data\Json;
+
   $googleAnalyticsId = $trackers['googleAnalyticsId'];
 @endphp
 
@@ -22,7 +24,7 @@
 
     gtag('set', 'ads_data_redaction', true);
     gtag('js', new Date());
-    gtag('config', '{{ $googleAnalyticsId }}');
+    gtag('config', {!! Json::encode($googleAnalyticsId) !!});
   </script>
 
   <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalyticsId }}"></script>
