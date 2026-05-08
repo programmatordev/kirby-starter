@@ -20,7 +20,7 @@ const input = globSync([
 ]).map((path) => resolve(process.cwd(), path));
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'development' ? '/' : `/${outDir}`,
+  base: mode === 'development' ? '/' : `/${outDir}/`,
 
   build: {
     outDir: outDir,
