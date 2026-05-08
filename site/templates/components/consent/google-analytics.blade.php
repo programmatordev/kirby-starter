@@ -4,8 +4,8 @@
   use Kirby\Data\Json;
 
   $googleAnalyticsId = $trackers['googleAnalyticsId'];
-  $googleAdwordsId = $trackers['googleAdwordsId'];
-  $googleTagId = $googleAnalyticsId ?? $googleAdwordsId;
+  $googleAdsId = $trackers['googleAdsId'];
+  $googleTagId = $googleAnalyticsId ?? $googleAdsId;
 @endphp
 
 @if ($googleTagId !== null)
@@ -31,8 +31,8 @@
       gtag('config', {!! Json::encode($googleAnalyticsId) !!});
     @endif
 
-    @if ($googleAdwordsId !== null)
-      gtag('config', {!! Json::encode($googleAdwordsId) !!});
+    @if ($googleAdsId !== null)
+      gtag('config', {!! Json::encode($googleAdsId) !!});
     @endif
   </script>
 
@@ -46,7 +46,7 @@
     </script>
   @endif
 
-  @if ($googleAnalyticsId !== null || $googleAdwordsId !== null)
+  @if ($googleAnalyticsId !== null || $googleAdsId !== null)
     <script type="text/plain" data-category="advertisement">
       gtag('consent', 'update', {
           ad_storage: 'granted',

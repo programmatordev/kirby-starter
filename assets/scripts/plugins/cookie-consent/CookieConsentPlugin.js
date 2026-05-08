@@ -5,7 +5,7 @@ import { CATEGORY_NECESSARY } from "./utils/categories.js";
 import { baseTranslations, baseSections, HEADER_SECTION } from "./utils/translations.js";
 
 import { googleAnalytics } from "./providers/google-analytics.js";
-import { googleAdwords } from "./providers/google-adwords.js";
+import { googleAds } from "./providers/google-ads.js";
 import { metaPixel } from "./providers/meta-pixel.js";
 
 import "vanilla-cookieconsent/dist/cookieconsent.css";
@@ -35,8 +35,8 @@ export default class CookieConsentPlugin {
     if (window.trackers.googleAnalyticsId) {
       config.categories = merge(config.categories, googleAnalytics.categories);
     }
-    if (window.trackers.googleAdwordsId) {
-      config.categories = merge(config.categories, googleAdwords.categories);
+    if (window.trackers.googleAdsId) {
+      config.categories = merge(config.categories, googleAds.categories);
     }
     if (window.trackers.metaPixelId) {
       config.categories = merge(config.categories, metaPixel.categories);
@@ -59,8 +59,8 @@ export default class CookieConsentPlugin {
       if (window.trackers.googleAnalyticsId) {
         sections = merge(sections, googleAnalytics.sections[language]);
       }
-      if (window.trackers.googleAdwordsId) {
-        sections = merge(sections, googleAdwords.sections[language]);
+      if (window.trackers.googleAdsId) {
+        sections = merge(sections, googleAds.sections[language]);
       }
       if (window.trackers.metaPixelId) {
         sections = merge(sections, metaPixel.sections[language]);

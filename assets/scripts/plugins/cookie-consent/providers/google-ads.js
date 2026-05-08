@@ -1,6 +1,6 @@
 import { CATEGORY_ADVERTISEMENT } from "../utils/categories.js";
 
-export const googleAdwords = {
+export const googleAds = {
   // categories related to this provider
   // and respective settings
   categories: {

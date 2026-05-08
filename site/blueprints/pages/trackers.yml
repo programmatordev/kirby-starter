@@ -21,11 +21,11 @@ fields:
     type: text
     placeholder: G-XXXXXXXXXX
     help: trackers.googleAnalyticsId.help
-  googleAdwordsId:
-    label: trackers.googleAdwordsId.label
+  googleAdsId:
+    label: trackers.googleAdsId.label
     type: text
     placeholder: AW-XXXXXXXXXX
-    help: trackers.googleAdwordsId.help
+    help: trackers.googleAdsId.help
   metaPixelId:
     label: trackers.metaPixelId.label
     type: text
