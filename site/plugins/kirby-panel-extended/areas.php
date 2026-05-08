@@ -1,25 +1,27 @@
 <?php
 
 use Kirby\Cms\App;
+use Kirby\Cms\Find;
+use Kirby\Panel\Panel;
 use Kirby\Panel\Ui\Buttons\ViewButtons;
 use Kirby\Panel\Ui\Item\UserItem;
 
 return [
     'users' => function(App $kirby) {
-        $options = $kirby->option('programmatordev.panel-extended');
+        $hideAdminUsers = $kirby->option('programmatordev.panel-extended.hideAdminUsers', true)
+            && $kirby->user()?->isAdmin() !== true;
+
+        $filterHiddenAdminUsers = fn ($users) => $hideAdminUsers
+            ? $users->filter(fn ($user) => !$user->isAdmin())
+            : $users;
 
         return [
             // kirby/config/areas/users/searches.php
             'searches' => [
                 'users' => [
-                    'query' => function(?string $query, int $limit, int $page) use ($kirby, $options) {
-                        $users = $kirby->users()->search($query);
-
-                        // if the logged-in user is not an admin, do not show admin users
-                        if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin()) {
-                            $users = $users->filter(fn ($user) => !$user->isAdmin());
-                        }
-
+                    'query' => function(?string $query, int $limit, int $page) use ($filterHiddenAdminUsers) {
+                        $users = Find::users()->search($query);
+                        $users = $filterHiddenAdminUsers($users);
                         $users = $users->paginate($limit, $page);
 
                         return [
@@ -32,16 +34,18 @@ return [
             // kirby/config/areas/users/views.php
             'views' => [
                 'users' => [
-                    'action' => function() use ($kirby, $options) {
+                    'action' => function() use ($kirby, $hideAdminUsers, $filterHiddenAdminUsers) {
                         $role = $kirby->request()->get('role');
-                        $roles = $kirby->roles();
+                        $roles = Find::roles();
 
-                        // if the logged-in user is not an admin, do not show the admin role
-                        if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin()) {
+                        if ($hideAdminUsers) {
                             $roles = $roles->filter(fn ($role) => $role->id() !== 'admin');
                         }
 
-                        $roles = $roles->toArray();
+                        $roles = $roles->toArray(fn ($role) => [
+                            'id' => $role->id(),
+                            'title' => $role->title(),
+                        ]);
 
                         return [
                             'component' => 'k-users-view',
@@ -59,13 +63,9 @@ return [
                                     return null;
                                 },
                                 'roles' => array_values($roles),
-                                'users' => function() use ($kirby, $role, $options) {
-                                    $users = $kirby->users();
-
-                                    // if the logged-in user is not admin, do not show admin users
-                                    if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin()) {
-                                        $users = $users->filter(fn ($user) => !$user->isAdmin());
-                                    }
+                                'users' => function() use ($kirby, $role, $filterHiddenAdminUsers) {
+                                    $users = Find::users();
+                                    $users = $filterHiddenAdminUsers($users);
 
                                     if (empty($role) === false) {
                                         $users = $users->role($role);
@@ -75,7 +75,8 @@ return [
 
                                     $users = $users->paginate([
                                         'limit' => 20,
-                                        'page' => $kirby->request()->get('page')
+                                        'page' => $kirby->request()->get('page', 1),
+                                        'method' => 'none'
                                     ]);
 
                                     return [
@@ -88,12 +89,10 @@ return [
                     }
                 ],
                 'user' => [
-                    'action' => function(string $id) use ($kirby, $options) {
+                    'action' => function(string $id) use ($hideAdminUsers) {
                         $user = Find::user($id);
 
-                        // if the logged-in user is not an admin and is trying to access one
-                        // redirect to the users panel
-                        if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin() && $user->isAdmin()) {
+                        if ($hideAdminUsers && $user->isAdmin()) {
                             Panel::go('/users');
                         }
 
@@ -101,12 +100,10 @@ return [
                     }
                 ],
                 'user.file' => [
-                    'action'  => function(string $id, string $filename) use ($kirby, $options) {
+                    'action'  => function(string $id, string $filename) use ($hideAdminUsers) {
                         $file = Find::file('users/' . $id, $filename);
 
-                        // if a logged-in user is not admin and is trying to access a file from one
-                        // redirect to the users panel
-                        if ($options['hideAdminUsers'] && !$kirby->user()->isAdmin() && $file->parent()?->isAdmin()) {
+                        if ($hideAdminUsers && $file->parent()?->isAdmin()) {
                             Panel::go('/users');
                         }
 
