@@ -6,6 +6,10 @@ Googleanalyticsid:
 
 ----
 
+Googleadwordsid: 
+
+----
+
 Metapixelid: 
 
 ----

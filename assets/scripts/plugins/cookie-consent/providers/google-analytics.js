@@ -7,8 +7,7 @@ export const googleAnalytics = {
     [CATEGORY_ANALYTICS]: {
       autoClear: {
         cookies: [
-          { name: /^_ga/ },
-          { name: '_gid' }
+          { name: /^_ga/ }
         ]
       }
     },
