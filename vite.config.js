@@ -62,7 +62,7 @@ export default defineConfig(({ mode }) => ({
     port,
     strictPort: true,
     // defines the origin of the generated asset URLs during development
-    origin: origin,
+    origin,
     cors: true
   },
 
