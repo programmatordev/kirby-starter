@@ -5,8 +5,6 @@
 @endphp
 
 @if ($googleAnalyticsId !== null)
-  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalyticsId }}"></script>
-
   <script type="text/plain" data-category="necessary">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -26,6 +24,8 @@
     gtag('js', new Date());
     gtag('config', '{{ $googleAnalyticsId }}');
   </script>
+
+  <script async data-category="necessary" data-src="https://www.googletagmanager.com/gtag/js?id={{ $googleAnalyticsId }}"></script>
 
   <script type="text/plain" data-category="analytics">
     gtag('consent', 'update', {
