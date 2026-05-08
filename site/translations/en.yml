@@ -11,6 +11,8 @@ trackers.page.title: Trackers
 trackers.page.notice: The cookies consent notification will be automatically adapted to be compliant with GDPR regulation according to the settings on this page.
 trackers.googleAnalyticsId.label: Google Analytics ID
 trackers.googleAnalyticsId.help: More about <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics</a>.
+trackers.googleAdwordsId.label: Google AdWords ID
+trackers.googleAdwordsId.help: More about <a href="https://support.google.com/google-ads/answer/7548399" target="_blank">Google Ads</a>.
 trackers.metaPixelId.label: Meta Pixel ID
 trackers.metaPixelId.help: More about <a href="https://www.facebook.com/business/help/952192354843755?id=1205376682832142" target="_blank">Meta Pixel</a>.
 

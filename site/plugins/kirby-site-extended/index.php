@@ -9,6 +9,7 @@ App::plugin('programmatordev/site-extended', [
 
             return [
                 'googleAnalyticsId' => $trackersPage->googleAnalyticsId()->value() ?: null,
+                'googleAdwordsId' => $trackersPage->googleAdwordsId()->value() ?: null,
                 'metaPixelId' => $trackersPage->metaPixelId()->value() ?: null
             ];
         }
