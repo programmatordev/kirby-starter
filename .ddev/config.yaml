@@ -8,9 +8,6 @@ additional_fqdns: []
 database:
     type: mariadb
     version: "10.4"
-hooks:
-    post-start:
-        - composer: global require getkirby/cli
 omit_containers: [db]
 use_dns_when_possible: true
 composer_version: "2"
