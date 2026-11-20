@@ -113,7 +113,7 @@
     <aside class="border-t border-teal-400 bg-black text-teal-400 lg:fixed lg:inset-x-0 lg:bottom-0 lg:z-40" aria-label="Persistent Alpine state">
       <div class="grid w-full gap-px bg-teal-400 lg:h-20 lg:grid-cols-[1fr_auto_1fr]" x-data="{ count: 0 }">
         <div class="flex items-center bg-black px-5 py-5 sm:px-8 lg:py-3">
-          <p class="text-xs font-semibold uppercase">Persistent Alpine state</p>
+          <p class="text-xs font-semibold uppercase">Shared counter</p>
         </div>
 
         <div class="flex items-center gap-5 bg-black px-5 py-5 sm:px-8 lg:py-3">
@@ -122,7 +122,7 @@
           <button class="cursor-pointer text-white/60 underline underline-offset-4 hover:text-white" type="button" @click="count = 0">reset</button>
         </div>
 
-        <p class="flex items-center bg-black px-5 py-5 text-xs text-white/60 sm:px-8 lg:py-3 lg:text-right">Increment, navigate, and verify the value remains.</p>
+        <p class="flex items-center bg-black px-5 py-5 text-xs text-white/60 sm:px-8 lg:py-3 lg:text-right">Increase it, visit another page, and check that the value remains.</p>
       </div>
     </aside>
   </body>

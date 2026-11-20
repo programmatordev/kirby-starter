@@ -2,7 +2,7 @@ Title: Consent & Tracking
 
 ----
 
-Text: Tracker configuration determines which consent categories and providers are enabled.
+Text: The trackers you configure determine which consent options are available.
 
 ----
 

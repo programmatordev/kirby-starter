@@ -50,8 +50,8 @@
     <section class="grid border-b-2 border-black lg:grid-cols-2" aria-labelledby="providers-title">
       <div class="border-b-2 border-black lg:border-r-2 lg:border-b-0">
         <div class="border-b-2 border-black px-5 py-8 sm:px-8">
-          <p class="text-xs font-semibold uppercase">Server configuration</p>
-          <h2 id="providers-title" class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">Tracker providers</h2>
+          <p class="text-xs font-semibold uppercase">Panel settings</p>
+          <h2 id="providers-title" class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">Configured trackers</h2>
         </div>
 
         <ul>
@@ -68,7 +68,7 @@
         <div class="border-b-2 border-black px-5 py-8 sm:px-8">
           <div class="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p class="text-xs font-semibold uppercase">Browser state</p>
+              <p class="text-xs font-semibold uppercase">Current choice</p>
               <h2 class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">Consent categories</h2>
             </div>
             <span class="text-xs font-semibold uppercase" role="status" aria-atomic="true" x-text="hasConsent ? 'Choice saved' : 'Choice pending'">Choice pending</span>
@@ -93,22 +93,22 @@
     <section class="grid bg-black text-white lg:grid-cols-2" aria-labelledby="consent-implementation-title">
       <div class="border-b border-white/30 px-5 py-10 sm:px-8 lg:border-r lg:border-b-0">
         <p class="text-xs font-semibold uppercase text-teal-400">Implementation / Consent</p>
-        <h2 id="consent-implementation-title" class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">Implementation map</h2>
-        <p class="mt-6 max-w-xl leading-relaxed text-white/60">Optional categories are added only when their tracker IDs are configured. No example data is substituted for missing providers.</p>
+        <h2 id="consent-implementation-title" class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">How it works</h2>
+        <p class="mt-6 max-w-xl leading-relaxed text-white/60">Optional consent categories appear only for trackers with configured IDs. Trackers without IDs are not loaded.</p>
       </div>
 
       <ul>
         <li class="border-b border-white/30 px-5 py-6 sm:px-8">
           <code class="text-sm text-teal-400">assets/scripts/plugins/cookie-consent/CookieConsentPlugin.js</code>
-          <p class="mt-2 text-sm text-white/60">Consent categories and provider configuration.</p>
+          <p class="mt-2 text-sm text-white/60">Builds consent categories from configured trackers.</p>
         </li>
         <li class="border-b border-white/30 px-5 py-6 sm:px-8">
           <code class="text-sm text-teal-400">site/templates/components/consent/</code>
-          <p class="mt-2 text-sm text-white/60">Tracker markup and configured IDs.</p>
+          <p class="mt-2 text-sm text-white/60">Adds tracker scripts and IDs.</p>
         </li>
         <li class="px-5 py-6 sm:px-8">
           <code class="text-sm text-teal-400">site/blueprints/pages/trackers.yml</code>
-          <p class="mt-2 text-sm text-white/60">Panel configuration for tracker IDs.</p>
+          <p class="mt-2 text-sm text-white/60">Stores tracker IDs in the Panel.</p>
         </li>
       </ul>
     </section>

@@ -2,7 +2,7 @@ Title: Examples
 
 ----
 
-Text: Working examples of the starter's built-in behavior.
+Text: Explore the features included with this starter.
 
 ----
 
