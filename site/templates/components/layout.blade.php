@@ -1,10 +1,31 @@
+@php
+  $page = page();
+  $site = site();
+  $metaTitle = $page->title() . ' - ' . $site->title();
+  $language = kirby()->languageCode() ?? kirby()->option('app.language');
+  $isIndexable = kirby()->option('debug') !== true
+    && $page->isPublished()
+    && !$page->isErrorPage();
+@endphp
+
 <!DOCTYPE html>
-<html lang="{{ site()->lang() }}">
+<html lang="{{ $language }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @snippet('seo/head')
+    <title>{{ $metaTitle }}</title>
+    <meta name="robots" content="{{ $isIndexable ? 'index,follow' : 'noindex,nofollow' }}">
+    @if ($isIndexable)
+      <link rel="canonical" href="{{ $page->url() }}">
+    @endif
+    <meta property="og:title" content="{{ $page->title() }}">
+    <meta property="og:type" content="website">
+    @if ($isIndexable)
+      <meta property="og:url" content="{{ $page->url() }}">
+    @endif
+    <meta property="og:site_name" content="{{ $site->title() }}">
+
     @snippet('favicon')
 
     {!! vite()->css('assets/scripts/app.js') !!}
@@ -14,11 +35,11 @@
   </head>
 
   <body class="p-8 text-base bg-teal-500 sm:p-24 sm:text-xl">
-    <h1 class="font-mono font-bold text-5xl sm:text-7xl">{{ site()->title() }}</h1>
+    <h1 class="font-mono font-bold text-5xl sm:text-7xl">{{ $site->title() }}</h1>
 
     <nav class="mt-6">
       <ul class="flex gap-2">
-        @foreach (site()->pages()->listed() as $item)
+        @foreach ($site->pages()->listed() as $item)
           <li><a class="underline" href="{{ $item->url() }}">{{ $item->title() }}</a></li>
         @endforeach
       </ul>
@@ -52,7 +73,5 @@
         <p>You need help.</p>
       </template>
     </div>
-
-    @snippet('seo/schemas')
   </body>
 </html>

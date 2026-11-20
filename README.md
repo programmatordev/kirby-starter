@@ -16,7 +16,6 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - 🔪 [Blade](https://laravel.com/docs/blade) as the templating engine with the [kirby-blade](https://github.com/lukasleitsch/kirby-blade) plugin;
 - 🚕 Pages transitions and preloading with [Taxi.js](https://taxi.js.org/);
 - ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
-- 🔎 SEO management with the [kirby-seo](https://github.com/tobimori/kirby-seo) plugin;
 - 🌱 Environment variables with the [kirby-env](https://github.com/beebmx/kirby-env) plugin;
 - and more...
 
@@ -219,5 +218,4 @@ Thank you to all plugin's authors and contributors. Make sure to check and suppo
 - [kirby-blade](https://github.com/lukasleitsch/kirby-blade)
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
-- [kirby-seo](https://github.com/tobimori/kirby-seo)
 - [kirby-vite](https://github.com/arnoson/kirby-vite)
