@@ -3,20 +3,13 @@
 @endphp
 
 <x-layout>
-  <div data-taxi-view>
-    <h1 class="font-bold">{{ $page->title() }}</h1>
-    <div class="[&_a]:underline">{!! $page->text()->kirbytext() !!}</div>
+  <div class="min-h-[70vh] w-full px-5 py-12 sm:px-8 sm:py-20" data-taxi-view>
+    <p class="text-xs font-semibold uppercase">Route / {{ $page->uri() }}</p>
+    <h1 class="mt-4 text-4xl font-extrabold uppercase sm:text-7xl lg:text-8xl">{{ $page->title() }}</h1>
+    <div class="mt-8 max-w-3xl text-lg leading-relaxed font-medium [&_a]:underline [&_a]:decoration-2 [&_a]:underline-offset-4 sm:text-xl">{!! $page->text()->kirbytext() !!}</div>
 
     @if ($page->slug() === 'transitions')
-      <div class="mt-2" x-data="{ show: false }">
-        <button class="size-9 cursor-pointer bg-black text-teal-500" @click="show = !show">
-          <span class="block transition-transform" :class="{ 'rotate-45 translate-x-px': show }">+</span>
-        </button>
-
-        <template x-if="show">
-          <span>Hello. I am visible now.</span>
-        </template>
-      </div>
+      <a class="mt-16 inline-flex border-b-2 border-black pb-1 font-bold uppercase" href="{{ site()->url() }}">Return home -&gt;</a>
     @endif
   </div>
 </x-layout>
