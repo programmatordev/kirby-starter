@@ -2,6 +2,7 @@
 
 use Kirby\Cms\App;
 use Kirby\Cms\Find;
+use Kirby\Panel\Collector\UsersCollector;
 use Kirby\Panel\Panel;
 use Kirby\Panel\Ui\Buttons\ViewButtons;
 use Kirby\Panel\Ui\Item\UserItem;
@@ -64,15 +65,13 @@ return [
                                 },
                                 'roles' => array_values($roles),
                                 'users' => function() use ($kirby, $role, $filterHiddenAdminUsers) {
-                                    $users = Find::users();
+                                    $collector = new UsersCollector(
+                                        role: $role,
+                                        sortBy: 'username asc',
+                                    );
+
+                                    $users = $collector->models();
                                     $users = $filterHiddenAdminUsers($users);
-
-                                    if (empty($role) === false) {
-                                        $users = $users->role($role);
-                                    }
-
-                                    $users = $users->sortBy('username', 'asc');
-
                                     $users = $users->paginate([
                                         'limit' => 20,
                                         'page' => $kirby->request()->get('page', 1),
