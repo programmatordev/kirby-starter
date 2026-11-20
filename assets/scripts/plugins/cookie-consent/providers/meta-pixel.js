@@ -1,13 +1,9 @@
 import { CATEGORY_ADVERTISEMENT } from "../utils/categories.js";
 
 export const metaPixel = {
-  // categories related to this provider
-  // and respective settings
   categories: {
     [CATEGORY_ADVERTISEMENT]: {}
   },
-  // section information related to this provider
-  // to be appended to base section information
   sections: {
     en: {
       [CATEGORY_ADVERTISEMENT]: {

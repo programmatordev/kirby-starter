@@ -1,0 +1,5 @@
+title: Navigation Example
+
+fields:
+  text:
+    type: textarea

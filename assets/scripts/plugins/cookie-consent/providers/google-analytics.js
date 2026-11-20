@@ -1,8 +1,6 @@
 import { CATEGORY_ADVERTISEMENT, CATEGORY_ANALYTICS, CATEGORY_FUNCTIONALITY } from "../utils/categories.js";
 
 export const googleAnalytics = {
-  // categories related to this provider
-  // and respective settings
   categories: {
     [CATEGORY_ANALYTICS]: {
       autoClear: {
@@ -14,8 +12,6 @@ export const googleAnalytics = {
     [CATEGORY_ADVERTISEMENT]: {},
     [CATEGORY_FUNCTIONALITY]: {}
   },
-  // section information related to this provider
-  // to be appended to base section information
   sections: {
     en: {
       [CATEGORY_ANALYTICS]: {

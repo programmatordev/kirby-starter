@@ -10,7 +10,6 @@ permissions:
     changeRole: false
     delete: false
 
-# hide the default notice
-# change if you want to add more fields related to a role
+# Hide Kirby's default notice while keeping the blueprint ready for role-specific fields.
 fields:
   hidden: true

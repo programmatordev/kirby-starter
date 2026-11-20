@@ -18,7 +18,7 @@ return [
             : $users;
 
         return [
-            // kirby/config/areas/users/searches.php
+            // Kirby source: kirby/config/areas/users/searches.php
             'searches' => [
                 'users' => [
                     'query' => function(?string $query, int $limit, int $page) use ($filterHiddenAdminUsers) {
@@ -33,7 +33,7 @@ return [
                     }
                 ]
             ],
-            // kirby/config/areas/users/views.php
+            // Kirby source: kirby/config/areas/users/views.php
             'views' => [
                 'users' => [
                     'action' => function() use ($kirby, $hideAdminUsers, $filterHiddenAdminUsers) {

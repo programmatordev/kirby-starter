@@ -1,4 +1,4 @@
-# roles
+# Roles
 role.admin.title: Admin
 role.admin.description: Has access to all content and administrative tools (exclusive for developers)
 role.owner.title: Owner
@@ -6,9 +6,9 @@ role.owner.description: Has access to all content
 role.editor.title: Editor
 role.editor.description: Has access to all content, except users management
 
-# trackers
+# Trackers
 trackers.page.title: Trackers
-trackers.page.notice: The cookies consent notification will be automatically adapted to be compliant with GDPR regulation according to the settings on this page.
+trackers.page.notice: The cookie consent notification automatically adapts to the trackers configured on this page. Review the resulting setup against the website's privacy and legal requirements.
 trackers.googleAnalyticsId.label: Google Analytics ID
 trackers.googleAnalyticsId.help: More about <a href="https://support.google.com/analytics/answer/12270356" target="_blank">Google Analytics</a>.
 trackers.googleAdsId.label: Google Ads ID
@@ -16,7 +16,7 @@ trackers.googleAdsId.help: More about <a href="https://support.google.com/google
 trackers.metaPixelId.label: Meta Pixel ID
 trackers.metaPixelId.help: More about <a href="https://www.facebook.com/business/help/952192354843755?id=1205376682832142" target="_blank">Meta Pixel</a>.
 
-# blueprints
+# Blueprints
 files.image.title: Image
 files.video.title: Video
 files.pdf.title: PDF

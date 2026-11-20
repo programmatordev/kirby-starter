@@ -1,0 +1,9 @@
+Title: Navigation & State
+
+----
+
+Text: Taxi loads each page without a full browser refresh. Alpine resets page-specific interactions while shared controls keep their state.
+
+----
+
+Uuid: 2H8JEAoQdsQCzrgT
