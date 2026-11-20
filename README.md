@@ -30,6 +30,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - [Production](#production)
 - [User Roles](#user-roles)
 - [Cookie Consent Notification](#cookie-consent-notification)
+- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Get Started
@@ -227,6 +228,10 @@ Supported trackers:
 - `Meta Pixel ID`
 
 For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics. The same applies to the other supported tracker IDs.
+
+## License
+
+Original code in this repository is available under the [0BSD License](LICENSE). Third-party dependencies remain subject to their respective licenses.
 
 ## Acknowledgments
 
