@@ -5,12 +5,12 @@ namespace App;
 use Kirby\Toolkit\Str;
 
 /**
- * Helper class for Kirby Panel-related functionality
+ * Helper class for Kirby Panel-related functionality.
  */
 class PanelHelper
 {
     /**
-     * Builds a menu entry for the Kirby panel
+     * Builds a menu entry for the Kirby Panel.
      *
      * @param string $icon The icon name to use
      * @param string $label Display text for the menu item
@@ -30,7 +30,7 @@ class PanelHelper
     }
 
     /**
-     * Checks if the provided link matches the current page path
+     * Checks if the provided link matches the current page path.
      *
      * @param string $link The link to check against the current path
      * @return bool True if the current page matches the link

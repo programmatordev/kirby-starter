@@ -1,8 +1,6 @@
 import { CATEGORY_ADVERTISEMENT } from "../utils/categories.js";
 
 export const googleAds = {
-  // categories related to this provider
-  // and respective settings
   categories: {
     [CATEGORY_ADVERTISEMENT]: {
       autoClear: {
@@ -12,8 +10,6 @@ export const googleAds = {
       }
     }
   },
-  // section information related to this provider
-  // to be appended to base section information
   sections: {
     en: {
       [CATEGORY_ADVERTISEMENT]: {
