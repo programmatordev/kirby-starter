@@ -2,6 +2,7 @@
   "name": "kirby-starter",
   "description": "Kirby Starter",
   "type": "module",
+  "license": "0BSD",
   "keywords": [],
   "authors": [
     {

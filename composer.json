@@ -2,6 +2,7 @@
   "name": "programmatordev/kirby-starter",
   "description": "A very opinionated Kirby CMS development stack with DDEV, Vite, Blade, Alpine.js and Tailwind CSS",
   "type": "project",
+  "license": "0BSD",
   "keywords": ["kirby", "kirby-cms", "tailwindcss", "ddev", "vite", "alpine-js", "blade"],
   "authors": [
     {
