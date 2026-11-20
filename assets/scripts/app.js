@@ -8,6 +8,7 @@ import "../styles/app.css";
 // handle pages rendering and transitions
 // save for global access
 window.Taxi = new Core({
+  enableAccessibility: true,
   renderers: { default: DefaultRenderer },
   transitions: { default: FadeTransition }
 });
