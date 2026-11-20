@@ -12,6 +12,8 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 
 export default class CookieConsentPlugin {
   static init() {
+    window.CookieConsent = CookieConsent;
+
     // create custom merge
     const merge = mergician({ appendArrays: true, dedupArrays: true });
 
