@@ -3,7 +3,7 @@
 @endphp
 
 <x-layout>
-  <div class="min-h-[70vh] w-full px-5 py-12 sm:px-8 sm:py-20" data-taxi-view>
+  <div class="w-full px-5 py-12 sm:px-8 sm:py-20" data-taxi-view>
     <div class="flex flex-wrap items-center justify-between gap-4">
       <x-breadcrumbs :current="$page" />
       <p class="text-xs font-semibold uppercase">HTTP / 404</p>

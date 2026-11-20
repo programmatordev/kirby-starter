@@ -66,6 +66,16 @@
       </ul>
     </section>
 
-    <x-example-navigation :current="$page" />
+    @if ($nextExample)
+      <nav class="border-t border-teal-400" aria-label="Example navigation">
+        <a class="flex min-h-32 items-center justify-between gap-5 px-5 py-8 text-right hover:bg-black hover:text-teal-400 sm:px-8" href="{{ $nextExample->url() }}">
+          <span class="ml-auto">
+            <span class="block text-xs font-semibold uppercase">Next</span>
+            <strong class="mt-2 block text-lg uppercase sm:text-xl">{{ $nextExample->title() }}</strong>
+          </span>
+          <span class="text-2xl" aria-hidden="true">-&gt;</span>
+        </a>
+      </nav>
+    @endif
   </div>
 </x-layout>

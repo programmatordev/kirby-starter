@@ -39,11 +39,30 @@
     <x-consent />
   </head>
 
-  <body class="min-h-screen bg-teal-500 font-['Martian_Mono',monospace] text-sm text-black sm:text-base lg:pb-20">
+  <body class="flex min-h-screen flex-col bg-teal-500 font-['Martian_Mono',monospace] text-sm text-black sm:text-base lg:pb-20">
     <a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:px-4 focus:py-3 focus:text-white" href="#main-content">Skip to content</a>
 
-    <header class="sticky top-0 z-40 border-b-2 border-black bg-teal-500">
-      <div class="grid min-h-16 w-full grid-cols-[1fr_auto] items-stretch lg:grid-cols-[1fr_auto_1fr]">
+    <header
+      class="sticky top-0 z-40 bg-teal-500"
+      x-data="{
+        menuOpen: false,
+        currentPath: window.location.pathname.replace(/\/+$/, '') || '/',
+        normalizePath(path) { return path.replace(/\/+$/, '') || '/' },
+        isCurrentPath(path) {
+          const itemPath = this.normalizePath(path);
+
+          return itemPath === '/'
+            ? this.currentPath === '/'
+            : this.currentPath === itemPath || this.currentPath.startsWith(`${itemPath}/`);
+        },
+        closeMenu() {
+          this.menuOpen = false;
+        }
+      }"
+      x-init="queueMicrotask(() => window.Taxi.on('NAVIGATE_IN', () => { currentPath = normalizePath(window.location.pathname); closeMenu(); }))"
+      @keydown.escape.window="if (menuOpen) { closeMenu(); $nextTick(() => $refs.menuButton.focus()); }"
+    >
+      <div class="grid min-h-16 w-full grid-cols-[1fr_auto] items-stretch border-b-2 border-black lg:grid-cols-[1fr_auto_1fr]">
         <a class="flex items-center gap-3 px-5 font-bold uppercase sm:px-8" href="{{ $site->url() }}">
           <img class="h-7 w-auto" src="{{ vite()->file('assets/images/kirby-logo.svg') }}" alt="">
           <span>{{ $site->title() }}</span>
@@ -51,41 +70,49 @@
 
         <p class="hidden items-center border-x-2 border-black px-8 text-xs font-semibold uppercase lg:flex">Kirby {{ $kirbyVersion }}</p>
 
-        <nav
-          class="flex items-stretch justify-end"
-          aria-label="Primary navigation"
-          x-data="{
-            currentPath: window.location.pathname.replace(/\/+$/, '') || '/',
-            normalizePath(path) { return path.replace(/\/+$/, '') || '/' },
-            isCurrentPath(path) {
-              const itemPath = this.normalizePath(path);
-
-              return itemPath === '/'
-                ? this.currentPath === '/'
-                : this.currentPath === itemPath || this.currentPath.startsWith(`${itemPath}/`);
-            }
-          }"
-          x-init="queueMicrotask(() => window.Taxi.on('NAVIGATE_IN', () => currentPath = normalizePath(window.location.pathname)))"
-        >
+        <nav class="hidden items-stretch justify-end sm:flex" aria-label="Primary navigation">
           <ul class="flex items-stretch">
             @foreach ($site->pages()->listed() as $item)
               <li class="flex border-l-2 border-black first:border-l-0 lg:first:border-l-2">
-                <a class="flex items-center px-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400 sm:px-6" href="{{ $item->url() }}" aria-label="{{ $item->title() }}" :aria-current="isCurrentPath(new URL($el.href).pathname) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif>
-                  {{ $item->dirname() }}
+                <a class="flex items-center px-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400 sm:px-6" href="{{ $item->url() }}" :aria-current="isCurrentPath(new URL($el.href).pathname) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif>
+                  <span aria-hidden="true">{{ $item->num() }}_</span>{{ $item->slug() }}
                 </a>
               </li>
             @endforeach
           </ul>
         </nav>
+
+        <button
+          class="flex cursor-pointer items-center border-l-2 border-black px-5 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 sm:hidden"
+          type="button"
+          aria-controls="mobile-navigation"
+          :aria-expanded="menuOpen"
+          x-ref="menuButton"
+          @click="menuOpen = !menuOpen"
+          :class="menuOpen ? 'bg-black text-teal-400' : ''"
+          x-text="menuOpen ? 'Close' : 'Menu'"
+        >Menu</button>
       </div>
+
+      <nav id="mobile-navigation" class="absolute inset-x-0 top-full border-b border-black bg-teal-500 sm:hidden" aria-label="Mobile navigation" x-cloak x-show="menuOpen">
+        <ul>
+          @foreach ($site->pages()->listed() as $item)
+            <li class="border-b border-black last:border-b-0">
+              <a class="block px-5 py-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400" href="{{ $item->url() }}" :aria-current="isCurrentPath(new URL($el.href).pathname) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif @click="closeMenu()">
+                <span aria-hidden="true">{{ $item->num() }}_</span>{{ $item->slug() }}
+              </a>
+            </li>
+          @endforeach
+        </ul>
+      </nav>
     </header>
 
-    <main id="main-content" data-taxi tabindex="-1">
+    <main id="main-content" class="flex-1" data-taxi tabindex="-1">
       {{ $slot }}
     </main>
 
     <aside class="border-t border-teal-400 bg-black text-teal-400 lg:fixed lg:inset-x-0 lg:bottom-0 lg:z-40" aria-label="Persistent Alpine state">
-      <div class="grid w-full gap-px bg-teal-400 sm:grid-cols-[1fr_auto_1fr] lg:h-20" x-data="{ count: 0 }">
+      <div class="grid w-full gap-px bg-teal-400 lg:h-20 lg:grid-cols-[1fr_auto_1fr]" x-data="{ count: 0 }">
         <div class="flex items-center bg-black px-5 py-5 sm:px-8 lg:py-3">
           <p class="text-xs font-semibold uppercase">Persistent Alpine state</p>
         </div>
@@ -96,7 +123,7 @@
           <button class="cursor-pointer text-white/60 underline underline-offset-4 hover:text-white" type="button" @click="count = 0">reset</button>
         </div>
 
-        <p class="flex items-center bg-black px-5 py-5 text-xs text-white/60 sm:px-8 sm:text-right lg:py-3">Increment, navigate, and verify the value remains.</p>
+        <p class="flex items-center bg-black px-5 py-5 text-xs text-white/60 sm:px-8 lg:py-3 lg:text-right">Increment, navigate, and verify the value remains.</p>
       </div>
     </aside>
   </body>

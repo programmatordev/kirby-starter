@@ -1,5 +1,6 @@
 @php
   /** @var \Kirby\Cms\Page $page */
+  $previousExample = $page->prevListed();
   $trackers = site()->trackers();
   $providers = [
     ['name' => 'Google Analytics', 'configured' => !empty($trackers['googleAnalyticsId'])],
@@ -57,7 +58,7 @@
           @foreach ($providers as $provider)
             <li class="grid grid-cols-[1fr_auto] gap-6 border-b border-black px-5 py-5 last:border-b-0 sm:px-8">
               <strong>{{ $provider['name'] }}</strong>
-              <span class="text-xs font-semibold uppercase {{ $provider['configured'] ? 'text-black' : 'text-black/50' }}">{{ $provider['configured'] ? 'Configured' : 'Not configured' }}</span>
+              <span class="text-xs font-semibold uppercase {{ $provider['configured'] ? 'text-black' : 'text-black/70' }}">{{ $provider['configured'] ? 'Configured' : 'Not configured' }}</span>
             </li>
           @endforeach
         </ul>
@@ -70,7 +71,7 @@
               <p class="text-xs font-semibold uppercase">Browser state</p>
               <h2 class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">Consent categories</h2>
             </div>
-            <span class="text-xs font-semibold uppercase" x-text="hasConsent ? 'Choice saved' : 'Choice pending'">Choice pending</span>
+            <span class="text-xs font-semibold uppercase" role="status" aria-atomic="true" x-text="hasConsent ? 'Choice saved' : 'Choice pending'">Choice pending</span>
           </div>
         </div>
 
@@ -78,7 +79,7 @@
           <template x-for="category in categories" :key="category">
             <li class="grid grid-cols-[1fr_auto] gap-6 border-b border-black px-5 py-5 last:border-b-0 sm:px-8">
               <strong x-text="categoryLabel(category)"></strong>
-              <span class="text-xs font-semibold uppercase" :class="acceptedCategories.includes(category) ? 'text-black' : 'text-black/50'" x-text="acceptedCategories.includes(category) ? 'Accepted' : 'Rejected'"></span>
+              <span class="text-xs font-semibold uppercase" :class="acceptedCategories.includes(category) ? 'text-black' : 'text-black/70'" x-text="acceptedCategories.includes(category) ? 'Accepted' : 'Rejected'"></span>
             </li>
           </template>
         </ul>
@@ -112,6 +113,16 @@
       </ul>
     </section>
 
-    <x-example-navigation :current="$page" />
+    @if ($previousExample)
+      <nav class="border-t border-teal-400" aria-label="Example navigation">
+        <a class="flex min-h-32 items-center gap-5 px-5 py-8 hover:bg-black hover:text-teal-400 sm:px-8" href="{{ $previousExample->url() }}">
+          <span class="text-2xl" aria-hidden="true">&lt;-</span>
+          <span>
+            <span class="block text-xs font-semibold uppercase">Previous</span>
+            <strong class="mt-2 block text-lg uppercase sm:text-xl">{{ $previousExample->title() }}</strong>
+          </span>
+        </a>
+      </nav>
+    @endif
   </div>
 </x-layout>

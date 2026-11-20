@@ -3,7 +3,7 @@
 @endphp
 
 <x-layout>
-  <div class="min-h-[70vh] w-full" data-taxi-view>
+  <div class="w-full" data-taxi-view>
     <header class="px-5 py-12 sm:px-8 sm:py-20">
       <x-breadcrumbs :current="$page" />
       <h1 class="mt-4 text-4xl font-extrabold uppercase sm:text-7xl lg:text-8xl">{{ $page->title() }}</h1>
