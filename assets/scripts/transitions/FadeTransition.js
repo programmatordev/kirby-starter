@@ -3,7 +3,7 @@ import DefaultTransition from "./DefaultTransition.js";
 
 export default class FadeTransition extends DefaultTransition {
   duration = 700;
-  // easeOutQuint in bezier format
+  // Approximate easeOutQuint for the Web Animations API.
   cssEasing = 'cubic-bezier(0.23, 1, 0.32, 1)';
 
   prefersReducedMotion() {
@@ -15,20 +15,22 @@ export default class FadeTransition extends DefaultTransition {
       return super.onLeave({ from, trigger, done });
     }
 
-    // scroll to top/left on page transition
-    animateScrollTo([0, 0], {
+    // Scroll to the top while the current view fades out.
+    const scroll = animateScrollTo([0, 0], {
       speed: this.duration,
       minDuration: this.duration,
       maxDuration: this.duration,
       cancelOnUserAction: false,
-      // using easeOutQuint
-      // check the following link for different options https://gist.github.com/gre/1650294
+      // Use the easeOutQuint function that the CSS easing approximates.
       easing: (t) => { return 1 + (--t) * t * t * t * t }
     });
 
-    this.wrapper
-      .animate({ opacity: 0 }, { duration: this.duration, fill: 'forwards', easing: this.cssEasing })
-      .onfinish = () => done();
+    const fade = this.wrapper.animate(
+      { opacity: 0 },
+      { duration: this.duration, fill: 'forwards', easing: this.cssEasing }
+    ).finished;
+
+    return Promise.all([scroll, fade]);
   }
 
   onEnter({ to, trigger, done }) {
