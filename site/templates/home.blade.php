@@ -35,22 +35,22 @@
 
         <ol>
           <li class="grid grid-cols-[3rem_1fr] border-b border-black px-5 py-5 last:border-b-0 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
-            <span class="font-bold">01</span><strong class="uppercase">Kirby CMS</strong><code class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">content/ + site/</code>
+            <span class="font-bold">01</span><strong class="uppercase">Kirby CMS</strong><span class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">Content and pages</span>
           </li>
           <li class="grid grid-cols-[3rem_1fr] border-b border-black px-5 py-5 last:border-b-0 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
-            <span class="font-bold">02</span><strong class="uppercase">Blade templates</strong><code class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">site/templates/*.blade.php</code>
+            <span class="font-bold">02</span><strong class="uppercase">Blade templates</strong><span class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">Layouts and components</span>
           </li>
           <li class="grid grid-cols-[3rem_1fr] border-b border-black px-5 py-5 last:border-b-0 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
-            <span class="font-bold">03</span><strong class="uppercase">Vite + Tailwind</strong><code class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">assets/ -&gt; build/</code>
+            <span class="font-bold">03</span><strong class="uppercase">Vite + Tailwind</strong><span class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">Styles and scripts</span>
           </li>
           <li class="grid grid-cols-[3rem_1fr] border-b border-black px-5 py-5 last:border-b-0 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
-            <span class="font-bold">04</span><strong class="uppercase">Alpine state</strong><code class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">local + persistent</code>
+            <span class="font-bold">04</span><strong class="uppercase">Alpine state</strong><span class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">Interactive elements</span>
           </li>
           <li class="grid grid-cols-[3rem_1fr] border-b border-black px-5 py-5 last:border-b-0 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
-            <span class="font-bold">05</span><strong class="uppercase">Taxi navigation</strong><a class="col-start-2 mt-2 underline underline-offset-4 hover:no-underline sm:col-start-auto sm:mt-0" href="{{ $navigationPage->url() }}">Open example -&gt;</a>
+            <span class="font-bold">05</span><strong class="uppercase">Taxi navigation</strong><a class="col-start-2 mt-2 underline underline-offset-4 hover:no-underline sm:col-start-auto sm:mt-0" href="{{ $navigationPage->url() }}">Page transitions -&gt;</a>
           </li>
           <li class="grid grid-cols-[3rem_1fr] px-5 py-5 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
-            <span class="font-bold">06</span><strong class="uppercase">Consent + trackers</strong><a class="col-start-2 mt-2 underline underline-offset-4 hover:no-underline sm:col-start-auto sm:mt-0" href="{{ $consentPage->url() }}">Open example -&gt;</a>
+            <span class="font-bold">06</span><strong class="uppercase">Consent + trackers</strong><a class="col-start-2 mt-2 underline underline-offset-4 hover:no-underline sm:col-start-auto sm:mt-0" href="{{ $consentPage->url() }}">Cookie preferences -&gt;</a>
           </li>
         </ol>
       </div>
