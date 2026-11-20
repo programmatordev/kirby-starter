@@ -110,7 +110,7 @@
       {{ $slot }}
     </main>
 
-    <aside class="border-t border-teal-400 bg-black text-teal-400 lg:fixed lg:inset-x-0 lg:bottom-0 lg:z-40" aria-label="Persistent Alpine state">
+    <aside class="border-t border-teal-400 bg-black text-teal-400 lg:fixed lg:inset-x-0 lg:bottom-0 lg:z-40" aria-label="Shared counter">
       <div class="grid w-full gap-px bg-teal-400 lg:h-20 lg:grid-cols-[1fr_auto_1fr]" x-data="{ count: 0 }">
         <div class="flex items-center bg-black px-5 py-5 sm:px-8 lg:py-3">
           <p class="text-xs font-semibold uppercase">Shared counter</p>
@@ -118,7 +118,7 @@
 
         <div class="flex items-center gap-5 bg-black px-5 py-5 sm:px-8 lg:py-3">
           <output class="min-w-28 font-bold" aria-live="polite" aria-atomic="true">count = <span x-text="count">0</span></output>
-          <button class="cursor-pointer border border-teal-400 px-3 py-2 font-bold hover:bg-teal-400 hover:text-black" type="button" @click="count++" aria-label="Increase persistent count">+1</button>
+          <button class="cursor-pointer border border-teal-400 px-3 py-2 font-bold hover:bg-teal-400 hover:text-black" type="button" @click="count++" aria-label="Increase shared counter">+1</button>
           <button class="cursor-pointer text-white/60 underline underline-offset-4 hover:text-white" type="button" @click="count = 0">reset</button>
         </div>
 

@@ -24,12 +24,12 @@
       </div>
     </section>
 
-    <section aria-labelledby="manifest-title">
+    <section aria-labelledby="features-title">
       <div class="w-full">
         <header class="border-b-2 border-black px-5 py-8 sm:px-8">
           <div>
             <p class="text-xs font-semibold uppercase">Starter features</p>
-            <h2 id="manifest-title" class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">Included by default</h2>
+            <h2 id="features-title" class="mt-3 text-3xl font-extrabold uppercase sm:text-5xl">Included by default</h2>
           </div>
         </header>
 

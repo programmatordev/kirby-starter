@@ -39,8 +39,9 @@ export default class FadeTransition extends DefaultTransition {
       return;
     }
 
-    this.wrapper
-      .animate({ opacity: 1 }, { duration: this.duration, fill: 'forwards', easing: this.cssEasing })
-      .onfinish = () => done();
+    return this.wrapper.animate(
+      { opacity: 1 },
+      { duration: this.duration, fill: 'forwards', easing: this.cssEasing }
+    ).finished;
   }
 }

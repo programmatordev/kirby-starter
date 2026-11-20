@@ -32,7 +32,7 @@
           <ol class="mt-8 space-y-6 text-lg leading-relaxed">
             <li class="grid grid-cols-[2rem_1fr] gap-3"><strong>01</strong><span>Increase this counter and the counter at the bottom of the page.</span></li>
             <li class="grid grid-cols-[2rem_1fr] gap-3"><strong>02</strong><span>Navigate to another page.</span></li>
-            <li class="grid grid-cols-[2rem_1fr] gap-3"><strong>03</strong><span>Return here. This counter resets while the persistent counter keeps its value.</span></li>
+            <li class="grid grid-cols-[2rem_1fr] gap-3"><strong>03</strong><span>Return here. This counter resets while the shared counter keeps its value.</span></li>
           </ol>
         </div>
 
