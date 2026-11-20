@@ -12,7 +12,7 @@
     }
   ],
   "dependencies": {
-    "@unseenco/taxi": "^1.9.1",
+    "@unseenco/taxi": "^2.0.0",
     "alpinejs": "^3.17.5",
     "animated-scroll-to": "^2.3.2",
     "mergician": "^2.0.2",

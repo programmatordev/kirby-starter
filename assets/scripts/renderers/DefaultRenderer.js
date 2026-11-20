@@ -6,15 +6,14 @@ export default class DefaultRenderer extends Renderer {
   initialLoad() {
     AlpinePlugin.init();
     CookieConsentPlugin.init();
-
-    this.onEnter();
   }
 
   onEnter() {
-    AlpinePlugin.initState(this.wrapper);
+    AlpinePlugin.initState(this.content);
   }
 
-  onLeaveCompleted() {
-    AlpinePlugin.destroyState(this.wrapper);
+  onLeave() {
+    // Cleanup must run before Taxi removes the outgoing content.
+    AlpinePlugin.destroyState(this.content);
   }
 }
