@@ -42,20 +42,16 @@ If not, follow their instructions [here](https://ddev.com/get-started/).
 
 Download this project to a directory of your choice.
 
+DDEV automatically uses the project directory name as the project name and local domain.
+For example, a project in a `my-project` directory will be available at `https://my-project.ddev.site`.
+
 `STEP 2`
-
-Open the `.ddev/config.yaml` file and update the `name` property to match your project's name. 
-This setting determines the domain for your local environment.
-
-For example, if you set `name` to `my-project`, your local domain will be `https://my-project.ddev.site`.
-
-`STEP 3` 
 
 On your terminal, go to your project directory and run the following commands:
 
 ```bash
 # initialize Docker and all required containers
-# the local domain will be given to you at the end of this process (check step 2)
+# the local domain will be shown when the project starts
 ddev start
 ```
 
@@ -69,12 +65,12 @@ ddev composer install
 ddev npm install
 ```
 
-`STEP 4` 
+`STEP 3`
 
 Include a `.env` file in your project root.
 A `.env.example` file already exists, so you can either rename it or create a new one.
 
-`STEP 5` 
+`STEP 4`
 
 Run the following command to start development mode:
 
