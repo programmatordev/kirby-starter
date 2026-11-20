@@ -7,6 +7,7 @@ use Kirby\Panel\Panel;
 use Kirby\Panel\Ui\Buttons\ViewButtons;
 use Kirby\Panel\Ui\Item\UserItem;
 
+// Overrides Kirby's core users area; review against Kirby updates.
 return [
     'users' => function(App $kirby) {
         $hideAdminUsers = $kirby->option('programmatordev.panel-extended.hideAdminUsers', true)
