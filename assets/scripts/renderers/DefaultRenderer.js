@@ -12,8 +12,8 @@ export default class DefaultRenderer extends Renderer {
     AlpinePlugin.initState(this.content);
   }
 
-  onLeave() {
-    // Cleanup must run before Taxi removes the outgoing content.
+  onLeaveCompleted() {
+    // Taxi removes the outgoing view first, but this.content still references its detached Alpine tree.
     AlpinePlugin.destroyState(this.content);
   }
 }
