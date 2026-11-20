@@ -2,7 +2,7 @@ Title: Examples
 
 ----
 
-Text: Runnable demonstrations of behavior included in this starter.
+Text: Working examples of the starter's built-in behavior.
 
 ----
 

@@ -2,7 +2,7 @@ Title: Consent & Tracking
 
 ----
 
-Text: Tracker configuration determines which consent categories and scripts are available to the browser.
+Text: Tracker configuration determines which consent categories and providers are enabled.
 
 ----
 

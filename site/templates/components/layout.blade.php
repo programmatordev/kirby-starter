@@ -1,7 +1,6 @@
 @php
   $page = page();
   $site = site();
-  $kirbyVersion = \Kirby\Cms\App::version();
   $metaTitle = $page->title() . ' - ' . $site->title();
   $language = kirby()->languageCode() ?? kirby()->option('app.language');
   $isIndexable = kirby()->option('debug') !== true
@@ -48,11 +47,11 @@
         menuOpen: false,
         currentPath: window.location.pathname.replace(/\/+$/, '') || '/',
         normalizePath(path) { return path.replace(/\/+$/, '') || '/' },
-        isCurrentPath(path) {
+        isCurrentPath(path, isHome = false) {
           const itemPath = this.normalizePath(path);
 
-          return itemPath === '/'
-            ? this.currentPath === '/'
+          return isHome
+            ? this.currentPath === itemPath
             : this.currentPath === itemPath || this.currentPath.startsWith(`${itemPath}/`);
         },
         closeMenu() {
@@ -68,13 +67,13 @@
           <span>{{ $site->title() }}</span>
         </a>
 
-        <p class="hidden items-center border-x-2 border-black px-8 text-xs font-semibold uppercase lg:flex">Kirby {{ $kirbyVersion }}</p>
+        <p class="hidden items-center border-x-2 border-black px-8 text-xs font-semibold uppercase lg:flex">Kirby {{ \Kirby\Cms\App::version() }}</p>
 
         <nav class="hidden items-stretch justify-end sm:flex" aria-label="Primary navigation">
           <ul class="flex items-stretch">
             @foreach ($site->pages()->listed() as $item)
               <li class="flex border-l-2 border-black first:border-l-0 lg:first:border-l-2">
-                <a class="flex items-center px-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400 sm:px-6" href="{{ $item->url() }}" :aria-current="isCurrentPath(new URL($el.href).pathname) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif>
+                <a class="flex items-center px-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400 sm:px-6" href="{{ $item->url() }}" :aria-current="isCurrentPath(new URL($el.href).pathname, {{ $item->isHomePage() ? 'true' : 'false' }}) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif>
                   <span aria-hidden="true">{{ $item->num() }}_</span>{{ $item->slug() }}
                 </a>
               </li>
@@ -98,7 +97,7 @@
         <ul>
           @foreach ($site->pages()->listed() as $item)
             <li class="border-b border-black last:border-b-0">
-              <a class="block px-5 py-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400" href="{{ $item->url() }}" :aria-current="isCurrentPath(new URL($el.href).pathname) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif @click="closeMenu()">
+              <a class="block px-5 py-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400" href="{{ $item->url() }}" :aria-current="isCurrentPath(new URL($el.href).pathname, {{ $item->isHomePage() ? 'true' : 'false' }}) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif @click="closeMenu()">
                 <span aria-hidden="true">{{ $item->num() }}_</span>{{ $item->slug() }}
               </a>
             </li>
