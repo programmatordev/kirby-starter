@@ -1,0 +1,9 @@
+Title: Navigation & State
+
+----
+
+Text: Taxi replaces the page view without reloading the persistent shell, while Alpine initializes and destroys state around each transition.
+
+----
+
+Uuid: 2H8JEAoQdsQCzrgT

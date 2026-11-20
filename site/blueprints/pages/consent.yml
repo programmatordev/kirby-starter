@@ -1,0 +1,5 @@
+title: Consent Example
+
+fields:
+  text:
+    type: textarea

@@ -56,15 +56,22 @@
           aria-label="Primary navigation"
           x-data="{
             currentPath: window.location.pathname.replace(/\/+$/, '') || '/',
-            normalizePath(path) { return path.replace(/\/+$/, '') || '/' }
+            normalizePath(path) { return path.replace(/\/+$/, '') || '/' },
+            isCurrentPath(path) {
+              const itemPath = this.normalizePath(path);
+
+              return itemPath === '/'
+                ? this.currentPath === '/'
+                : this.currentPath === itemPath || this.currentPath.startsWith(`${itemPath}/`);
+            }
           }"
           x-init="queueMicrotask(() => window.Taxi.on('NAVIGATE_IN', () => currentPath = normalizePath(window.location.pathname)))"
         >
           <ul class="flex items-stretch">
             @foreach ($site->pages()->listed() as $item)
               <li class="flex border-l-2 border-black first:border-l-0 lg:first:border-l-2">
-                <a class="flex items-center px-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400 sm:px-6" href="{{ $item->url() }}" :aria-current="normalizePath(new URL($el.href).pathname) === currentPath ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif>
-                  <span class="hidden sm:inline">0{{ $loop->iteration }}_</span>{{ $item->title() }}
+                <a class="flex items-center px-4 text-xs font-semibold uppercase hover:bg-black hover:text-teal-400 aria-[current=page]:bg-black aria-[current=page]:text-teal-400 sm:px-6" href="{{ $item->url() }}" aria-label="{{ $item->title() }}" :aria-current="isCurrentPath(new URL($el.href).pathname) ? 'page' : null" @if ($item->isOpen()) aria-current="page" @endif>
+                  {{ $item->dirname() }}
                 </a>
               </li>
             @endforeach
@@ -77,7 +84,7 @@
       {{ $slot }}
     </main>
 
-    <aside class="border-t-2 border-black bg-black text-teal-400 lg:fixed lg:inset-x-0 lg:bottom-0 lg:z-40" aria-label="Persistent Alpine state">
+    <aside class="border-t border-teal-400 bg-black text-teal-400 lg:fixed lg:inset-x-0 lg:bottom-0 lg:z-40" aria-label="Persistent Alpine state">
       <div class="grid w-full gap-px bg-teal-400 sm:grid-cols-[1fr_auto_1fr] lg:h-20" x-data="{ count: 0 }">
         <div class="flex items-center bg-black px-5 py-5 sm:px-8 lg:py-3">
           <p class="text-xs font-semibold uppercase">Persistent Alpine state</p>

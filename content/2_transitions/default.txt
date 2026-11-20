@@ -1,9 +1,0 @@
-Title: Transitions
-
-----
-
-Text: Page-local Alpine state is destroyed during navigation, while the persistent counter below keeps its value.
-
-----
-
-Uuid: 2H8JEAoQdsQCzrgT
