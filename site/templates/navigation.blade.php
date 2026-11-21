@@ -1,5 +1,6 @@
 @php
   /** @var \Kirby\Cms\Page $page */
+
   $nextExample = $page->nextListed();
 @endphp
 

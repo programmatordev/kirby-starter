@@ -1,6 +1,8 @@
 @props(['current'])
 
 @php
+  /** @var \Kirby\Cms\Page $current */
+
   $pages = [];
   $pathPage = $current;
 

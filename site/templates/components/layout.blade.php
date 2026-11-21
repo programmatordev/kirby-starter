@@ -1,11 +1,8 @@
 @php
-  $page = page();
-  $site = site();
-  $metaTitle = $page->title() . ' - ' . $site->title();
-  $language = kirby()->languageCode() ?? kirby()->option('app.language');
-  $isIndexable = kirby()->option('debug') !== true
-    && $page->isPublished()
-    && !$page->isErrorPage();
+  /** @var \Kirby\Cms\App $kirby */
+  /** @var \Kirby\Cms\Site $site */
+
+  $language = $kirby->languageCode() ?? $kirby->option('app.language');
 @endphp
 
 <!DOCTYPE html>
@@ -14,17 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $metaTitle }}</title>
-    <meta name="robots" content="{{ $isIndexable ? 'index,follow' : 'noindex,nofollow' }}">
-    @if ($isIndexable)
-      <link rel="canonical" href="{{ $page->url() }}">
-    @endif
-    <meta property="og:title" content="{{ $page->title() }}">
-    <meta property="og:type" content="website">
-    @if ($isIndexable)
-      <meta property="og:url" content="{{ $page->url() }}">
-    @endif
-    <meta property="og:site_name" content="{{ $site->title() }}">
+    <x-metadata />
 
     @snippet('favicon')
 
