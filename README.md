@@ -23,6 +23,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - [Get Started](#get-started)
 - [Development](#development)
   - [Kirby CLI](#kirby-cli)
+    - [Remove Demo](#remove-demo)
   - [Templating Engine](#templating-engine)
   - [Assets](#assets)
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
@@ -81,6 +82,16 @@ Run the following command to start development mode:
 ddev npm run dev
 ```
 
+`STEP 5 (OPTIONAL)`
+
+After confirming that the demo works, remove it to start with unstyled templates while keeping the starter functionality:
+
+```bash
+ddev kirby starter:remove-demo
+```
+
+See [Remove Demo](#remove-demo) for the available options and safety notes.
+
 ## Development
 
 This project uses [Vite](https://vite.dev/) for frontend development.
@@ -104,6 +115,23 @@ The [Kirby CLI](https://github.com/getkirby/cli) is available to help with devel
 ```bash
 ddev kirby
 ```
+
+#### Remove Demo
+
+To preview and remove the bundled demo, run:
+
+```bash
+ddev kirby starter:remove-demo --dry-run
+ddev kirby starter:remove-demo
+```
+
+You can optionally set a new site title during removal:
+
+```bash
+ddev kirby starter:remove-demo --title="Website title"
+```
+
+Without `--title`, the existing site title is preserved. The removal is permanent and requires confirmation, so commit or back up any demo files you want to keep before running it.
 
 ### Templating Engine
 
