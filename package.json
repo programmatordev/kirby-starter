@@ -31,6 +31,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint:php": "git ls-files --cached --others --exclude-standard -z -- '*.php' | xargs -0 -n1 sh -c 'test ! -f \"$1\" || php -l \"$1\"' sh",
-    "check": "npm run build && npm run lint:php"
+    "check": "npm run build && npm run lint:php",
+    "deploy:staging": "npm run check && DEPLOY_TARGET=staging kirby-deploy",
+    "deploy:production": "npm run check && DEPLOY_TARGET=production kirby-deploy"
   }
 }
