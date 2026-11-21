@@ -1,6 +1,9 @@
 @php
   use Kirby\Data\Json;
-  $trackers = site()->trackers();
+
+  /** @var \Kirby\Cms\Site $site */
+
+  $trackers = $site->trackers();
 @endphp
 
 <script>

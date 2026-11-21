@@ -1,7 +1,9 @@
 @php
   /** @var \Kirby\Cms\Page $page */
+  /** @var \Kirby\Cms\Site $site */
+
   $previousExample = $page->prevListed();
-  $trackers = site()->trackers();
+  $trackers = $site->trackers();
   $providers = [
     ['name' => 'Google Analytics', 'configured' => !empty($trackers['googleAnalyticsId'])],
     ['name' => 'Google Ads', 'configured' => !empty($trackers['googleAdsId'])],

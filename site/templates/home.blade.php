@@ -1,6 +1,8 @@
 @php
   /** @var \Kirby\Cms\Page $page */
-  $examplesPage = site()->find('examples');
+  /** @var \Kirby\Cms\Site $site */
+
+  $examplesPage = $site->find('examples');
   $navigationPage = $examplesPage->find('navigation');
   $consentPage = $examplesPage->find('consent');
 @endphp
