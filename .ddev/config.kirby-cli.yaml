@@ -1,0 +1,3 @@
+hooks:
+    post-start:
+        - composer: global require getkirby/cli

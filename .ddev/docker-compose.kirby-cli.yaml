@@ -1,0 +1,7 @@
+services:
+    web:
+        volumes:
+            - composer-home:/home/${DDEV_USER}/.composer
+
+volumes:
+    composer-home:
