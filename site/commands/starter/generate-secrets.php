@@ -7,9 +7,18 @@ use Kirby\Filesystem\F;
 
 return [
     'description' => 'Generates missing application security secrets.',
+    'args' => [
+        'force' => [
+            'prefix' => 'f',
+            'longPrefix' => 'force',
+            'description' => 'Replace existing security secrets',
+            'noValue' => true,
+        ],
+    ],
     'command' => static function (CLI $cli): void {
         $environmentPath = $cli->kirby()->root('index') . '/.env';
         $environment = F::read($environmentPath);
+        $force = $cli->arg('force') === true;
 
         if ($environment === false) {
             throw new RuntimeException('Could not read the .env file.');
@@ -41,7 +50,7 @@ return [
             // Match the env loader's handling of reserved values such as null, false and empty.
             $value = env($key);
 
-            if (is_string($value) && empty($value) === false) {
+            if ($force === false && is_string($value) && empty($value) === false) {
                 continue;
             }
 
@@ -73,6 +82,8 @@ return [
             throw new RuntimeException('Could not update the .env file.');
         }
 
-        $cli->success('Generated ' . implode(' and ', $generated) . '.');
+        $action = $force === true ? 'Rotated' : 'Generated';
+
+        $cli->success($action . ' ' . implode(' and ', $generated) . '.');
     },
 ];

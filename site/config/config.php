@@ -16,7 +16,7 @@ $config = [
     'arnoson.kirby-deploy.token' => env('DEPLOY_TOKEN'),
 ];
 
-// Leave missing secrets unset so Kirby can retain its built-in fallbacks.
+// Keep Kirby bootable for the generator and preserve its fallbacks until secrets exist.
 $contentSalt = env('APP_CONTENT_SALT');
 $cookieKey = env('APP_COOKIE_KEY');
 

@@ -119,6 +119,14 @@ ddev kirby starter:generate-secrets
 
 The command fills empty or missing `APP_CONTENT_SALT` and `APP_COOKIE_KEY` entries without displaying or replacing existing values. Keep these values stable and use different values for each environment.
 
+To replace both existing values intentionally, use the `--force` flag:
+
+```bash
+ddev kirby starter:generate-secrets --force
+```
+
+This invalidates existing preview and media URLs and signed cookies.
+
 #### Remove Demo
 
 To preview and remove the bundled demo, run:
