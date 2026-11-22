@@ -24,6 +24,7 @@ return [
             throw new RuntimeException('Could not read the .env file.');
         }
 
+        // Preserve the existing line endings when writing the file back.
         $lineEnding = str_contains($environment, "\r\n") ? "\r\n" : "\n";
         $lines = preg_split('/\r\n|\r|\n/', $environment);
 
@@ -35,10 +36,12 @@ return [
         $appended = false;
 
         foreach (['APP_CONTENT_SALT', 'APP_COOKIE_KEY'] as $key) {
+            // Match dotenv assignments while allowing surrounding whitespace.
+            $assignmentPattern = '/^\s*' . preg_quote($key, '/') . '\s*=(.*)$/';
             $matches = [];
 
             foreach ($lines as $index => $line) {
-                if (preg_match('/^\s*(?:export\s+)?' . preg_quote($key, '/') . '\s*=(.*)$/', $line, $match) === 1) {
+                if (preg_match($assignmentPattern, $line, $match) === 1) {
                     $matches[$index] = trim($match[1]);
                 }
             }
@@ -54,15 +57,18 @@ return [
                 continue;
             }
 
+            // Generate a 256-bit secret in an .env-safe hexadecimal format.
+            $secret = bin2hex(random_bytes(32));
+
             if ($matches !== []) {
                 $index = array_key_first($matches);
-                $lines[$index] = $key . '=' . bin2hex(random_bytes(32));
+                $lines[$index] = $key . '=' . $secret;
             } else {
                 if ($appended === false && end($lines) !== '') {
                     $lines[] = '';
                 }
 
-                $lines[] = $key . '=' . bin2hex(random_bytes(32));
+                $lines[] = $key . '=' . $secret;
                 $appended = true;
             }
 
@@ -74,6 +80,7 @@ return [
             return;
         }
 
+        // Keep the environment file terminated by a newline.
         if (end($lines) !== '') {
             $lines[] = '';
         }
