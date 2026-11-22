@@ -16,7 +16,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - 🚕 Page transitions and preloading with [Taxi.js](https://taxi.js.org/);
 - ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
 - 🌱 Environment variables with the [kirby-env](https://github.com/beebmx/kirby-env) plugin;
-- and more...
+- 🚀 Staging and production deployments with [Kirby Deploy](https://github.com/arnoson/kirby-deploy);
 
 ## Documentation
 
@@ -28,46 +28,37 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - [Assets](#assets)
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
   - [Static Assets Handling](#static-assets-handling)
-- [Production](#production)
-  - [Automated Deployment](#automated-deployment)
 - [User Roles](#user-roles)
 - [Cookie Consent Notification](#cookie-consent-notification)
+- [Deployment](#deployment)
+  - [Configure Targets](#configure-targets)
+  - [Deploy](#deploy)
+  - [Synchronize Data](#synchronize-data)
+  - [Optional Webhooks](#optional-webhooks)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Get Started
 
-Before starting, make sure you have [DDEV](https://ddev.com/get-started/) installed.
-If not, follow their instructions [here](https://ddev.com/get-started/).
+Before starting, install [DDEV](https://ddev.com/get-started/) by following its setup instructions.
 
-`STEP 1`
+**1. Download the project**
 
 Download this project to a directory of your choice.
 
-DDEV automatically uses the project directory name as the project name and local domain.
-For example, a project in a `my-project` directory will be available at `https://my-project.ddev.site`.
+**2. Start DDEV and install the dependencies**
 
-`STEP 2`
+DDEV automatically uses the project directory name as the project name and local domain. For example, a project in a `my-project` directory will be available at `https://my-project.ddev.site`.
 
-On your terminal, go to your project directory and run the following commands:
+In your terminal, go to the project directory and run:
 
 ```bash
-# initialize Docker and all required containers
-# the local domain will be shown when the project starts
 ddev start
-```
-
-```bash
-# install PHP dependencies
 ddev composer install
-```
-
-```bash
-# install Node.js dependencies
 ddev npm ci
 ```
 
-`STEP 3`
+**3. Create the environment file**
 
 Copy the existing `.env.example` file to `.env` in your project root:
 
@@ -75,15 +66,13 @@ Copy the existing `.env.example` file to `.env` in your project root:
 cp .env.example .env
 ```
 
-`STEP 4`
-
-Run the following command to start development mode:
+**4. Start development**
 
 ```bash
 ddev npm run dev
 ```
 
-`STEP 5 (OPTIONAL)`
+**5. Remove the demo (optional)**
 
 After confirming that the demo works, remove it to start with unstyled templates while keeping the starter functionality:
 
@@ -155,7 +144,7 @@ By default, a global `app.css` and `app.js` are included across the site.
 - The `app.css` file should be used for Tailwind CSS;
 - The `app.js` file should be used for JavaScript code across all pages of the site.
 
-Additional CSS and JS can be imported by the existing app entry. To load a file as a separate entry point, add it to the `input` array in `vite.config.js`, then include it in the `<head>` of your layout:
+Additional CSS and JS can be imported by the existing app entry. To load a file as a separate entry point, add its path or glob pattern to the `globSync()` call in `vite.config.js`, then include it in the `<head>` of your layout:
 
 ```php
 {!! vite()->css('assets/styles/file.css') !!}
@@ -169,13 +158,7 @@ For JS files, include `defer` consistently with the default app entry:
 
 ### Static Assets Handling
 
-To add static assets to a page (images, fonts, etc.), use the following code:
-
-```php
-{{ vite()->file('assets/images/file.svg') }}
-```
-
-Examples:
+Resolve static assets such as images and fonts with `vite()->file()`:
 
 ```html
 <img src="{{ vite()->file('assets/images/file.svg') }}" alt="Image">
@@ -187,19 +170,57 @@ Examples:
 
 For images in CSS, always enter the path of the image relative to the CSS file.
 
-## Production
+## User Roles
 
-Set `APP_DEBUG` to `false` in the `.env` file on each remote environment:
+By default, these three user roles are available:
 
-```dotenv
-APP_DEBUG=false
+- `admin` all permissions (exclusive for developers);
+- `owner` same as the `admin` role, but with **no access** to the `system` and `languages` panels;
+- `editor` same as the `owner` role, but with **no access** to the `users` panel.
+
+Because the `admin` role is intended for developers only, admin users do not appear in the `users` panel or searches and cannot be accessed by other roles.
+
+To disable this behavior, set the `hideAdminUsers` to `false`:
+
+```php
+// config.php
+
+return [
+    // ...
+    'programmatordev.panel-extended.hideAdminUsers' => false
+];
 ```
 
-Do not upload your local `.env` file. Create or update it directly on each server.
+To change the role permissions, edit the files in `site/blueprints/users`.
 
-### Automated Deployment
+### Accounts Field
+
+Use the `accounts` field to select non-admin users:
+
+```yaml
+assignees:
+  type: accounts
+```
+
+Use Kirby's native `users` field when admin users should also be available.
+
+## Cookie Consent Notification
+
+The cookie consent notification is enabled by default and is synchronized with the settings on the Trackers panel page.
+
+Supported trackers:
+
+- `Google Analytics ID`
+- `Google Ads ID`
+- `Meta Pixel ID`
+
+For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics. The same applies to the other supported tracker IDs.
+
+## Deployment
 
 The project uses [Kirby Deploy](https://github.com/arnoson/kirby-deploy) to deploy through FTP. DDEV includes the required `lftp` dependency.
+
+### Configure Targets
 
 Configure each target you plan to use in your local `.env` file. The available values are documented in `.env.example`:
 
@@ -215,6 +236,14 @@ DEPLOY_STAGING_FTP_SSL_FORCE=true
 
 Use the equivalent `DEPLOY_PRODUCTION_*` variables for production.
 
+Do not upload your local `.env` file. Create or update the application environment directly on each server. Set `APP_DEBUG` to `false` on production:
+
+```dotenv
+APP_DEBUG=false
+```
+
+### Deploy
+
 Deploy to either environment with:
 
 ```bash
@@ -224,7 +253,9 @@ ddev npm run deploy:production
 
 Both commands rebuild the production assets and validate PHP syntax before connecting. The generated `build` directory is uploaded automatically. With `DRY_RUN=true`, Kirby Deploy previews the changes and asks for confirmation before applying them. Setting it to `false` skips both the preview and confirmation.
 
-Normal deployments exclude content, generated media, accounts, languages, sessions, cache and logs. Use Kirby Deploy's subcommands when these files need to be synchronized:
+### Synchronize Data
+
+Normal deployments do not synchronize content, accounts, or languages. Use Kirby Deploy's subcommands when these files need to be synchronized:
 
 ```bash
 # Content
@@ -242,7 +273,9 @@ ddev npm run deploy:staging -- languages-pull
 
 Replace `deploy:staging` with `deploy:production` to use the production target.
 
-On a first deployment, deploy the website and then run `content-push`. This also applies when deploying the bundled demo because its content is excluded from the normal deployment. Run `languages-push` for a multilingual website. Prefer creating production users directly in the production Panel; use `accounts-push` only when the local accounts, including `.htpasswd`, should replace the remote accounts.
+On a first deployment, deploy the website and then run `content-push`. Run `languages-push` for a multilingual website.
+
+Prefer creating production users directly in the production Panel. Use `accounts-push` only when the local accounts, including `.htpasswd`, should replace the remote accounts.
 
 > [!CAUTION]
 > Push commands can overwrite or delete remote files, while pull commands can overwrite or delete local files. Review the dry-run output carefully and keep a backup before synchronizing content or accounts.
@@ -253,60 +286,29 @@ Pass `--force` after the forwarded arguments to transfer all files without using
 ddev npm run deploy:production -- content-push --force
 ```
 
+### Optional Webhooks
+
 The optional Kirby Deploy webhook plugin enables maintenance mode during deployments and clears Kirby's page cache afterwards. To enable it, install the Composer package:
 
 ```bash
 ddev composer require arnoson/kirby-deploy
 ```
 
-Set the target's `URL` and `TOKEN`, then change `CALL_WEBHOOKS` to `true` in your local `.env`. On the corresponding remote server, set `DEPLOY_TOKEN` to the same token. Webhooks remain disabled when `CALL_WEBHOOKS=false`. See the [Kirby Deploy configuration documentation](https://github.com/arnoson/kirby-deploy#config) for further options.
+Configure the target in your local `.env`:
 
-## User Roles
-
-By default, these three user roles are available:
-
-- `admin` all permissions (exclusive for developers);
-- `owner` same as the `admin` role, but with **no access** to the `system` and `languages` panels;
-- `editor` same as the `owner` role, but with **no access** to the `users` panel.
-
-Since the `admin` role is intended for developers only, it will be invisible to all other roles.
-In other words, users with this role will not appear in the `users` panel or searches and cannot be accessed by other roles.
-
-To disable this behavior, set the `hideAdminUsers` to `false`:
-
-```php
-// config.php
-
-return [
-    // ...
-    'programmatordev.panel-extended.hideAdminUsers' => false
-];
+```dotenv
+DEPLOY_STAGING_URL=https://staging.example.com
+DEPLOY_STAGING_TOKEN=shared-secret
+DEPLOY_STAGING_CALL_WEBHOOKS=true
 ```
 
-### Accounts Field
+Set the same token on the corresponding remote server:
 
-Use the `accounts` field to select non-admin users:
-
-```yaml
-assignees:
-  type: accounts
+```dotenv
+DEPLOY_TOKEN=shared-secret
 ```
 
-Use Kirby's native `users` field when admin users should also be available.
-
-If you want to change these permissions, edit the files at `site/blueprints/users` to your needs.
-
-## Cookie Consent Notification
-
-The cookie consent notification is enabled by default and is synchronized with the settings on the Trackers panel page.
-
-Supported trackers:
-
-- `Google Analytics ID`
-- `Google Ads ID`
-- `Meta Pixel ID`
-
-For example, if you set a `Google Analytics ID`, a Google tag will be added to the website, and the cookie consent notification will adapt to provide users with consent options related to Google Analytics. The same applies to the other supported tracker IDs.
+Webhooks remain disabled when `CALL_WEBHOOKS=false`. See the [Kirby Deploy configuration documentation](https://github.com/arnoson/kirby-deploy#config) for further options.
 
 ## License
 
