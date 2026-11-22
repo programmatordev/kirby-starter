@@ -51,8 +51,11 @@
           <li class="grid grid-cols-[3rem_1fr] border-b border-black px-5 py-5 last:border-b-0 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
             <span class="font-bold">05</span><strong class="uppercase">Taxi navigation</strong><a class="col-start-2 mt-2 underline underline-offset-4 hover:no-underline sm:col-start-auto sm:mt-0" href="{{ $navigationPage->url() }}">Page transitions -&gt;</a>
           </li>
-          <li class="grid grid-cols-[3rem_1fr] px-5 py-5 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
+          <li class="grid grid-cols-[3rem_1fr] border-b border-black px-5 py-5 last:border-b-0 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
             <span class="font-bold">06</span><strong class="uppercase">Consent + trackers</strong><a class="col-start-2 mt-2 underline underline-offset-4 hover:no-underline sm:col-start-auto sm:mt-0" href="{{ $consentPage->url() }}">Cookie preferences -&gt;</a>
+          </li>
+          <li class="grid grid-cols-[3rem_1fr] px-5 py-5 sm:grid-cols-[4rem_1fr_1fr] sm:px-8">
+            <span class="font-bold">07</span><strong class="uppercase">Kirby Deploy</strong><span class="col-start-2 mt-2 sm:col-start-auto sm:mt-0">Staging and production</span>
           </li>
         </ol>
       </div>
