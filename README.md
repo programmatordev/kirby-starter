@@ -238,7 +238,7 @@ Use the equivalent `DEPLOY_PRODUCTION_*` variables for production.
 
 `REMOTE_DIR` is relative to the FTP account's starting directory. See the [Kirby Deploy configuration documentation](https://github.com/arnoson/kirby-deploy#config) for all available options.
 
-Do not upload your local `.env` file. Create or update the application environment directly on each server. Set `APP_DEBUG` to `false` on production:
+Deployments exclude the local `.env` file. Create or update the application `.env` manually on each server, and set `APP_DEBUG` to `false` in production:
 
 ```dotenv
 APP_DEBUG=false
