@@ -236,6 +236,8 @@ DEPLOY_STAGING_FTP_SSL_FORCE=true
 
 Use the equivalent `DEPLOY_PRODUCTION_*` variables for production.
 
+`REMOTE_DIR` is relative to the FTP account's starting directory. See the [Kirby Deploy configuration documentation](https://github.com/arnoson/kirby-deploy#config) for all available options.
+
 Do not upload your local `.env` file. Create or update the application environment directly on each server. Set `APP_DEBUG` to `false` on production:
 
 ```dotenv
@@ -273,14 +275,20 @@ ddev npm run deploy:staging -- languages-pull
 
 Replace `deploy:staging` with `deploy:production` to use the production target.
 
-On a first deployment, deploy the website and then run `content-push`. Run `languages-push` for a multilingual website.
+On an initial deployment, deploy the website first. Then use the relevant synchronization commands:
 
-Prefer creating production users directly in the production Panel. Use `accounts-push` only when the local accounts, including `.htpasswd`, should replace the remote accounts.
+- Run `content-push` to initialize the server with the local content.
+- Run `accounts-push` to initialize the server with the local accounts. This provides Panel access without enabling the installer on a public server.
+- Run `languages-push` to initialize the server with the local language files, whether the website is single-language or multilingual.
+
+Subsequent deployments normally need only the main deployment command. Use the data synchronization commands only when you explicitly need to push local data to the server or pull remote data into the project.
+
+After synchronizing the initial account, prefer creating production users directly in the production Panel. Use `accounts-push` again only when the local accounts, including `.htpasswd`, should replace the remote accounts.
 
 > [!CAUTION]
-> Push commands can overwrite or delete remote files, while pull commands can overwrite or delete local files. Review the dry-run output carefully and keep a backup before synchronizing content or accounts.
+> Push commands can overwrite or delete remote files, while pull commands can overwrite or delete local files. Review the dry-run output carefully and consider backing up the relevant data before synchronization.
 
-Pass `--force` after the forwarded arguments to transfer all files without using timestamp or cache checks:
+For a data synchronization command, pass `--force` after the forwarded arguments to transfer all files in that synchronization scope without using timestamp or cache checks:
 
 ```bash
 ddev npm run deploy:production -- content-push --force
