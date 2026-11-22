@@ -253,7 +253,13 @@ Pass `--force` after the forwarded arguments to transfer all files without using
 ddev npm run deploy:production -- content-push --force
 ```
 
-The optional Kirby Deploy webhook plugin is not installed, so deployments do not enable maintenance mode or clear Kirby's page cache.
+The optional Kirby Deploy webhook plugin enables maintenance mode during deployments and clears Kirby's page cache afterwards. To enable it, install the Composer package:
+
+```bash
+ddev composer require arnoson/kirby-deploy
+```
+
+Set the target's `URL` and `TOKEN`, then change `CALL_WEBHOOKS` to `true` in your local `.env`. On the corresponding remote server, set `DEPLOY_TOKEN` to the same token. Webhooks remain disabled when `CALL_WEBHOOKS=false`. See the [Kirby Deploy configuration documentation](https://github.com/arnoson/kirby-deploy#config) for further options.
 
 ## User Roles
 

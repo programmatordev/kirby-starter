@@ -45,6 +45,10 @@ const booleanEnvironmentValue = (key, defaultValue) => {
   throw new Error(`${prefix}${key} must be a boolean`);
 };
 
+const callWebhooks = booleanEnvironmentValue('CALL_WEBHOOKS', false);
+const url = callWebhooks ? requiredEnvironmentValue('URL') : environmentValue('URL');
+const token = callWebhooks ? requiredEnvironmentValue('TOKEN') : environmentValue('TOKEN');
+
 export default defineConfig({
   host: requiredEnvironmentValue('HOST'),
   user: requiredEnvironmentValue('USER'),
@@ -52,8 +56,6 @@ export default defineConfig({
   remoteDir: environmentValue('REMOTE_DIR') ?? './',
   folderStructure: 'flat',
   checkComposerLock: true,
-  // Webhooks require the optional Composer plugin, which is not installed by default.
-  callWebhooks: false,
   dryRun: booleanEnvironmentValue('DRY_RUN', true),
   verbose: booleanEnvironmentValue('VERBOSE', false),
   // Deploy Vite's generated build output without its source files and local tooling.
@@ -67,6 +69,12 @@ export default defineConfig({
     '^README\\.md$',
     '^vite\\.config\\.js$',
   ],
+
+  // The optional Composer plugin must be installed before enabling webhooks.
+  url,
+  token,
+  callWebhooks,
+
   lftpSettings: {
     'ftp:ssl-force': booleanEnvironmentValue('FTP_SSL_FORCE', true),
   },
