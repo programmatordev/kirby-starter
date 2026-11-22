@@ -29,6 +29,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
   - [Static Assets Handling](#static-assets-handling)
 - [Production](#production)
+  - [Automated Deployment](#automated-deployment)
 - [User Roles](#user-roles)
 - [Cookie Consent Notification](#cookie-consent-notification)
 - [License](#license)
@@ -188,27 +189,71 @@ For images in CSS, always enter the path of the image relative to the CSS file.
 
 ## Production
 
-Build the production assets before deploying:
-
-```bash
-ddev npm run build
-```
-
-The generated `build` directory is not tracked by Git. Include it when uploading a manual deployment, or run `npm ci` and `npm run build` in the deployment environment.
-
-To validate the production build and PHP syntax before deployment, run:
-
-```bash
-ddev npm run check
-```
-
-When deploying, set the `APP_DEBUG` environment variable to `false`:
+Set `APP_DEBUG` to `false` in the `.env` file on each remote environment:
 
 ```dotenv
-# .env
-
 APP_DEBUG=false
 ```
+
+Do not upload your local `.env` file. Create or update it directly on each server.
+
+### Automated Deployment
+
+The project uses [Kirby Deploy](https://github.com/arnoson/kirby-deploy) to deploy through FTP. DDEV includes the required `lftp` dependency.
+
+Configure each target you plan to use in your local `.env` file. The available values are documented in `.env.example`:
+
+```dotenv
+DEPLOY_STAGING_HOST=ftp://example.com
+DEPLOY_STAGING_USER=
+DEPLOY_STAGING_PASSWORD=
+DEPLOY_STAGING_REMOTE_DIR=./
+DEPLOY_STAGING_DRY_RUN=true
+DEPLOY_STAGING_VERBOSE=false
+DEPLOY_STAGING_FTP_SSL_FORCE=true
+```
+
+Use the equivalent `DEPLOY_PRODUCTION_*` variables for production.
+
+Deploy to either environment with:
+
+```bash
+ddev npm run deploy:staging
+ddev npm run deploy:production
+```
+
+Both commands rebuild the production assets and validate PHP syntax before connecting. The generated `build` directory is uploaded automatically. With `DRY_RUN=true`, Kirby Deploy previews the changes and asks for confirmation before applying them. Setting it to `false` skips both the preview and confirmation.
+
+Normal deployments exclude content, generated media, accounts, languages, sessions, cache and logs. Use Kirby Deploy's subcommands when these files need to be synchronized:
+
+```bash
+# Content
+ddev npm run deploy:staging -- content-push
+ddev npm run deploy:staging -- content-pull
+
+# Accounts
+ddev npm run deploy:staging -- accounts-push
+ddev npm run deploy:staging -- accounts-pull
+
+# Languages
+ddev npm run deploy:staging -- languages-push
+ddev npm run deploy:staging -- languages-pull
+```
+
+Replace `deploy:staging` with `deploy:production` to use the production target.
+
+On a first deployment, deploy the website and then run `content-push`. This also applies when deploying the bundled demo because its content is excluded from the normal deployment. Run `languages-push` for a multilingual website. Prefer creating production users directly in the production Panel; use `accounts-push` only when the local accounts, including `.htpasswd`, should replace the remote accounts.
+
+> [!CAUTION]
+> Push commands can overwrite or delete remote files, while pull commands can overwrite or delete local files. Review the dry-run output carefully and keep a backup before synchronizing content or accounts.
+
+Pass `--force` after the forwarded arguments to transfer all files without using timestamp or cache checks:
+
+```bash
+ddev npm run deploy:production -- content-push --force
+```
+
+The optional Kirby Deploy webhook plugin is not installed, so deployments do not enable maintenance mode or clear Kirby's page cache.
 
 ## User Roles
 
@@ -266,6 +311,7 @@ Original code in this repository is available under the [0BSD License](LICENSE).
 Thank you to all plugin authors and contributors. Make sure to check and support them if you can:
 
 - [kirby-blade](https://github.com/lukasleitsch/kirby-blade)
+- [kirby-deploy](https://github.com/arnoson/kirby-deploy)
 - [kirby-env](https://github.com/beebmx/kirby-env)
 - [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
 - [kirby-vite](https://github.com/arnoson/kirby-vite)
