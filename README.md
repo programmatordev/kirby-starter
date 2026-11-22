@@ -23,6 +23,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 - [Get Started](#get-started)
 - [Development](#development)
   - [Kirby CLI](#kirby-cli)
+    - [Generate Security Secrets](#generate-security-secrets)
     - [Remove Demo](#remove-demo)
   - [Templating Engine](#templating-engine)
   - [Assets](#assets)
@@ -65,6 +66,7 @@ Copy the existing `.env.example` file to `.env` in your project root:
 
 ```bash
 cp .env.example .env
+ddev kirby starter:generate-secrets
 ```
 
 **4. Start development**
@@ -106,6 +108,24 @@ The [Kirby CLI](https://github.com/getkirby/cli) is available to help with devel
 ```bash
 ddev kirby
 ```
+
+#### Generate Security Secrets
+
+After creating the `.env` file, generate the random values Kirby uses to protect preview and media URLs and sign cookies:
+
+```bash
+ddev kirby starter:generate-secrets
+```
+
+The command fills empty or missing `APP_CONTENT_SALT` and `APP_COOKIE_KEY` entries without displaying or replacing existing values. Keep these values stable and use different values for each environment.
+
+To replace both existing values intentionally, use the `--force` flag:
+
+```bash
+ddev kirby starter:generate-secrets --force
+```
+
+This invalidates existing preview and media URLs and signed cookies.
 
 #### Remove Demo
 
@@ -248,10 +268,12 @@ Use the equivalent `DEPLOY_PRODUCTION_*` variables for production.
 
 `REMOTE_DIR` is relative to the FTP account's starting directory. See the [Kirby Deploy configuration documentation](https://github.com/arnoson/kirby-deploy#config) for all available options.
 
-Deployments exclude the local `.env` file. Create or update the application `.env` manually on each server, and set `APP_DEBUG` to `false` in production:
+Deployments exclude the local `.env` file. Create or update the application `.env` manually on each server, use separate stable security secrets for each environment, and set `APP_DEBUG` to `false` in production:
 
 ```dotenv
 APP_DEBUG=false
+APP_CONTENT_SALT=<generated-content-salt>
+APP_COOKIE_KEY=<generated-cookie-key>
 ```
 
 ### Deploy
