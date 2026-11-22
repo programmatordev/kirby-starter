@@ -60,7 +60,10 @@ export default defineConfig({
   verbose: booleanEnvironmentValue('VERBOSE', false),
   // Deploy Vite's generated build output without its source files and local tooling.
   exclude: [
-    '^assets/',
+    '^assets/fonts/',
+    '^assets/images/',
+    '^assets/scripts/',
+    '^assets/styles/',
     '^ide\\.json$',
     '^kirby-deploy\\.config\\.js$',
     '^LICENSE$',
