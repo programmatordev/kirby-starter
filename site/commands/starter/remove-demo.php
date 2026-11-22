@@ -71,7 +71,7 @@ return [
 
     <x-metadata />
 
-    @snippet('favicon')
+    <x-favicon />
 
     {!! vite()->css('assets/scripts/app.js') !!}
     {!! vite()->js('assets/scripts/app.js', ['defer' => true]) !!}

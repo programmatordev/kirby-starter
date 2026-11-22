@@ -329,5 +329,4 @@ Thank you to all plugin authors and contributors. Make sure to check and support
 - [kirby-blade](https://github.com/lukasleitsch/kirby-blade)
 - [kirby-deploy](https://github.com/arnoson/kirby-deploy)
 - [kirby-env](https://github.com/beebmx/kirby-env)
-- [kirby-favicon](https://github.com/moritzebeling/kirby-favicon)
 - [kirby-vite](https://github.com/arnoson/kirby-vite)
