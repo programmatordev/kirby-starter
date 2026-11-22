@@ -44,9 +44,7 @@ return [
 
         $pathsToRemove = [
             'assets/favicon',
-            'assets/images/kirby-logo.jpeg',
-            'assets/images/kirby-logo.png',
-            'assets/images/kirby-logo.svg',
+            'assets/images/kirby-icon.svg',
             'site/blueprints/pages/consent.yml',
             'site/blueprints/pages/examples.yml',
             'site/blueprints/pages/navigation.yml',

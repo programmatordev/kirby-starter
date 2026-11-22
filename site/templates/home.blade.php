@@ -21,7 +21,7 @@
         </div>
 
         <div class="flex min-h-[30rem] items-center justify-center bg-black p-12 sm:p-16">
-          <img class="w-full max-w-52 brightness-0 invert" src="{{ vite()->file('assets/images/kirby-logo.svg') }}" alt="Kirby CMS">
+          <img class="w-full max-w-52 brightness-0 invert" src="{{ vite()->file('assets/images/kirby-icon.svg') }}" alt="Kirby CMS">
         </div>
       </div>
     </section>

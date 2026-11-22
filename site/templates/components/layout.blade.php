@@ -50,7 +50,7 @@
     >
       <div class="grid min-h-16 w-full grid-cols-[1fr_auto] items-stretch border-b-2 border-black lg:grid-cols-[1fr_auto_1fr]">
         <a class="flex items-center gap-3 px-5 font-bold uppercase sm:px-8" href="{{ $site->url() }}">
-          <img class="h-7 w-auto" src="{{ vite()->file('assets/images/kirby-logo.svg') }}" alt="">
+          <img class="h-7 w-auto" src="{{ vite()->file('assets/images/kirby-icon.svg') }}" alt="">
           <span>{{ $site->title() }}</span>
         </a>
 

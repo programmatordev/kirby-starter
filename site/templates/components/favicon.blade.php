@@ -9,5 +9,5 @@
 @endif
 
 @if ($faviconSvg->exists())
-  <link rel="icon" type="image/svg+xml" sizes="any" href="{{ $faviconSvg->url() }}">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="{{ vite()->file('assets/favicon/favicon.svg') }}">
 @endif
