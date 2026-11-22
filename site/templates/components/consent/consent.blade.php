@@ -10,5 +10,5 @@
   window.trackers = <?= Json::encode($trackers) ?>;
 </script>
 
-<x-consent.google-analytics :trackers="$trackers" />
+<x-consent.google-tag :trackers="$trackers" />
 <x-consent.meta-pixel :trackers="$trackers" />

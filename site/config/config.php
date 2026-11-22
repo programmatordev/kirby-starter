@@ -8,6 +8,8 @@ $config = [
     'debug' => env('APP_DEBUG', true),
     'auth.methods' => ['password', 'password-reset'],
     'panel.language' => env('APP_PANEL_LANGUAGE', 'en'),
+    // Installed Panel plugins do not require runtime template compilation.
+    'panel.vue.compiler' => false,
     'panel.menu' => require __DIR__ . '/panelMenu.php',
     'thumbs.format' => 'webp',
 
