@@ -43,6 +43,7 @@ return [
         }
 
         $pathsToRemove = [
+            'assets/favicon',
             'assets/images/kirby-logo.jpeg',
             'assets/images/kirby-logo.png',
             'assets/images/kirby-logo.svg',

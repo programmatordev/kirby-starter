@@ -28,6 +28,7 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
   - [Assets](#assets)
   - [CSS and JS Assets Handling](#css-and-js-assets-handling)
   - [Static Assets Handling](#static-assets-handling)
+  - [Favicons](#favicons)
 - [User Roles](#user-roles)
 - [Cookie Consent Notification](#cookie-consent-notification)
 - [Deployment](#deployment)
@@ -121,7 +122,7 @@ You can optionally set a new site title during removal:
 ddev kirby starter:remove-demo --title="Website title"
 ```
 
-Without `--title`, the existing site title is preserved. The removal is permanent and requires confirmation, so commit or back up any demo files you want to keep before running it.
+Without `--title`, the existing site title is preserved. The removal is permanent and requires confirmation, so commit or back up any demo files you want to keep before running it. The command also removes the bundled favicon files.
 
 ### Templating Engine
 
@@ -169,6 +170,15 @@ Resolve static assets such as images and fonts with `vite()->file()`:
 ```
 
 For images in CSS, always enter the path of the image relative to the CSS file.
+
+### Favicons
+
+Add one or both of these optional source files:
+
+- `assets/favicon/favicon.png`, as a square image at least 180 × 180 pixels;
+- `assets/favicon/favicon.svg`, with a square `viewBox`.
+
+The PNG is automatically resized to 96 × 96 pixels for the standard favicon and 180 × 180 pixels for the Apple touch icon. The SVG is used as a scalable favicon in browsers that support it. If neither file exists, no favicon markup is rendered.
 
 ## User Roles
 

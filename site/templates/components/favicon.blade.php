@@ -4,7 +4,7 @@
 @endphp
 
 @if ($faviconPng->exists())
-  <link rel="icon" type="image/png" sizes="48x48" href="{{ $faviconPng->thumb(['width' => 48, 'format' => 'png'])->url() }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ $faviconPng->thumb(['width' => 96, 'format' => 'png'])->url() }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconPng->thumb(['width' => 180, 'format' => 'png'])->url() }}">
 @endif
 
