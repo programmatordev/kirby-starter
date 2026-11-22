@@ -11,10 +11,11 @@ const outDir = 'build';
 const assetsDir = 'assets';
 
 // Keep app.css as an explicit entry so app styles and dependency CSS emit separately.
-// PHP templates can reference images and fonts through vite().file(), so include them in the manifest.
+// PHP templates can reference static files through vite().file(), so include them in the manifest.
 const input = globSync([
   'assets/scripts/app.js',
   'assets/styles/app.css',
+  'assets/favicon/**/*.svg',
   'assets/{images,fonts}/**/*.*'
 ]).map((path) => resolve(process.cwd(), path));
 

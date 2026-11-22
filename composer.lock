@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abdb2a8ec0a732db0a5384e73fa572e3",
+    "content-hash": "33c8583549518d44ca5afe1207bf6973",
     "packages": [
         {
             "name": "arnoson/kirby-vite",
@@ -1864,68 +1864,6 @@
             },
             "time": "2016-12-13T01:01:17+00:00",
             "published-time": "2016-12-13T01:09:21+00:00"
-        },
-        {
-            "name": "moritzebeling/kirby-favicon",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moritzebeling/kirby-favicon.git",
-                "reference": "83624e6687033864342b310da5d164fb549ba811"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/moritzebeling/kirby-favicon/zipball/83624e6687033864342b310da5d164fb549ba811",
-                "reference": "83624e6687033864342b310da5d164fb549ba811",
-                "shasum": ""
-            },
-            "require": {
-                "getkirby/composer-installer": "^1.1",
-                "php": ">=7.4.0"
-            },
-            "type": "kirby-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Moritz Ebeling",
-                    "homepage": "https://moritzebeling.com"
-                }
-            ],
-            "description": "Kirby plugin to meet all favicon needs",
-            "homepage": "https://github.com/moritzebeling/kirby-favicon",
-            "keywords": [
-                "app-icon",
-                "apple-touch-icon",
-                "browserconfig.xml",
-                "favicon",
-                "icon",
-                "kirby",
-                "kirby-cms",
-                "kirby-plugin",
-                "logo",
-                "manifest.json",
-                "meta",
-                "php",
-                "plugin",
-                "seo"
-            ],
-            "support": {
-                "docs": "https://github.com/moritzebeling/kirby-favicon",
-                "issues": "https://github.com/moritzebeling/kirby-favicon/issues",
-                "source": "https://github.com/moritzebeling/kirby-favicon",
-                "wiki": "https://github.com/moritzebeling/kirby-favicon/wiki"
-            },
-            "funding": [
-                {
-                    "url": "http://more.moritzebeling.com/support",
-                    "type": "paypal"
-                }
-            ],
-            "time": "2023-03-02T00:00:00+00:00",
-            "published-time": "2023-07-19T18:45:53+00:00"
         },
         {
             "name": "nesbot/carbon",

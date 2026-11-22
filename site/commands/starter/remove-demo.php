@@ -43,9 +43,8 @@ return [
         }
 
         $pathsToRemove = [
-            'assets/images/kirby-logo.jpeg',
-            'assets/images/kirby-logo.png',
-            'assets/images/kirby-logo.svg',
+            'assets/favicon',
+            'assets/images/kirby-icon.svg',
             'site/blueprints/pages/consent.yml',
             'site/blueprints/pages/examples.yml',
             'site/blueprints/pages/navigation.yml',
@@ -71,7 +70,7 @@ return [
 
     <x-metadata />
 
-    @snippet('favicon')
+    <x-favicon />
 
     {!! vite()->css('assets/scripts/app.js') !!}
     {!! vite()->js('assets/scripts/app.js', ['defer' => true]) !!}
