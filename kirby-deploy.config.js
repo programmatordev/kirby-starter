@@ -58,12 +58,8 @@ export default defineConfig({
   checkComposerLock: true,
   dryRun: booleanEnvironmentValue('DRY_RUN', true),
   verbose: booleanEnvironmentValue('VERBOSE', false),
-  // Deploy Vite's generated build output without its source files and local tooling.
+  // Keep local tooling and project documentation out of deployments.
   exclude: [
-    '^assets/fonts/',
-    '^assets/images/',
-    '^assets/scripts/',
-    '^assets/styles/',
     '^ide\\.json$',
     '^kirby-deploy\\.config\\.js$',
     '^LICENSE$',
