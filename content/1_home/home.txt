@@ -2,7 +2,7 @@ Title: Home
 
 ----
 
-Text: A very opinionated Kirby CMS development stack.
+Text: A very opinionated Kirby CMS starter.
 
 ----
 

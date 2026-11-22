@@ -1,6 +1,6 @@
 # Kirby Starter
 
-A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
+A very (very!) opinionated [Kirby CMS](https://getkirby.com/) starter.
 
 > [!IMPORTANT]
 > This project is intended for internal use.
@@ -9,14 +9,14 @@ A very (very!) opinionated [Kirby CMS](https://getkirby.com/) development stack.
 
 ## Features
 
-- 🐳 Uses [DDEV](https://ddev.com/), a Docker-based development environment;
-- ⚡️️ [Vite](https://vite.dev/) with the [kirby-vite](https://github.com/arnoson/kirby-vite) plugin;
-- 🍃 CSS with the [Tailwind CSS](https://tailwindcss.com/) framework;
-- 🔪 [Blade](https://laravel.com/docs/blade) as the templating engine with the [kirby-blade](https://github.com/lukasleitsch/kirby-blade) plugin;
-- 🚕 Page transitions and preloading with [Taxi.js](https://taxi.js.org/);
-- ⛰ Reactivity with [Alpine.js](https://alpinejs.dev/);
-- 🌱 Environment variables with the [kirby-env](https://github.com/beebmx/kirby-env) plugin;
-- 🚀 Staging and production deployments with [Kirby Deploy](https://github.com/arnoson/kirby-deploy);
+- 🐳 [DDEV](https://ddev.com/) for the local Docker-based development environment;
+- ⚡️️ [Vite](https://vite.dev/) for asset processing, with the [Kirby Vite](https://github.com/arnoson/kirby-vite) plugin;
+- 🍃 [Tailwind CSS](https://tailwindcss.com/) for styling;
+- 🔪 [Blade](https://laravel.com/docs/blade) for templating, with the [Kirby Blade](https://github.com/lukasleitsch/kirby-blade) plugin;
+- 🚕 [Taxi.js](https://taxi.js.org/) for page transitions and preloading;
+- ⛰ [Alpine.js](https://alpinejs.dev/) for reactive components;
+- 🌱 [Env for Kirby](https://github.com/beebmx/kirby-env) for environment variables;
+- 🚀 [Kirby Deploy](https://github.com/arnoson/kirby-deploy) for FTP deployments to staging and production;
 
 ## Documentation
 
