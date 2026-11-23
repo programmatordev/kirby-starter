@@ -12,7 +12,10 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 
 export default class CookieConsentPlugin {
   static init() {
-    // create custom merge
+    // Expose the API so persistent and page-level UI can open the preferences dialog.
+    window.CookieConsent = CookieConsent;
+
+    // Append and deduplicate provider sections when merging their configuration.
     const merge = mergician({ appendArrays: true, dedupArrays: true });
 
     /** @type {import("../../types").CookieConsentConfig} */
@@ -30,8 +33,7 @@ export default class CookieConsentPlugin {
       }
     };
 
-    // CATEGORIES
-    // add additional categories according to configured providers
+    // Enable only the optional categories required by configured trackers.
     if (window.trackers.googleAnalyticsId) {
       config.categories = merge(config.categories, googleAnalytics.categories);
     }
@@ -42,20 +44,16 @@ export default class CookieConsentPlugin {
       config.categories = merge(config.categories, metaPixel.categories);
     }
 
-    // SECTIONS
-    // set sections for all languages
+    // Build each language's modal sections in category order, then add provider details.
     for (const language in config.language.translations) {
-      // add the header section for all languages
       let sections = {
         [HEADER_SECTION]: baseSections[language][HEADER_SECTION]
       }
 
-      // add sections according to consent categories
       for (const categoryName in config.categories) {
         sections[categoryName] = baseSections[language][categoryName];
       }
 
-      // merge providers section data
       if (window.trackers.googleAnalyticsId) {
         sections = merge(sections, googleAnalytics.sections[language]);
       }
@@ -66,7 +64,6 @@ export default class CookieConsentPlugin {
         sections = merge(sections, metaPixel.sections[language]);
       }
 
-      // add sections to config
       config.language.translations[language].preferencesModal.sections = [];
 
       for (const sectionName in sections) {

@@ -1,8 +1,8 @@
-Title: Error
+Title: Page not found
 
 ----
 
-Text: Page not found.
+Text: The requested URL does not exist.
 
 ----
 

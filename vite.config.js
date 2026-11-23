@@ -4,20 +4,18 @@ import { defineConfig } from "vite";
 import kirby from "vite-plugin-kirby";
 import tailwindcss from "@tailwindcss/vite";
 
-// set port and origin for server config
 const port = 5173;
 const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
 
-// build directory
 const outDir = 'build';
 const assetsDir = 'assets';
 
-// find all files from the assets directory
-// app.css stays as an explicit entry so app styles and dependency CSS emit separately.
-// PHP templates can reference images and fonts through vite().file(), so include them in the manifest.
+// Keep app.css as an explicit entry so app styles and dependency CSS emit separately.
+// PHP templates can reference static files through vite().file(), so include them in the manifest.
 const input = globSync([
   'assets/scripts/app.js',
   'assets/styles/app.css',
+  'assets/favicon/**/*.svg',
   'assets/{images,fonts}/**/*.*'
 ]).map((path) => resolve(process.cwd(), path));
 
@@ -47,21 +45,20 @@ export default defineConfig(({ mode }) => ({
             return 'styles/[name]-[hash][extname]';
           }
 
-          // default value
-          // https://rollupjs.org/guide/en/#outputassetfilenames
+          // Keep Rollup's default naming for unclassified assets.
           return '[name]-[hash][extname]';
         },
       }
     }
   },
 
-  // adjust vite's dev server for ddev
+  // Make Vite available through DDEV's public URL.
   server: {
-    // respond to all network requests:
+    // Listen outside the container so DDEV can proxy requests.
     host: '0.0.0.0',
     port,
     strictPort: true,
-    // defines the origin of the generated asset URLs during development
+    // Generate development asset URLs from DDEV's public origin.
     origin,
     cors: true
   },

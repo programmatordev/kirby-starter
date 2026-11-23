@@ -54,6 +54,12 @@
     # block all files in the assets folder from being accessed directly
     RewriteRule ^assets/(.*) index.php [L]
 
+    # block dependency directories from being accessed directly
+    RewriteRule ^(vendor|node_modules)(/.*)?$ index.php [L,NC]
+
+    # block project metadata and build configuration from being accessed directly
+    RewriteRule ^(composer\.(json|lock)|kirby-deploy\.config\.js|package(-lock)?\.json|vite\.config\.js|ide\.json|README\.md)$ index.php [L,NC]
+
     # make site links work
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d

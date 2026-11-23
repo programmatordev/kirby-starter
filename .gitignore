@@ -5,12 +5,6 @@
 /vendor
 /node_modules
 
-# Package managers
-# ------------
-
-composer.lock
-package-lock.json
-
 # Plugin files
 # ------------
 

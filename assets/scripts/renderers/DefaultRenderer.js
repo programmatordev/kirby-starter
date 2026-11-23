@@ -6,15 +6,14 @@ export default class DefaultRenderer extends Renderer {
   initialLoad() {
     AlpinePlugin.init();
     CookieConsentPlugin.init();
-
-    this.onEnter();
   }
 
   onEnter() {
-    AlpinePlugin.initState(this.wrapper);
+    AlpinePlugin.initState(this.content);
   }
 
   onLeaveCompleted() {
-    AlpinePlugin.destroyState(this.wrapper);
+    // Taxi removes the outgoing view first, but this.content still references its detached Alpine tree.
+    AlpinePlugin.destroyState(this.content);
   }
 }

@@ -3,6 +3,8 @@
 @php
   use Kirby\Data\Json;
 
+  /** @var array{googleAnalyticsId: string|null, googleAdsId: string|null, metaPixelId: string|null} $trackers */
+
   $metaPixelId = $trackers['metaPixelId'];
 @endphp
 

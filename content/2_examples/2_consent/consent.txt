@@ -1,0 +1,9 @@
+Title: Consent & Tracking
+
+----
+
+Text: The trackers you configure determine which consent options are available.
+
+----
+
+Uuid: P6kT9mQ2xR7nV4cL

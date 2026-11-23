@@ -1,8 +1,9 @@
 {
   "name": "programmatordev/kirby-starter",
-  "description": "A very opinionated Kirby CMS development stack with DDEV, Vite, Blade, Alpine.js and Tailwind CSS",
+  "description": "An opinionated Kirby CMS starter with DDEV, Vite, Blade, Tailwind CSS, and Alpine.js",
   "type": "project",
-  "keywords": ["kirby", "kirby-cms", "tailwindcss", "ddev", "vite", "alpine-js", "blade"],
+  "license": "0BSD",
+  "keywords": ["kirby", "kirby-cms", "kirby-starter", "cms", "starter", "ddev", "vite", "tailwindcss", "alpinejs", "blade"],
   "authors": [
     {
       "name": "Programmator",
@@ -12,15 +13,10 @@
   ],
   "require": {
     "php": ">=8.3.0",
-    "getkirby/cms": "^5.4",
-    "arnoson/kirby-vite": "^5.7",
-    "beebmx/kirby-env": "^5.1",
-    "tobimori/kirby-seo": "^2.0.0-beta.4",
-    "moritzebeling/kirby-favicon": "^1.0",
+    "getkirby/cms": "^5.6",
+    "arnoson/kirby-vite": "^6.0",
+    "beebmx/kirby-env": "^5.2",
     "leitsch/kirby-blade": "^3.1"
-  },
-  "require-dev": {
-    "symfony/var-dumper": "^7.4"
   },
   "autoload": {
     "psr-4": {

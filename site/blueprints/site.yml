@@ -1,10 +1,5 @@
 title: Site
 
-tabs:
-  content:
-    icon: page
-    sections:
-      pages:
-        type: pages
-
-  seo: seo/site
+sections:
+  pages:
+    type: pages

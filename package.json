@@ -1,8 +1,9 @@
 {
   "name": "kirby-starter",
-  "description": "Kirby Starter",
+  "description": "An opinionated Kirby CMS starter with DDEV, Vite, Blade, Tailwind CSS, and Alpine.js",
   "type": "module",
-  "keywords": [],
+  "license": "0BSD",
+  "keywords": ["kirby", "kirby-cms", "kirby-starter", "cms", "starter", "ddev", "vite", "tailwindcss", "alpinejs", "blade"],
   "authors": [
     {
       "name": "Programmator",
@@ -11,23 +12,27 @@
     }
   ],
   "dependencies": {
-    "@unseenco/taxi": "^1.9.1",
-    "alpinejs": "^3.15.12",
+    "@unseenco/taxi": "^2.0.0",
+    "alpinejs": "^3.17.5",
     "animated-scroll-to": "^2.3.2",
     "mergician": "^2.0.2",
-    "vanilla-cookieconsent": "^3.1.0"
+    "vanilla-cookieconsent": "^3.3.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.4",
-    "glob": "^13.0.6",
-    "tailwindcss": "^4.2.4",
-    "vite": "^8.0.11",
-    "vite-plugin-kirby": "^5.7.1"
+    "@tailwindcss/vite": "^4.3.5",
+    "glob": "^14.0.6",
+    "kirby-deploy": "^0.4.2",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8",
+    "vite-plugin-kirby": "^6.0.0"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "npm run build && git ls-files --cached --others --exclude-standard -z -- '*.php' | xargs -0 -n1 php -l"
+    "lint:php": "git ls-files --cached --others --exclude-standard -z -- '*.php' | xargs -0 -n1 sh -c 'test ! -f \"$1\" || php -l \"$1\"' sh",
+    "check": "npm run build && npm run lint:php",
+    "deploy:staging": "npm run check && DEPLOY_TARGET=staging kirby-deploy",
+    "deploy:production": "npm run check && DEPLOY_TARGET=production kirby-deploy"
   }
 }
